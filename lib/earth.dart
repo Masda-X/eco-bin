@@ -1,14 +1,20 @@
+import 'dart:ui';
+
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flutter/material.dart';
 
 class Earth extends PositionComponent with DragCallbacks {
   @override
-  Earth({super.position})
+  Earth({required this.cornerRadius})
       : super(
           size: Vector2.all(100),
           anchor: Anchor.center,
+          // paint: Paint()..color = Colors.red,
         );
+  final Radius cornerRadius;
+  // final Paint paint;
 
   @override
   Future<void> onLoad() async {

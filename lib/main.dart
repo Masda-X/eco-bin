@@ -3,7 +3,7 @@ import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/widgets.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Flame.device.setLandscape();
   Flame.device.fullScreen();

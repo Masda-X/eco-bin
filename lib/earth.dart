@@ -3,10 +3,12 @@ import 'dart:ui';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Earth extends PositionComponent with DragCallbacks {
+class Earth extends PositionComponent
+    with DragCallbacks, TapCallbacks, HasGameRef<FlameGame> {
   @override
   Earth({required this.cornerRadius})
       : super(
@@ -57,4 +59,15 @@ class Earth extends PositionComponent with DragCallbacks {
       print('Drag started');
     }
   }
+
+  @override
+  void onTapUp(event) {}
+
+  @override
+  void onTapDown(event) {
+    // angle += 1.0;
+  }
+
+  @override
+  void onTapCancel(event) {}
 }

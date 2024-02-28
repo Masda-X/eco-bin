@@ -33,11 +33,18 @@ class Earth extends PositionComponent with DragCallbacks {
   void onDragUpdate(DragUpdateEvent event) {
     position += event.localDelta;
 
-    // const minX = gameWidth * 10 / 2; // 10% margin on the left
-    // const maxX = gameWidth * 10 / 2; // 10% margin on the right
-    // const minY = gameHeight * 10 / 2; // 10% margin on the top
-    // const maxY = gameHeight * 10 / 2; // 10% margin on the bottom
-    // position.x = position.x.clamp(minX, maxX);
-    // position.y = position.y.clamp(minY, maxY);
+    const minX = -900; // 10% margin on the left
+    const maxX = 900; // 10% margin on the right
+    const minY = -480; // 10% margin on the top
+    const maxY = 480; // 10% margin on the bottom
+    position.x = position.x.clamp(minX.toDouble(), maxX.toDouble());
+    position.y = position.y.clamp(minY.toDouble(), maxY.toDouble());
   }
+
+  // const minX = size // 10% margin on the left
+  // const maxX = ; // 10% margin on the right
+  // const minY =  ; // 10% margin on the top
+  // const maxY =  ; // 10% margin on the bottom
+  // position.x = position.x.clamp(minX, maxX);
+  // position.y = position.y.clamp(minY, maxY);
 }

@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   flame: ^1.5.0
+  flame_noise: ^0.3.0
   flutter:
     sdk: flutter
 

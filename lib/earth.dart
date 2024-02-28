@@ -1,7 +1,9 @@
 import 'dart:ui';
+import 'package:flame_noise/flame_noise.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
@@ -63,8 +65,35 @@ class Earth extends PositionComponent
   @override
   void onTapUp(event) {}
 
+  bool Tapped = true;
+
   @override
-  void onTapDown(event) {
+  void onTapDown(dynamic event) {
+    if (Tapped == true) {
+      add(
+        SequenceEffect(
+          [
+            MoveEffect.by(
+              Vector2(5, 0),
+              NoiseEffectController(
+                duration: 1,
+                noise: PerlinNoise(frequency: 20),
+              ),
+            ),
+            MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
+            MoveEffect.by(
+              Vector2(0, 10),
+              NoiseEffectController(
+                duration: 1,
+                noise: PerlinNoise(frequency: 10),
+              ),
+            ),
+          ],
+          infinite: false,
+        ),
+      );
+    }
+
     // angle += 1.0;
   }
 

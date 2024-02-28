@@ -3,11 +3,12 @@ import 'dart:ui';
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-class MyGame extends FlameGame {
+class MyGame extends FlameGame with TapCallbacks {
   MyGame({required this.zoom})
       : super(
           camera: CameraComponent.withFixedResolution(
@@ -18,6 +19,7 @@ class MyGame extends FlameGame {
 
   final double zoom;
   late final Earth player;
+  // ignore: non_constant_identifier_names
 
   @override
   Future<void> onLoad() async {
@@ -34,7 +36,8 @@ class MyGame extends FlameGame {
       // paint: Paint()..color = Colors.red,
     ));
   }
+}
 
   // Color backgroundColor() => Color.fromARGB(255, 230, 13, 13);
   // Future<Sprite> backgroundSprite() => Sprite.load("bg.png");
-}
+

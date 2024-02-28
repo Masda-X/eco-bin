@@ -65,6 +65,7 @@ class Earth extends PositionComponent
   @override
   void onTapUp(event) {}
 
+  // ignore: non_constant_identifier_names
   bool Tapped = true;
 
   @override

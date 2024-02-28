@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:flame/components.dart';
 
@@ -7,7 +8,13 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 class MyGame extends FlameGame {
-  MyGame({required this.zoom}) : super();
+  MyGame({required this.zoom})
+      : super(
+          camera: CameraComponent.withFixedResolution(
+            width: gameWidth,
+            height: gameHeight,
+          ),
+        );
 
   final double zoom;
   late final Earth player;
@@ -27,4 +34,7 @@ class MyGame extends FlameGame {
       // paint: Paint()..color = Colors.red,
     ));
   }
+
+  // Color backgroundColor() => Color.fromARGB(255, 230, 13, 13);
+  // Future<Sprite> backgroundSprite() => Sprite.load("bg.png");
 }

@@ -1,2 +1,2 @@
-const gameWidth = 1920;
-const gameHeight = 1080;
+double gameWidth = 1920;
+double gameHeight = 1080;

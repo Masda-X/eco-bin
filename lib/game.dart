@@ -23,7 +23,7 @@ class MyGame extends FlameGame {
       position: Vector2(0, 0), // BG harda olsun ONEMLI
     ));
     world.add(player = Earth(
-      cornerRadius: const Radius.circular(60),
+      cornerRadius: const Radius.circular(100),
       // paint: Paint()..color = Colors.red,
     ));
   }

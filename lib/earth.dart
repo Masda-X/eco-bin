@@ -9,8 +9,9 @@ class Earth extends PositionComponent with DragCallbacks {
   @override
   Earth({required this.cornerRadius})
       : super(
-          size: Vector2.all(100),
           anchor: Anchor.center,
+          size: Vector2.all(100),
+
           // paint: Paint()..color = Colors.red,
         );
   final Radius cornerRadius;
@@ -23,7 +24,7 @@ class Earth extends PositionComponent with DragCallbacks {
     ));
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
-      size: size,
+      size: Vector2(100, 100),
       // BU ONEMLIDI
     ));
   }

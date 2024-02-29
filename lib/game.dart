@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:flame/components.dart';
+
 import 'package:flame/events.dart';
 
 import 'package:flame/game.dart';
@@ -19,6 +20,7 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
 
   final double zoom;
   late final Earth player;
+  late final TextComponent text;
   // ignore: non_constant_identifier_names
 
   @override
@@ -31,10 +33,26 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
       size: Vector2(1920, 1080),
       position: Vector2(0, 0), // BG harda olsun ONEMLI
     ));
-    world.add(player = Earth(
-      cornerRadius: const Radius.circular(100),
-      // paint: Paint()..color = Colors.red,
+    world.add(TextComponent(
+      text: 'Click to Play',
     ));
+  }
+
+  bool isPlayerAdded = false;
+
+  @override
+  void onTapDown(TapDownEvent event) {
+    if (!isPlayerAdded) {
+      world.add(player = Earth(
+        cornerRadius: const Radius.circular(100),
+        // paint: Paint()..color = Colors.red,
+      ));
+      isPlayerAdded = true;
+      // remove(TextComponent(
+      //   // remove the text
+      //   text: 'Click to Play',
+      // ));
+    }
   }
 }
 

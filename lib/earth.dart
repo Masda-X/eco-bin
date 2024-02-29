@@ -70,6 +70,7 @@ class Earth extends PositionComponent
 
   @override
   void onTapDown(dynamic event) {
+    add(RemoveEffect(delay: 1));
     if (Tapped == true) {
       add(
         SequenceEffect(

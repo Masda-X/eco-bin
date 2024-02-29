@@ -32,6 +32,13 @@ class Earth extends PositionComponent
       size: Vector2(100, 100),
       // BU ONEMLIDI
     ));
+
+    add(
+      MoveEffect.by(
+        Vector2(0, 20),
+        InfiniteEffectController(SineEffectController(period: 1)),
+      ),
+    );
   }
 
   @override
@@ -70,26 +77,26 @@ class Earth extends PositionComponent
 
   @override
   void onTapDown(dynamic event) {
-    add(RemoveEffect(delay: 1));
+    // add(RemoveEffect(delay: 1));
     if (Tapped == true) {
       add(
         SequenceEffect(
           [
             MoveEffect.by(
-              Vector2(5, 0),
+              Vector2(50, 0),
               NoiseEffectController(
                 duration: 1,
                 noise: PerlinNoise(frequency: 20),
               ),
             ),
-            MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
-            MoveEffect.by(
-              Vector2(0, 10),
-              NoiseEffectController(
-                duration: 1,
-                noise: PerlinNoise(frequency: 10),
-              ),
-            ),
+            // MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
+            // MoveEffect.by(
+            //   Vector2(0, 10),
+            //   NoiseEffectController(
+            //     duration: 1,
+            //     noise: PerlinNoise(frequency: 10),
+            //   ),
+            // ),
           ],
           infinite: false,
         ),

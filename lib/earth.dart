@@ -10,7 +10,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Earth extends PositionComponent
-    with DragCallbacks, TapCallbacks, HasGameRef<FlameGame> {
+    with
+        DragCallbacks,
+        TapCallbacks,
+        DoubleTapCallbacks,
+        HasGameRef<FlameGame> {
   @override
   Earth({required this.cornerRadius})
       : super(
@@ -75,36 +79,34 @@ class Earth extends PositionComponent
   // ignore: non_constant_identifier_names
   bool Tapped = true;
 
-  @override
-  void onTapDown(dynamic event) {
+  void onDoubleTapDown(DoubleTapDownEvent event) {
     // add(RemoveEffect(delay: 1));
-    if (Tapped == true) {
-      add(
-        SequenceEffect(
-          [
-            MoveEffect.by(
-              Vector2(50, 0),
-              NoiseEffectController(
-                duration: 1,
-                noise: PerlinNoise(frequency: 20),
-              ),
-            ),
-            // MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
-            // MoveEffect.by(
-            //   Vector2(0, 10),
-            //   NoiseEffectController(
-            //     duration: 1,
-            //     noise: PerlinNoise(frequency: 10),
-            //   ),
-            // ),
-          ],
-          infinite: false,
-        ),
-      );
-    }
 
-    // angle += 1.0;
+    add(
+      SequenceEffect(
+        [
+          MoveEffect.by(
+            Vector2(50, 0),
+            NoiseEffectController(
+              duration: 1,
+              noise: PerlinNoise(frequency: 20),
+            ),
+          ),
+          // MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
+          // MoveEffect.by(
+          //   Vector2(0, 10),
+          //   NoiseEffectController(
+          //     duration: 1,
+          //     noise: PerlinNoise(frequency: 10),
+          //   ),
+          // ),
+        ],
+        infinite: false,
+      ),
+    );
   }
+
+  // angle += 1.0;
 
   @override
   void onTapCancel(event) {}

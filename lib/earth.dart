@@ -79,6 +79,7 @@ class Earth extends PositionComponent
   // ignore: non_constant_identifier_names
   bool Tapped = true;
 
+  @override
   void onDoubleTapDown(DoubleTapDownEvent event) {
     // add(RemoveEffect(delay: 1));
 

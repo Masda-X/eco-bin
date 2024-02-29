@@ -20,7 +20,7 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
 
   final double zoom;
   late final Earth player;
-  late final TextComponent text;
+
   // ignore: non_constant_identifier_names
 
   @override
@@ -48,7 +48,7 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
         // paint: Paint()..color = Colors.red,
       ));
       isPlayerAdded = true;
-      // remove(TextComponent(
+      // remove(text = TextComponent(
       //   // remove the text
       //   text: 'Click to Play',
       // ));

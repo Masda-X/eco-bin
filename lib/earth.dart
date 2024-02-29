@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 class Earth extends PositionComponent
     with
+        HoverCallbacks,
         DragCallbacks,
         TapCallbacks,
         DoubleTapCallbacks,
@@ -111,4 +112,9 @@ class Earth extends PositionComponent
 
   @override
   void onTapCancel(event) {}
+
+  @override
+  void onHoverEnter() {
+    // angle += 180.0; // add(RotateEffect(angle: 1, duration: 1));
+  }
 }

@@ -35,7 +35,7 @@ class Earth extends PositionComponent
     ));
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
-      size: Vector2(100, 100),
+      size: Vector2(110, 110),
       // BU ONEMLIDI
     ));
 

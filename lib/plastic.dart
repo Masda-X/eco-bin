@@ -16,7 +16,7 @@ class Plastic extends CircleComponent
     required this.difficultyModifier,
   }) : super(
             radius: radius,
-            paint: Paint()..color = Color.fromARGB(255, 255, 231, 73),
+            paint: Paint()..color = Color.fromARGB(0, 255, 231, 73),
             anchor: Anchor.center,
             children: [CircleHitbox()]);
   final Vector2 velocity;

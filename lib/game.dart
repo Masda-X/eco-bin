@@ -29,6 +29,8 @@ class MyGame extends FlameGame
   double get height => size.y;
 
   // ignore: non_constant_identifier_names
+  @override
+  Color backgroundColor() => Color.fromARGB(255, 9, 138, 7);
 
   @override
   Future<void> onLoad() async {
@@ -74,6 +76,6 @@ class MyGame extends FlameGame
   }
 }
 
-  // Color backgroundColor() => Color.fromARGB(255, 230, 13, 13);
+
   // Future<Sprite> backgroundSprite() => Sprite.load("bg.png");
 

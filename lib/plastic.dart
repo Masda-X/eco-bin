@@ -34,7 +34,7 @@ class Plastic extends CircleComponent
     add(SpriteComponent(
       sprite: await game.loadSprite("plastic_a.png"),
       anchor: Anchor.center,
-      size: Vector2(gameWidth * 0.02, gameHeight * 0.07),
+      size: Vector2(35, 80),
       position: Vector2(width / 2, height / 2), // BU ONEMLIDI
       priority: 1,
     ));

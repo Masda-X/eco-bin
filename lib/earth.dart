@@ -1,11 +1,12 @@
 import 'dart:ui';
+import 'package:earth/game.dart';
 import 'package:flame_noise/flame_noise.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
-import 'package:flame/game.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class Earth extends PositionComponent
         DragCallbacks,
         TapCallbacks,
         DoubleTapCallbacks,
-        HasGameRef<FlameGame> {
+        HasGameRef<MyGame> {
   @override
   Earth({required this.cornerRadius})
       : super(

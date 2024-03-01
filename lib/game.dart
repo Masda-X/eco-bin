@@ -5,6 +5,7 @@ import 'dart:math' as math;
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/plastic.dart';
+import 'package:earth/play_area.dart';
 import 'package:flame/components.dart';
 
 import 'package:flame/events.dart';
@@ -12,7 +13,8 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
+class MyGame extends FlameGame
+    with HasCollisionDetection, TapCallbacks, MouseMovementDetector {
   MyGame({required this.zoom})
       : super(
           camera: CameraComponent.withFixedResolution(
@@ -20,7 +22,6 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
             height: gameHeight,
           ),
         );
-
   final double zoom;
   late final Earth player;
   final rand = math.Random();
@@ -32,16 +33,12 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
   @override
   Future<void> onLoad() async {
     camera.viewfinder.zoom = zoom;
+    world.add(PlayArea());
 
-    world.add(SpriteComponent(
-      sprite: await loadSprite("bg.png"),
-      anchor: Anchor.center,
-      size: Vector2(1920, 1080),
-      position: Vector2(0, 0), // BG harda olsun ONEMLI
-    ));
     world.add(TextComponent(
       text: 'Click to Play',
     ));
+    // camera.viewfinder.anchor = Anchor.topLeft;
   }
 
   bool isPlayerAdded = false;
@@ -62,6 +59,7 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
                 plasticRadius;
 
         world.add(Plastic(
+          difficultyModifier: difficultyModifier,
           radius: plasticRadius,
           position: Vector2(randomX, randomY),
           velocity: Vector2((rand.nextDouble() - 0.5) * width, height * 0.2)
@@ -70,6 +68,10 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
         ));
       }
     }
+  }
+
+  void onPlasticHit() {
+    // score.value -= 1;
   }
 }
 

@@ -31,7 +31,7 @@ class MyGame extends FlameGame
   // ignore: non_constant_identifier_names
   @override
   // ignore: prefer_const_constructors
-  Color backgroundColor() => Color.fromARGB(255, 9, 138, 7);
+  Color backgroundColor() => Color.fromARGB(255, 195, 220, 195);
 
   @override
   Future<void> onLoad() async {
@@ -39,6 +39,7 @@ class MyGame extends FlameGame
 
     world.add(TextComponent(
       text: 'Click to Play',
+      position: Vector2(gameWidth / 2, gameHeight / 2),
     ));
     camera.viewfinder.anchor = Anchor.topLeft;
   }
@@ -50,6 +51,7 @@ class MyGame extends FlameGame
     if (!isPlayerAdded) {
       world.add(player = Earth(
         cornerRadius: const Radius.circular(100),
+        position: Vector2(gameWidth / 2, gameHeight / 2),
         // paint: Paint()..color = Colors.red,
       ));
       isPlayerAdded = true;

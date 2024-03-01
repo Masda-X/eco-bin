@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:earth/config.dart';
 import 'package:earth/game.dart';
 import 'package:flame_noise/flame_noise.dart';
 
@@ -18,10 +19,11 @@ class Earth extends PositionComponent
         DoubleTapCallbacks,
         HasGameRef<MyGame> {
   @override
-  Earth({required this.cornerRadius})
+  Earth({required this.cornerRadius, required Vector2 position})
       : super(
           anchor: Anchor.center,
           size: Vector2.all(100),
+          position: Vector2(gameWidth / 2, gameHeight / 2),
 
           // paint: Paint()..color = Colors.red,
         );
@@ -36,7 +38,7 @@ class Earth extends PositionComponent
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
       size: Vector2(110, 110),
-      // BU ONEMLIDI
+      // anchor: Anchor.center, DO NOT ADD ANCHOR HERE // BU ONEMLIDI
     ));
 
     add(
@@ -52,7 +54,7 @@ class Earth extends PositionComponent
     position += event.localDelta;
 
     const minX = 50; // 10% margin on the left
-    const maxX = 1866; // 10% margin on the right
+    const maxX = 1860; // 10% margin on the right
     const minY = 50; // 10% margin on the top
     const maxY = 1000; // 10% margin on the bottom
     position.x = position.x.clamp(minX.toDouble(), maxX.toDouble());

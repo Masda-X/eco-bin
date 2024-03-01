@@ -16,6 +16,7 @@ class Plastic extends CircleComponent
     required this.difficultyModifier,
   }) : super(
             radius: radius,
+            // ignore: prefer_const_constructors
             paint: Paint()..color = Color.fromARGB(0, 255, 231, 73),
             anchor: Anchor.center,
             children: [CircleHitbox()]);

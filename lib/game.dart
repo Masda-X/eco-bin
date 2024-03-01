@@ -30,6 +30,7 @@ class MyGame extends FlameGame
 
   // ignore: non_constant_identifier_names
   @override
+  // ignore: prefer_const_constructors
   Color backgroundColor() => Color.fromARGB(255, 9, 138, 7);
 
   @override

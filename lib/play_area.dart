@@ -8,6 +8,7 @@ import 'package:flame/components.dart';
 class PlayArea extends RectangleComponent with HasGameReference<MyGame> {
   PlayArea()
       : super(
+          // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 9, 138, 7),
           children: [
             RectangleHitbox(

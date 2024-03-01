@@ -15,14 +15,14 @@ import 'package:flutter/material.dart';
 
 class MyGame extends FlameGame
     with HasCollisionDetection, TapCallbacks, MouseMovementDetector {
-  MyGame({required this.zoom})
+  MyGame()
       : super(
           camera: CameraComponent.withFixedResolution(
             width: gameWidth,
             height: gameHeight,
           ),
         );
-  final double zoom;
+
   late final Earth player;
   final rand = math.Random();
   double get width => size.x;
@@ -32,13 +32,12 @@ class MyGame extends FlameGame
 
   @override
   Future<void> onLoad() async {
-    camera.viewfinder.zoom = zoom;
     world.add(PlayArea());
 
     world.add(TextComponent(
       text: 'Click to Play',
     ));
-    // camera.viewfinder.anchor = Anchor.topLeft;
+    camera.viewfinder.anchor = Anchor.topLeft;
   }
 
   bool isPlayerAdded = false;

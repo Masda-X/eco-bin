@@ -44,37 +44,39 @@ class Plastic extends CircleComponent
       Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
     if (other is PlayArea) {
-      if (intersectionPoints.first.y <= 0) {
+      if (intersectionPoints.first.y <= other.position.y) {
         velocity.y = -velocity.y;
-      } else if (intersectionPoints.first.x <= 0) {
+      } else if (intersectionPoints.first.x <= other.position.x) {
         velocity.x = -velocity.x;
-      } else if (intersectionPoints.first.x >= game.width) {
+      } else if (intersectionPoints.first.x >=
+          other.position.x + other.size.x) {
         velocity.x = -velocity.x;
-      } else if (intersectionPoints.first.y >= game.height) {
+      } else if (intersectionPoints.first.y >=
+          other.position.y + other.size.y) {
         velocity.y = -velocity.y;
-      }
-    } else if (other is Earth) {
-      (game).onPlasticHit();
-      if (position.y < other.position.y - other.size.y / 2) {
-        velocity.y = -velocity.y;
-      }
-      if (position.y > other.position.y + other.size.y / 2) {
-        velocity.y = -velocity.y;
-      }
-      if (position.x < other.position.x - other.size.x / 2) {
-        velocity.x = -velocity.x;
-      }
-      if (position.x > other.position.x + other.size.x / 2) {
-        velocity.x = -velocity.x;
-      }
+      } else if (other is Earth) {
+        (game).onPlasticHit();
+        if (position.y < other.position.y - other.size.y / 2) {
+          velocity.y = -velocity.y;
+        }
+        if (position.y > other.position.y + other.size.y / 2) {
+          velocity.y = -velocity.y;
+        }
+        if (position.x < other.position.x - other.size.x / 2) {
+          velocity.x = -velocity.x;
+        }
+        if (position.x > other.position.x + other.size.x / 2) {
+          velocity.x = -velocity.x;
+        }
 
-      // add(RemoveEffect(
-      //     delay: 0.35,
-      //     onComplete: () {
-      //       // Modify from here
-      //       game.playState = PlayState.gameOver;
-      //     }));
+        // add(RemoveEffect(
+        //     delay: 0.35,
+        //     onComplete: () {
+        //       // Modify from here
+        //       game.playState = PlayState.gameOver;
+        //     }));
+      }
+      velocity.setFrom(velocity * difficultyModifier);
     }
-    velocity.setFrom(velocity * difficultyModifier);
   }
 }

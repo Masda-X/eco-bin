@@ -7,5 +7,5 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Flame.device.setLandscape();
   Flame.device.fullScreen();
-  runApp(GameWidget(game: MyGame(zoom: 1)));
+  runApp(GameWidget(game: MyGame()));
 }

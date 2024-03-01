@@ -21,6 +21,6 @@ class PlayArea extends RectangleComponent with HasGameReference<MyGame> {
     super.onLoad();
     size = Vector2(gameWidth, gameHeight);
     position = Vector2(0, 0);
-    anchor = Anchor.center;
+    anchor = Anchor.topLeft;
   }
 }

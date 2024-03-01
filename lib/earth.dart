@@ -19,7 +19,7 @@ class Earth extends PositionComponent
         DoubleTapCallbacks,
         HasGameRef<MyGame> {
   @override
-  Earth({required this.cornerRadius, required Vector2 position})
+  Earth({required this.cornerRadius, required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
           size: Vector2.all(100),
@@ -60,6 +60,8 @@ class Earth extends PositionComponent
     position.x = position.x.clamp(minX.toDouble(), maxX.toDouble());
     position.y = position.y.clamp(minY.toDouble(), maxY.toDouble());
   }
+
+  // ignore: prefer_const_constructors
 
   @override
   void onDragEnd(DragEndEvent event) {

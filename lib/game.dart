@@ -52,7 +52,7 @@ class MyGame extends FlameGame
       world.add(player = Earth(
         cornerRadius: const Radius.circular(100),
         position: Vector2(gameWidth / 2, gameHeight / 2),
-        // paint: Paint()..color = Colors.red,
+        paint: Paint()..color = Colors.red,
       ));
       isPlayerAdded = true;
       for (int i = 0; i < 40; i++) {

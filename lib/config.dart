@@ -7,4 +7,4 @@ double earthStep = gameWidth * 0.05;
 double brickGutter = gameWidth * 0.015; // Add from here...
 
 double brickHeight = gameHeight * 0.03;
-double difficultyModifier = 0.5;
+double difficultyModifier = 0.9;

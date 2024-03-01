@@ -16,7 +16,7 @@ class Plastic extends CircleComponent
   }) : super(
             radius: radius,
             // ignore: prefer_const_constructors
-            paint: Paint()..color = Color.fromARGB(0, 255, 231, 73),
+            paint: Paint()..color = Color.fromARGB(255, 207, 182, 14),
             anchor: Anchor.center,
             children: [CircleHitbox()]);
   final Vector2 velocity;
@@ -54,29 +54,29 @@ class Plastic extends CircleComponent
       } else if (intersectionPoints.first.y >=
           other.position.y + other.size.y) {
         velocity.y = -velocity.y;
-      } else if (other is Earth) {
-        (game).onPlasticHit();
-        if (position.y < other.position.y - other.size.y / 2) {
-          velocity.y = -velocity.y;
-        }
-        if (position.y > other.position.y + other.size.y / 2) {
-          velocity.y = -velocity.y;
-        }
-        if (position.x < other.position.x - other.size.x / 2) {
-          velocity.x = -velocity.x;
-        }
-        if (position.x > other.position.x + other.size.x / 2) {
-          velocity.x = -velocity.x;
-        }
+      }
+    } else if (other is Earth) {
+      (game).onPlasticHit();
+      if (position.y < other.position.y - other.size.y / 2) {
+        velocity.y = -velocity.y;
+      }
+      if (position.y > other.position.y + other.size.y / 2) {
+        velocity.y = -velocity.y;
+      }
+      if (position.x < other.position.x - other.size.x / 2) {
+        velocity.x = -velocity.x;
+      }
+      if (position.x > other.position.x + other.size.x / 2) {
+        velocity.x = -velocity.x;
+      }
+    }
+    velocity.setFrom(velocity * difficultyModifier);
+  }
+}
 
-        // add(RemoveEffect(
+// add(RemoveEffect(
         //     delay: 0.35,
         //     onComplete: () {
         //       // Modify from here
         //       game.playState = PlayState.gameOver;
         //     }));
-      }
-      velocity.setFrom(velocity * difficultyModifier);
-    }
-  }
-}

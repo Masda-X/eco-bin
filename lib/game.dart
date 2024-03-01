@@ -5,10 +5,12 @@ import 'package:earth/earth.dart';
 import 'package:earth/plastic.dart';
 import 'package:earth/play_area.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
 
 import 'package:flame/game.dart';
+import 'package:flame_noise/flame_noise.dart';
 import 'package:flutter/material.dart';
 
 class MyGame extends FlameGame
@@ -73,6 +75,28 @@ class MyGame extends FlameGame
   }
 
   void onPlasticHit() {
+    player.add(
+      SequenceEffect(
+        [
+          MoveEffect.by(
+            Vector2(10, 0),
+            NoiseEffectController(
+              duration: 1,
+              noise: PerlinNoise(frequency: 20),
+            ),
+          ),
+          // MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
+          // MoveEffect.by(
+          //   Vector2(0, 10),
+          //   NoiseEffectController(
+          //     duration: 1,
+          //     noise: PerlinNoise(frequency: 10),
+          //   ),
+          // ),
+        ],
+        infinite: false,
+      ),
+    );
     // score.value -= 1;
   }
 }

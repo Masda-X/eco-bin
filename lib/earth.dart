@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:earth/config.dart';
 import 'package:earth/game.dart';
 import 'package:flame_noise/flame_noise.dart';
@@ -11,7 +10,7 @@ import 'package:flame/events.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Earth extends PositionComponent
+class Earth extends CircleComponent
     with
         HoverCallbacks,
         DragCallbacks,
@@ -22,16 +21,16 @@ class Earth extends PositionComponent
   Earth({required this.cornerRadius, required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          size: Vector2.all(100),
+          radius: 60,
           position: Vector2(gameWidth / 2, gameHeight / 2),
-
-          // paint: Paint()..color = Colors.red,
+          paint: Paint()..color = Colors.red,
         );
   final Radius cornerRadius;
   // final Paint paint;
 
   @override
   Future<void> onLoad() async {
+    super.onLoad();
     add(CircleHitbox(
       radius: 60,
     ));

@@ -5,7 +5,6 @@ import 'package:earth/earth.dart';
 import 'package:earth/plastic.dart';
 import 'package:earth/play_area.dart';
 import 'package:flame/components.dart';
-import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
 

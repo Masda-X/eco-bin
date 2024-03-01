@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
 import 'package:earth/play_area.dart';

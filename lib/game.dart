@@ -1,7 +1,10 @@
 import 'dart:ui';
 
+import 'dart:math' as math;
+
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
+import 'package:earth/plastic.dart';
 import 'package:flame/components.dart';
 
 import 'package:flame/events.dart';
@@ -20,6 +23,9 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
 
   final double zoom;
   late final Earth player;
+  final rand = math.Random();
+  double get width => size.x;
+  double get height => size.y;
 
   // ignore: non_constant_identifier_names
 
@@ -48,10 +54,21 @@ class MyGame extends FlameGame with TapCallbacks, MouseMovementDetector {
         // paint: Paint()..color = Colors.red,
       ));
       isPlayerAdded = true;
-      // remove(text = TextComponent(
-      //   // remove the text
-      //   text: 'Click to Play',
-      // ));
+      for (int i = 0; i < 40; i++) {
+        final randomX =
+            rand.nextDouble() * (gameWidth - plasticRadius * 2) + plasticRadius;
+        final randomY =
+            rand.nextDouble() * (gameHeight * 0.6 - plasticRadius * 2) +
+                plasticRadius;
+
+        world.add(Plastic(
+          radius: plasticRadius,
+          position: Vector2(randomX, randomY),
+          velocity: Vector2((rand.nextDouble() - 0.5) * width, height * 0.2)
+              .normalized()
+            ..scale(height / 4),
+        ));
+      }
     }
   }
 }

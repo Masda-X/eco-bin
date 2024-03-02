@@ -9,7 +9,7 @@ class PlayArea extends RectangleComponent with HasGameReference<MyGame> {
   PlayArea()
       : super(
           // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(255, 9, 138, 7),
+          paint: Paint()..color = Color.fromARGB(255, 80, 127, 14),
           children: [
             RectangleHitbox(
               size: Vector2(gameWidth, gameHeight),

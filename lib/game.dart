@@ -37,10 +37,10 @@ class MyGame extends FlameGame
   Future<void> onLoad() async {
     world.add(PlayArea());
 
-    world.add(TextComponent(
-      text: 'Click to Play',
-      position: Vector2(gameWidth / 2, gameHeight / 2),
-    ));
+    // world.add(TextComponent(
+    //   text: 'Click to Play',
+    //   position: Vector2(gameWidth / 2, gameHeight / 2),
+    // ));
     camera.viewfinder.anchor = Anchor.topLeft;
   }
 

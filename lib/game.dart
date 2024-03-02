@@ -33,7 +33,7 @@ class MyGame extends FlameGame
   // ignore: non_constant_identifier_names
   @override
   // ignore: prefer_const_constructors
-  Color backgroundColor() => Color.fromARGB(255, 195, 220, 195);
+  Color backgroundColor() => Color.fromARGB(255, 229, 234, 179);
 
   @override
   Future<void> onLoad() async {

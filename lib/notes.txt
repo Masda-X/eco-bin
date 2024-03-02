@@ -1,3 +1,8 @@
 Musiqi uchun Ogg ses effekti uchun Wav istifade ele. MP3 olmaz!
 convertio ve checkfiletype.com https://twistedwave.com/online saytlari
 matter.js custom concave collision maski sevmir
+
+
+To Do:
+   - problem fix: Bottle dunyanin ichinden kechir 
+   - sticker style

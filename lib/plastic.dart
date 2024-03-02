@@ -19,12 +19,32 @@ class Plastic extends CircleComponent
             paint: Paint()..color = Color.fromARGB(255, 207, 182, 14),
             anchor: Anchor.center,
             children: [CircleHitbox()]);
+
   final Vector2 velocity;
   final double difficultyModifier;
+  double rotationSpeed = 5;
+  bool shouldRotate = false;
+  double rotationDuration = 3.0; // Duration of rotation in seconds
+  double rotationTimer = 0.0; // Timer for rotation
+
   @override
   void update(double dt) {
     super.update(dt);
     position += velocity * dt;
+    if (shouldRotate) {
+      // Only rotate if shouldRotate is true
+      double t = rotationTimer /
+          rotationDuration; // Calculate the progress of the rotation
+      double currentRotationSpeed =
+          rotationSpeed * (1 - t); // Gradually decrease the rotation speed
+      angle += currentRotationSpeed * dt;
+      rotationTimer += dt;
+      if (rotationTimer >= rotationDuration) {
+        // Stop rotating after rotationDuration seconds
+        shouldRotate = false;
+        rotationTimer = 0.0;
+      }
+    }
   }
 
   @override
@@ -43,6 +63,7 @@ class Plastic extends CircleComponent
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
+    shouldRotate = true;
     if (other is PlayArea) {
       if (intersectionPoints.first.y <= other.position.y) {
         velocity.y = -velocity.y;
@@ -57,6 +78,7 @@ class Plastic extends CircleComponent
       }
     } else if (other is Earth) {
       (game).onPlasticHit();
+      shouldRotate = true;
       if (position.y < other.position.y - other.size.y / 2) {
         velocity.y = -velocity.y;
       }

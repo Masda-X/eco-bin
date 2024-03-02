@@ -55,7 +55,7 @@ class MyGame extends FlameGame
         paint: Paint()..color = Colors.red,
       ));
       isPlayerAdded = true;
-      for (int i = 0; i < 40; i++) {
+      for (int i = 0; i < 20; i++) {
         final randomX =
             rand.nextDouble() * (gameWidth - plasticRadius * 2) + plasticRadius;
         final randomY =

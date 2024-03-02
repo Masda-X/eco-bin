@@ -10,6 +10,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
 
 import 'package:flame/game.dart';
+// ignore: unused_import
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_noise/flame_noise.dart';
 import 'package:flutter/material.dart';

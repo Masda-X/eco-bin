@@ -75,7 +75,7 @@ class MyGame extends FlameGame
   }
 
   void onPlasticHit() {
-    FlameAudio.play('pla_s.wav');
+    // FlameAudio.play('crash.wav');
     player.add(
       SequenceEffect(
         [

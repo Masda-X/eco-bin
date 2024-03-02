@@ -17,25 +17,28 @@ class Earth extends CircleComponent
         DoubleTapCallbacks,
         HasGameRef<MyGame> {
   @override
-  Earth({required this.cornerRadius, required Vector2 position, required paint})
+  Earth({required this.radius, required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          radius: 50,
+          radius: 500,
           position: Vector2(gameWidth / 2, gameHeight / 2),
           paint: Paint()..color = const Color.fromARGB(0, 244, 67, 54),
         );
-  final Radius cornerRadius;
+
   // final Paint paint;
+
+  @override
+  final double radius;
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
     add(CircleHitbox(
-      radius: 50,
+      radius: 500,
     ));
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
-      size: Vector2(110, 110),
+      size: Vector2(500, 500),
       // anchor: Anchor.center, DO NOT ADD ANCHOR HERE // BU ONEMLIDI
     ));
 

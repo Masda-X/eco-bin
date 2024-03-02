@@ -50,7 +50,7 @@ class MyGame extends FlameGame
   void onTapDown(TapDownEvent event) {
     if (!isPlayerAdded) {
       world.add(player = Earth(
-        cornerRadius: const Radius.circular(100),
+        radius: 500,
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.red,
       ));

@@ -20,7 +20,7 @@ class Earth extends CircleComponent
   Earth({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          radius: 50,
+          radius: 70,
           position: Vector2(gameWidth / 2, gameHeight / 2),
           paint: Paint()..color = const Color.fromARGB(0, 244, 67, 54),
         );
@@ -31,11 +31,11 @@ class Earth extends CircleComponent
   Future<void> onLoad() async {
     super.onLoad();
     add(CircleHitbox(
-      radius: 50,
+      radius: 70,
     ));
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
-      size: Vector2(120, 115),
+      size: Vector2(140, 135),
       // anchor: Anchor.center, DO NOT ADD ANCHOR HERE // BU ONEMLIDI
     ));
 

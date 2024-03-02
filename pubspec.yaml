@@ -11,8 +11,8 @@ dependencies:
   flame_noise: ^0.3.0
   flutter:
     sdk: flutter
-  audioplayers: ^0.20.1
-  flame_audio: ^1.1.0
+  
+  flame_audio: ^2.10.0
 
 dev_dependencies:
   flutter_test:

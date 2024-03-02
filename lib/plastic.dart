@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:flame_audio/flame_audio.dart';
 
 import 'package:earth/earth.dart';
 import 'package:earth/game.dart';

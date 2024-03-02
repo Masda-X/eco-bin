@@ -10,6 +10,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
 
 import 'package:flame/game.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_noise/flame_noise.dart';
 import 'package:flutter/material.dart';
 
@@ -74,6 +75,7 @@ class MyGame extends FlameGame
   }
 
   void onPlasticHit() {
+    FlameAudio.play('pla_s.wav');
     player.add(
       SequenceEffect(
         [

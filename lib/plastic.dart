@@ -65,15 +65,26 @@ class Plastic extends CircleComponent
     super.onCollisionStart(intersectionPoints, other);
     shouldRotate = true;
     if (other is PlayArea) {
-      if (intersectionPoints.first.y <= other.position.y) {
+      final collisionPoint = intersectionPoints.first;
+
+      // Left Side Collision
+      if (collisionPoint.x == 0) {
+        velocity.x = -velocity.x;
+        velocity.y = velocity.y;
+      }
+      // Right Side Collision
+      if (collisionPoint.x == game.size.x) {
+        velocity.x = -velocity.x;
+        velocity.y = velocity.y;
+      }
+      // Top Side Collision
+      if (collisionPoint.y == 0) {
+        velocity.x = velocity.x;
         velocity.y = -velocity.y;
-      } else if (intersectionPoints.first.x <= other.position.x) {
-        velocity.x = -velocity.x;
-      } else if (intersectionPoints.first.x >=
-          other.position.x + other.size.x) {
-        velocity.x = -velocity.x;
-      } else if (intersectionPoints.first.y >=
-          other.position.y + other.size.y) {
+      }
+      // Bottom Side Collision
+      if (collisionPoint.y == game.size.y) {
+        velocity.x = velocity.x;
         velocity.y = -velocity.y;
       }
     } else if (other is Earth) {

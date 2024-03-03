@@ -4,5 +4,6 @@ matter.js custom concave collision maski sevmir
 
 
 To Do:
-   - problem fix: Bottle dunyanin ichinden kechir 
+   - problem fix: Bottle dunyanin ichinden kechir FIXED
    - sticker style
+   - play area collision with plastic problem: goes out border, plastic collsion shape(35,80 test)

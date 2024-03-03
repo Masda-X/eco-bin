@@ -79,17 +79,16 @@ class Plastic extends CircleComponent
     } else if (other is Earth) {
       (game).onPlasticHit();
       shouldRotate = true;
-      if (position.y < other.position.y - other.size.y / 2) {
-        velocity.y = -velocity.y;
-      }
-      if (position.y > other.position.y + other.size.y / 2) {
-        velocity.y = -velocity.y;
-      }
-      if (position.x < other.position.x - other.size.x / 2) {
-        velocity.x = -velocity.x;
-      }
-      if (position.x > other.position.x + other.size.x / 2) {
-        velocity.x = -velocity.x;
+      // Calculate the normal of the collision
+// Calculate the normal of the collision
+      Vector2 collisionNormal = (position - other.position).normalized();
+
+// Reverse the direction of the plastic object
+      velocity.reflect(collisionNormal);
+
+// Move the plastic object out of the collision
+      while (other.containsPoint(position)) {
+        position += collisionNormal;
       }
     }
     velocity.setFrom(velocity * difficultyModifier);

@@ -115,4 +115,8 @@ class Earth extends CircleComponent
   void onHoverEnter() {
     // angle += 180.0; // add(RotateEffect(angle: 1, duration: 1));
   }
+  @override
+  bool containsPoint(Vector2 point) {
+    return position.distanceTo(point) <= size.x / 2;
+  }
 }

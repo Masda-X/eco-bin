@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:earth/game.dart';
 import 'package:flame/components.dart';
 
@@ -11,13 +13,16 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
           radius: 400,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(255, 15, 168, 206),
+          paint: Paint()..color = Color.fromARGB(0, 15, 168, 206),
         );
   double angularVelocity = 0.0;
-  final double angularAcceleration =
-      0.0005; // Reduced for smaller distance on single press
+  final double angularAcceleration = 0.0005;
   final double maxAngularVelocity = 0.2;
   final double friction = 0.99;
+  final double bounceFactor = 0.5; // Determines the intensity of the bounce
+
+  final double minAngle = -pi / 2; // Left limit (in radians)
+  final double maxAngle = pi / 2; // Right limit (in radians)
 
   // ...
 
@@ -41,7 +46,16 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
         angularVelocity.clamp(-maxAngularVelocity, maxAngularVelocity);
 
     // Apply angular velocity to angle
-    angle += angularVelocity;
+    double newAngle = angle + angularVelocity;
+
+    // If the new angle is outside the limits, reverse and reduce the angular velocity
+    if (newAngle < minAngle || newAngle > maxAngle) {
+      angularVelocity = -angularVelocity * bounceFactor;
+      newAngle = angle + angularVelocity;
+    }
+
+    // Clamp the new angle to its limits
+    angle = newAngle.clamp(minAngle, maxAngle);
   }
 
   @override
@@ -49,9 +63,9 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
     super.onLoad();
 
     add(SpriteComponent(
-      sprite: await Sprite.load('heart_a.png'),
-      position: Vector2(-18, -18),
-      size: Vector2(100, 100),
+      sprite: await Sprite.load('bin.png'),
+      position: Vector2(350, -100),
+      size: Vector2(100, 80),
     ));
   }
 }

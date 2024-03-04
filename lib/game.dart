@@ -4,6 +4,7 @@ import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/plastic.dart';
 import 'package:earth/play_area.dart';
+import 'package:earth/radi.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 
@@ -24,7 +25,7 @@ class MyGame extends FlameGame
             height: gameHeight,
           ),
         );
-
+  late final Radi controller;
   late final Earth player;
   final rand = math.Random();
   double get width => size.x;
@@ -47,15 +48,22 @@ class MyGame extends FlameGame
   }
 
   bool isPlayerAdded = false;
+  bool isControllerAdded = false;
 
   @override
   void onTapDown(TapDownEvent event) {
-    if (!isPlayerAdded) {
+    if (!isPlayerAdded && !isControllerAdded) {
       world.add(player = Earth(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.red,
       ));
+      world.add(controller = Radi(
+        position: Vector2(gameWidth / 2, gameHeight / 2),
+        paint: Paint()..color = Colors.blue,
+      ));
+
       isPlayerAdded = true;
+      isControllerAdded = true;
       for (int i = 0; i < 10; i++) {
         final randomX =
             rand.nextDouble() * (gameWidth - plasticRadius * 2) + plasticRadius;

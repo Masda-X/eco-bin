@@ -11,4 +11,16 @@ class Radi extends CircleComponent {
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 54, 244, 108),
         );
+
+  @override
+  Future<void> onLoad() async {
+    super.onLoad();
+
+    add(SpriteComponent(
+      sprite: await Sprite.load('heart_a.png'),
+      size: Vector2(100, 100),
+      position: Vector2(-18, -18),
+      // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
+    ));
+  }
 }

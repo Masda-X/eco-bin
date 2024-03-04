@@ -15,9 +15,14 @@ import 'package:flame/game.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_noise/flame_noise.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyGame extends FlameGame
-    with HasCollisionDetection, TapCallbacks, MouseMovementDetector {
+    with
+        HasCollisionDetection,
+        TapCallbacks,
+        MouseMovementDetector,
+        KeyboardEvents {
   MyGame()
       : super(
           camera: CameraComponent.withFixedResolution(
@@ -108,6 +113,30 @@ class MyGame extends FlameGame
       ),
     );
     // score.value -= 1;
+  }
+
+  Set<LogicalKeyboardKey> keysPressed = {};
+
+  @override
+  KeyEventResult onKeyEvent(
+      KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    super.onKeyEvent(event, keysPressed);
+    this.keysPressed = keysPressed;
+    return KeyEventResult.handled;
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+
+    if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
+      final radi = world.children.query<Radi>().first;
+      radi.angle -= 0.1;
+    }
+    if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
+      final radi = world.children.query<Radi>().first;
+      radi.angle += 0.1;
+    }
   }
 }
 

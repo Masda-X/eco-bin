@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:earth/game.dart';
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
 import 'package:flutter/material.dart';
@@ -61,6 +62,10 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    add(RectangleHitbox(
+      size: Vector2(100, 80),
+      position: Vector2(350, -100),
+    ));
 
     add(SpriteComponent(
       sprite: await Sprite.load('bin.png'),

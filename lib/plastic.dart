@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
 import 'package:earth/play_area.dart';
+import 'package:earth/radi.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
@@ -88,6 +89,20 @@ class Plastic extends CircleComponent
         velocity.y = -velocity.y;
       }
     } else if (other is Earth) {
+      (game).onPlasticHit();
+      shouldRotate = true;
+      // Calculate the normal of the collision
+// Calculate the normal of the collision
+      Vector2 collisionNormal = (position - other.position).normalized();
+
+// Reverse the direction of the plastic object
+      velocity.reflect(collisionNormal);
+
+// Move the plastic object out of the collision
+      while (other.containsPoint(position)) {
+        position += collisionNormal;
+      }
+    } else if (other is Radi) {
       (game).onPlasticHit();
       shouldRotate = true;
       // Calculate the normal of the collision

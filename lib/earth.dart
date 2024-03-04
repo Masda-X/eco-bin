@@ -1,4 +1,3 @@
-import 'package:earth/config.dart';
 import 'package:earth/game.dart';
 
 import 'package:flame/collisions.dart';
@@ -20,23 +19,26 @@ class Earth extends CircleComponent
   Earth({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          radius: 70,
-          position: Vector2(gameWidth / 2, gameHeight / 2),
-          paint: Paint()..color = const Color.fromARGB(0, 244, 67, 54),
+          radius: 400,
+          position: Vector2(960, 1000),
+          // ignore: prefer_const_constructors
+          paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         );
 
   // final Paint paint;
+  // final Vector2 position;
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
     add(CircleHitbox(
-      radius: 70,
+      radius: 400,
     ));
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
-      size: Vector2(140, 135),
-      // anchor: Anchor.center, DO NOT ADD ANCHOR HERE // BU ONEMLIDI
+      size: Vector2(840, 835),
+      position: Vector2(-18, -18),
+      // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
 
     // add(

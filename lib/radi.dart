@@ -2,6 +2,7 @@ import 'package:earth/game.dart';
 import 'package:flame/components.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Radi extends CircleComponent with HasGameRef<MyGame> {
   Radi({required Vector2 position, required paint})
@@ -12,11 +13,35 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 15, 168, 206),
         );
+  double angularVelocity = 0.0;
+  final double angularAcceleration =
+      0.0005; // Reduced for smaller distance on single press
+  final double maxAngularVelocity = 0.2;
+  final double friction = 0.99;
+
+  // ...
 
   @override
   void update(double dt) {
     super.update(dt);
-    angle += 0.01 * dt; // Adjust this value to control the speed of rotation
+
+    // Apply angular acceleration if left or right arrow key is pressed
+    if (gameRef.keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
+      angularVelocity -= angularAcceleration;
+    }
+    if (gameRef.keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
+      angularVelocity += angularAcceleration;
+    }
+
+    // Apply friction
+    angularVelocity *= friction;
+
+    // Clamp angular velocity to its maximum value
+    angularVelocity =
+        angularVelocity.clamp(-maxAngularVelocity, maxAngularVelocity);
+
+    // Apply angular velocity to angle
+    angle += angularVelocity;
   }
 
   @override

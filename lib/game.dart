@@ -116,12 +116,16 @@ class MyGame extends FlameGame
   }
 
   Set<LogicalKeyboardKey> keysPressed = {};
+  bool keyJustPressed = false;
 
   @override
   KeyEventResult onKeyEvent(
       KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     super.onKeyEvent(event, keysPressed);
     this.keysPressed = keysPressed;
+    if (event is KeyDownEvent) {
+      keyJustPressed = true;
+    }
     return KeyEventResult.handled;
   }
 
@@ -129,13 +133,16 @@ class MyGame extends FlameGame
   void update(double dt) {
     super.update(dt);
 
-    if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
-      final radi = world.children.query<Radi>().first;
-      radi.angle -= 0.1;
-    }
-    if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
-      final radi = world.children.query<Radi>().first;
-      radi.angle += 0.1;
+    if (keyJustPressed) {
+      if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
+        final radi = world.children.query<Radi>().first;
+        radi.angularVelocity -= radi.angularAcceleration;
+      }
+      if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
+        final radi = world.children.query<Radi>().first;
+        radi.angularVelocity += radi.angularAcceleration;
+      }
+      keyJustPressed = false;
     }
   }
 }

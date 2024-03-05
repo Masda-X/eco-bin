@@ -106,9 +106,13 @@ class Plastic extends CircleComponent
         position += collisionNormal;
       }
     } else if (other is Radi) {
-      // (game).onPlasticHit();
-      // FlameAudio.play('crash.wav');
-      removeFromParent();
+      // Check if the Plastic is above the Radi
+      if (position.y + height <= other.position.y) {
+        // Handle the collision with the top side here
+        // (game).onPlasticHit();
+        // FlameAudio.play('crash.wav');
+        removeFromParent();
+      }
     } else if (other is Colly) {}
     velocity.setFrom(velocity * difficultyModifier);
   }

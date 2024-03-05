@@ -7,8 +7,8 @@ import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Radi extends CircleComponent with HasGameRef<MyGame> {
-  Radi({required Vector2 position, required paint})
+class Colly extends CircleComponent with HasGameRef<MyGame> {
+  Colly({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
           radius: 400,
@@ -63,13 +63,13 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
   Future<void> onLoad() async {
     super.onLoad();
     add(RectangleHitbox(
-      size: Vector2(100, 10),
+      size: Vector2(100, 100),
       position: Vector2(350, -130),
     ));
 
     add(SpriteComponent(
-      sprite: await Sprite.load('bin.png'),
-      size: Vector2(150, 110),
+      sprite: await Sprite.load('heart_a.png'),
+      size: Vector2(15, 10),
       position: Vector2(325, -130),
     ));
   }

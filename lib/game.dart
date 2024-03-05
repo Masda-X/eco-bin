@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/plastic.dart';
@@ -57,10 +58,10 @@ class MyGame extends FlameGame
   bool isPlayerAdded = false;
   bool isControllerAdded = false;
   bool isTestAdded = false;
-
+  bool isCollyAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
-    if (!isPlayerAdded && !isControllerAdded) {
+    if (!isPlayerAdded && !isControllerAdded && !isCollyAdded) {
       world.add(player = Earth(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.red,
@@ -68,6 +69,10 @@ class MyGame extends FlameGame
       world.add(controller = Radi(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.blue,
+      ));
+      world.add(Colly(
+        position: Vector2(gameWidth / 2, gameHeight / 2),
+        paint: Paint()..color = Colors.yellow,
       ));
 
       // Add 4 Test components
@@ -80,6 +85,7 @@ class MyGame extends FlameGame
 
       isPlayerAdded = true;
       isControllerAdded = true;
+      isCollyAdded = true;
 
       for (int i = 0; i < 10; i++) {
         final randomX =
@@ -149,10 +155,16 @@ class MyGame extends FlameGame
       if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
         final radi = world.children.query<Radi>().first;
         radi.angularVelocity -= radi.angularAcceleration;
+
+        final colly = world.children.query<Colly>().first;
+        colly.angularVelocity -= colly.angularAcceleration;
       }
       if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
         final radi = world.children.query<Radi>().first;
         radi.angularVelocity += radi.angularAcceleration;
+
+        final colly = world.children.query<Colly>().first;
+        colly.angularVelocity += colly.angularAcceleration;
       }
       keyJustPressed = false;
     }

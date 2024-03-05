@@ -10,3 +10,5 @@ To Do:
    - We just require a working URL for the game. 
      Many folks might choose for instance to host their game using Firebase Hosting
    - A URL to your working project is a link for us to try the game out!
+   - Sun Attack
+   - Wind Attack

@@ -25,7 +25,7 @@ class Test extends CircleComponent
           radius: 20,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
+          paint: Paint()..color = Color.fromARGB(255, 244, 127, 54),
         );
 
   @override

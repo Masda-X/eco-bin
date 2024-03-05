@@ -75,12 +75,21 @@ class MyGame extends FlameGame
         paint: Paint()..color = Colors.yellow,
       ));
 
-      // Add 4 Test components
+      List<Vector2> positions = [
+        Vector2(gameWidth * 0.25, gameHeight * 0.25),
+        Vector2(gameWidth * 0.75, gameHeight * 0.25),
+        Vector2(gameWidth * 0.25, gameHeight * 0.75),
+        Vector2(gameWidth * 0.75, gameHeight * 0.75),
+      ];
+
       for (int i = 0; i < 4; i++) {
-        world.add(Test(
-          position: Vector2(gameWidth / 2, gameHeight / 2),
+        Test test = Test(
+          position: Vector2.zero(),
           paint: Paint()..color = Colors.green,
-        ));
+        );
+        test.x = positions[i].x;
+        test.y = positions[i].y;
+        world.add(test);
       }
 
       isPlayerAdded = true;

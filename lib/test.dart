@@ -1,15 +1,16 @@
 import 'package:earth/game.dart';
+import 'package:earth/radi.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
 import 'package:flame/events.dart';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Test extends CircleComponent
     with
+        CollisionCallbacks,
         HoverCallbacks,
         DragCallbacks,
         TapCallbacks,
@@ -19,34 +20,18 @@ class Test extends CircleComponent
   Test({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          radius: 50,
+          radius: 20,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         );
 
-  // final Paint paint;
-  // final Vector2 position;
-
   @override
   Future<void> onLoad() async {
     super.onLoad();
     add(CircleHitbox(
-      radius: 50,
+      radius: 20,
     ));
-    // add(SpriteComponent(
-    //   sprite: await Sprite.load('earth.png'),
-    //   size: Vector2(840, 835),
-    //   position: Vector2(-20, -18),
-    //   // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
-    // ));
-
-    // add(
-    //   MoveEffect.by(
-    //     Vector2(0, 20),
-    //     InfiniteEffectController(SineEffectController(period: 1)),
-    //   ),
-    // );
   }
 
   @override
@@ -61,64 +46,25 @@ class Test extends CircleComponent
     position.y = position.y.clamp(minY.toDouble(), maxY.toDouble());
   }
 
-  // ignore: prefer_const_constructors
-
-  @override
-  void onDragEnd(DragEndEvent event) {
-    super.onDragEnd(event);
-    if (kDebugMode) {
-      print('Drag ended');
-    }
-  }
-
-  @override
-  void onDragStart(DragStartEvent event) {
-    super.onDragStart(event);
-    if (kDebugMode) {
-      print('Drag started');
-    }
-  }
-
-  @override
-  void onTapUp(event) {}
-
-  @override
-  void onDoubleTapDown(DoubleTapDownEvent event) {
-    // add(RemoveEffect(delay: 1));
-
-    // add(
-    //   SequenceEffect(
-    //     [
-    //       MoveEffect.by(
-    //         Vector2(50, 0),
-    //         NoiseEffectController(
-    //           duration: 1,
-    //           noise: PerlinNoise(frequency: 20),
-    //         ),
-    //       ),
-    //       MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
-    //       MoveEffect.by(
-    //         Vector2(0, 10),
-    //         NoiseEffectController(
-    //           duration: 1,
-    //           noise: PerlinNoise(frequency: 10),
-    //         ),
-    //       ),
-    //     ],
-    //     infinite: false,
-    //   ),
-    // );
-  }
-
-  @override
-  void onTapCancel(event) {}
-
-  @override
-  void onHoverEnter() {
-    // angle += 180.0; // add(RotateEffect(angle: 1, duration: 1));
-  }
   @override
   bool containsPoint(Vector2 point) {
     return position.distanceTo(point) <= size.x / 2;
+  }
+
+  @override
+  void onCollisionStart(
+      Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollisionStart(intersectionPoints, other);
+    if (other is Radi) {
+      final collisionText = TextComponent(
+        text: 'Collision!',
+      );
+      add(collisionText);
+
+      // Remove the text after 1 second
+      Future.delayed(const Duration(seconds: 1), () {
+        remove(collisionText);
+      });
+    }
   }
 }

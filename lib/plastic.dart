@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:earth/colly.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
 import 'package:earth/play_area.dart';
@@ -105,7 +106,7 @@ class Plastic extends CircleComponent
     } else if (other is Radi) {
       // (game).onPlasticHit();
       removeFromParent();
-    }
+    } else if (other is Colly) {}
     velocity.setFrom(velocity * difficultyModifier);
   }
 }

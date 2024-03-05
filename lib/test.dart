@@ -1,3 +1,4 @@
+import 'package:earth/colly.dart';
 import 'package:earth/game.dart';
 import 'package:earth/radi.dart';
 
@@ -58,6 +59,17 @@ class Test extends CircleComponent
     if (other is Radi) {
       final collisionText = TextComponent(
         text: 'Collision!',
+      );
+      add(collisionText);
+
+      // Remove the text after 1 second
+      Future.delayed(const Duration(seconds: 1), () {
+        remove(collisionText);
+      });
+    }
+    if (other is Colly) {
+      final collisionText = TextComponent(
+        text: 'Boom!',
       );
       add(collisionText);
 

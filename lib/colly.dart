@@ -63,8 +63,8 @@ class Colly extends CircleComponent with HasGameRef<MyGame> {
   Future<void> onLoad() async {
     super.onLoad();
     add(RectangleHitbox(
-      size: Vector2(100, 100),
-      position: Vector2(350, -130),
+      size: Vector2(140, 100),
+      position: Vector2(330, -120),
     ));
 
     add(SpriteComponent(

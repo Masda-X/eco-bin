@@ -63,8 +63,8 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
   Future<void> onLoad() async {
     super.onLoad();
     add(RectangleHitbox(
-      size: Vector2(150, 110),
-      position: Vector2(325, -130),
+      size: Vector2(100, 10),
+      position: Vector2(360, -130),
     ));
 
     add(SpriteComponent(

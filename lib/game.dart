@@ -60,7 +60,7 @@ class MyGame extends FlameGame
 
   @override
   void onTapDown(TapDownEvent event) {
-    if (!isPlayerAdded && !isControllerAdded && !isTestAdded) {
+    if (!isPlayerAdded && !isControllerAdded) {
       world.add(player = Earth(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.red,
@@ -69,14 +69,17 @@ class MyGame extends FlameGame
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.blue,
       ));
-      world.add(test = Test(
-        position: Vector2(gameWidth / 2, gameHeight / 2),
-        paint: Paint()..color = Colors.green,
-      ));
+
+      // Add 4 Test components
+      for (int i = 0; i < 4; i++) {
+        world.add(Test(
+          position: Vector2(gameWidth / 2, gameHeight / 2),
+          paint: Paint()..color = Colors.green,
+        ));
+      }
 
       isPlayerAdded = true;
       isControllerAdded = true;
-      isTestAdded = true;
 
       for (int i = 0; i < 10; i++) {
         final randomX =

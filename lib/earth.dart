@@ -37,7 +37,7 @@ class Earth extends CircleComponent
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
       size: Vector2(840, 835),
-      position: Vector2(-18, -18),
+      position: Vector2(-20, -18),
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
 

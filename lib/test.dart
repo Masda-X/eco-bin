@@ -29,7 +29,7 @@ class Test extends CircleComponent
           radius: 20,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(255, 244, 127, 54),
+          paint: Paint()..color = Color.fromARGB(255, 222, 105, 33),
         );
 
   @override
@@ -79,13 +79,13 @@ class Test extends CircleComponent
 
       // Change the color of the Test component
       // ignore: prefer_const_constructors
-      paint = Paint()..color = Color.fromARGB(0, 250, 249, 249);
+      // paint = Paint()..color = Color.fromARGB(255, 255, 255, 255);
 
-      // Change the color back to its default after 2 seconds
-      Future.delayed(const Duration(seconds: 1), () {
-        // ignore: prefer_const_constructors
-        paint = Paint()..color = Color.fromARGB(255, 244, 127, 54);
-      });
+      // // Change the color back to its default after 2 seconds
+      // Future.delayed(const Duration(seconds: 1), () {
+      //   // ignore: prefer_const_constructors
+      //   paint = Paint()..color = Color.fromARGB(0, 244, 127, 54);
+      // });
     }
     if (other is Colly) {
       final collisionText = TextComponent(

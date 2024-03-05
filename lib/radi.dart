@@ -14,7 +14,7 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
           radius: 400,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(0, 15, 168, 206),
+          paint: Paint()..color = Color.fromARGB(255, 15, 168, 206),
         );
   double angularVelocity = 0.0;
   final double angularAcceleration = 0.0005;
@@ -63,14 +63,14 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
   Future<void> onLoad() async {
     super.onLoad();
     add(RectangleHitbox(
-      size: Vector2(100, 80),
-      position: Vector2(350, -100),
+      size: Vector2(150, 110),
+      position: Vector2(325, -100),
     ));
 
     add(SpriteComponent(
       sprite: await Sprite.load('bin.png'),
-      position: Vector2(350, -100),
-      size: Vector2(100, 80),
+      size: Vector2(150, 110),
+      position: Vector2(325, -100),
     ));
   }
 }

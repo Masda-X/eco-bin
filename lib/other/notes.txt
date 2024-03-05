@@ -12,3 +12,4 @@ To Do:
    - A URL to your working project is a link for us to try the game out!
    - Sun Attack
    - Wind Attack
+   - Trash bin upgrade Trash Car

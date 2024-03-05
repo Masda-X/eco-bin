@@ -7,6 +7,7 @@ import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+// ignore: unused_import
 import 'package:flame_audio/flame_audio.dart';
 
 class Plastic extends CircleComponent

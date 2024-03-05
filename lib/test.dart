@@ -5,6 +5,7 @@ import 'package:earth/radi.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
 
@@ -34,6 +35,12 @@ class Test extends CircleComponent
     add(CircleHitbox(
       radius: 20,
     ));
+    // add(
+    //   MoveEffect.by(
+    //     Vector2(0, 20),
+    //     InfiniteEffectController(SineEffectController(period: 1)),
+    //   ),
+    // );
   }
 
   @override

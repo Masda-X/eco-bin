@@ -32,6 +32,9 @@ class MyGame extends FlameGame
             height: gameHeight,
           ),
         );
+  // @override
+  // // ignore: overridden_fields
+  // bool debugMode = true;
   late final Test test;
   late final Radi controller;
   late final Earth player;

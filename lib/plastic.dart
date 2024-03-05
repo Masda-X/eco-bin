@@ -106,7 +106,7 @@ class Plastic extends CircleComponent
       }
     } else if (other is Radi) {
       // (game).onPlasticHit();
-      FlameAudio.play('crash.wav');
+      // FlameAudio.play('crash.wav');
       removeFromParent();
     } else if (other is Colly) {}
     velocity.setFrom(velocity * difficultyModifier);

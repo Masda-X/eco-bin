@@ -9,6 +9,8 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
+// ignore: unnecessary_import
+import 'package:flame/palette.dart';
 
 import 'package:flutter/material.dart';
 
@@ -71,9 +73,18 @@ class Test extends CircleComponent
       );
       add(collisionText);
 
-      // Remove the text after 1 second
       Future.delayed(const Duration(seconds: 1), () {
         remove(collisionText);
+      });
+
+      // Change the color of the Test component
+      // ignore: prefer_const_constructors
+      paint = Paint()..color = Color.fromARGB(0, 250, 249, 249);
+
+      // Change the color back to its default after 2 seconds
+      Future.delayed(const Duration(seconds: 1), () {
+        // ignore: prefer_const_constructors
+        paint = Paint()..color = Color.fromARGB(255, 244, 127, 54);
       });
     }
     // if (other is Colly) {

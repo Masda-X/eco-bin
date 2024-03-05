@@ -103,7 +103,7 @@ class Plastic extends CircleComponent
         position += collisionNormal;
       }
     } else if (other is Radi) {
-      (game).onPlasticHit();
+      // (game).onPlasticHit();
       removeFromParent();
     }
     velocity.setFrom(velocity * difficultyModifier);

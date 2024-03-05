@@ -49,17 +49,17 @@ class Earth extends CircleComponent
     // );
   }
 
-  @override
-  void onDragUpdate(DragUpdateEvent event) {
-    position += event.localDelta;
+  // @override
+  // void onDragUpdate(DragUpdateEvent event) {
+  //   position += event.localDelta;
 
-    const minX = 50; // 10% margin on the left
-    const maxX = 1860; // 10% margin on the right
-    const minY = 50; // 10% margin on the top
-    const maxY = 1020; // 10% margin on the bottom
-    position.x = position.x.clamp(minX.toDouble(), maxX.toDouble());
-    position.y = position.y.clamp(minY.toDouble(), maxY.toDouble());
-  }
+  //   const minX = 50; // 10% margin on the left
+  //   const maxX = 1860; // 10% margin on the right
+  //   const minY = 50; // 10% margin on the top
+  //   const maxY = 1020; // 10% margin on the bottom
+  //   position.x = position.x.clamp(minX.toDouble(), maxX.toDouble());
+  //   position.y = position.y.clamp(minY.toDouble(), maxY.toDouble());
+  // }
 
   // ignore: prefer_const_constructors
 

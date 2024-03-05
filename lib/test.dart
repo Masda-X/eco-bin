@@ -5,6 +5,7 @@ import 'package:earth/radi.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+// ignore: unused_import
 import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';

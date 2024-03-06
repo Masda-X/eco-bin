@@ -16,7 +16,7 @@ class EnemyCreator extends Component with HasGameRef<MyGame> {
     add(
       SpawnComponent(
         factory: (index) => createRandomPlastic(),
-        period: _random.nextInt(3) + 1.0,
+        period: _random.nextInt(10) + 1.0,
         autoStart: true,
       ),
     );

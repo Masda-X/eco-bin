@@ -83,12 +83,12 @@ class MyGame extends FlameGame
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.yellow,
       ));
-      world.add(EnemyCreator(
-        Earth(
-          position: Vector2(gameWidth / 2, gameHeight / 2),
-          paint: Paint()..color = Colors.red,
-        ),
-      ));
+      // world.add(EnemyCreator(
+      //   Earth(
+      //     position: Vector2(gameWidth / 2, gameHeight / 2),
+      //     paint: Paint()..color = Colors.red,
+      //   ),
+      // ));
 
       // List<Vector2> positions = [
       //   Vector2(gameWidth * 0.25, gameHeight * 0.25),

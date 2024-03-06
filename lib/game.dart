@@ -78,12 +78,12 @@ class MyGame extends FlameGame
         paint: Paint()..color = Colors.yellow,
       ));
 
-      List<Vector2> positions = [
-        Vector2(gameWidth * 0.25, gameHeight * 0.25),
-        Vector2(gameWidth * 0.75, gameHeight * 0.25),
-        Vector2(gameWidth * 0.25, gameHeight * 0.75),
-        Vector2(gameWidth * 0.75, gameHeight * 0.75),
-      ];
+      // List<Vector2> positions = [
+      //   Vector2(gameWidth * 0.25, gameHeight * 0.25),
+      //   Vector2(gameWidth * 0.75, gameHeight * 0.25),
+      //   Vector2(gameWidth * 0.25, gameHeight * 0.75),
+      //   Vector2(gameWidth * 0.75, gameHeight * 0.75),
+      // ];
 
       // for (int i = 0; i < 4; i++) {
       //   Test test = Test(

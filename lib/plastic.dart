@@ -14,6 +14,7 @@ class Plastic extends CircleComponent
     with CollisionCallbacks, HasGameRef<MyGame> {
   final double speed;
   final Earth earth;
+  static const double plasticSize = 50.0;
   Plastic({
     required this.velocity,
     required super.position,

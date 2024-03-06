@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
+import 'package:earth/enemy_creator.dart';
 import 'package:earth/plastic.dart';
 import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
@@ -38,6 +39,7 @@ class MyGame extends FlameGame
   late final Test test;
   late final Radi controller;
   late final Earth player;
+
   final rand = math.Random();
   double get width => size.x;
   double get height => size.y;
@@ -62,9 +64,13 @@ class MyGame extends FlameGame
   bool isControllerAdded = false;
   bool isTestAdded = false;
   bool isCollyAdded = false;
+  bool isEnemyCreatorAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
-    if (!isPlayerAdded && !isControllerAdded && !isCollyAdded) {
+    if (!isPlayerAdded &&
+        !isControllerAdded &&
+        !isCollyAdded &&
+        !isEnemyCreatorAdded) {
       world.add(player = Earth(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.red,
@@ -76,6 +82,12 @@ class MyGame extends FlameGame
       world.add(Colly(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.yellow,
+      ));
+      world.add(EnemyCreator(
+        Earth(
+          position: Vector2(gameWidth / 2, gameHeight / 2),
+          paint: Paint()..color = Colors.red,
+        ),
       ));
 
       // List<Vector2> positions = [
@@ -98,24 +110,25 @@ class MyGame extends FlameGame
       isPlayerAdded = true;
       isControllerAdded = true;
       isCollyAdded = true;
+      isEnemyCreatorAdded = true;
 
-      for (int i = 0; i < 10; i++) {
-        final randomX =
-            rand.nextDouble() * (gameWidth - plasticRadius * 2) + plasticRadius;
-        final randomY =
-            rand.nextDouble() * (gameHeight * 0.6 - plasticRadius * 2) +
-                plasticRadius;
+      // for (int i = 0; i < 10; i++) {
+      //   final randomX =
+      //       rand.nextDouble() * (gameWidth - plasticRadius * 2) + plasticRadius;
+      //   final randomY =
+      //       rand.nextDouble() * (gameHeight * 0.6 - plasticRadius * 2) +
+      //           plasticRadius;
 
-        world.add(Plastic(
-          difficultyModifier: difficultyModifier,
-          radius: plasticRadius,
-          position: Vector2(randomX, randomY),
-          velocity: Vector2((rand.nextDouble() - 0.5) * width, height * 0.2)
-              .normalized()
-            ..scale(height / 4),
-          earth: player,
-        ));
-      }
+      //   world.add(Plastic(
+      //     difficultyModifier: difficultyModifier,
+      //     radius: plasticRadius,
+      //     position: Vector2(randomX, randomY),
+      //     velocity: Vector2((rand.nextDouble() - 0.5) * width, height * 0.2)
+      //         .normalized()
+      //       ..scale(height / 4),
+      //     earth: player,
+      //   ));
+      // }
     }
   }
 

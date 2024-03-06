@@ -85,15 +85,15 @@ class MyGame extends FlameGame
         Vector2(gameWidth * 0.75, gameHeight * 0.75),
       ];
 
-      for (int i = 0; i < 4; i++) {
-        Test test = Test(
-          position: Vector2.zero(),
-          paint: Paint()..color = Colors.green,
-        );
-        test.x = positions[i].x;
-        test.y = positions[i].y;
-        world.add(test);
-      }
+      // for (int i = 0; i < 4; i++) {
+      //   Test test = Test(
+      //     position: Vector2.zero(),
+      //     paint: Paint()..color = Colors.green,
+      //   );
+      //   test.x = positions[i].x;
+      //   test.y = positions[i].y;
+      //   world.add(test);
+      // }
 
       isPlayerAdded = true;
       isControllerAdded = true;

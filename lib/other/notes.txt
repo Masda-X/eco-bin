@@ -5,7 +5,7 @@ matter.js custom concave collision maski sevmir
 
 To Do:
    - problem fix: Bottle dunyanin ichinden kechir FIXED
-   - sticker style
+   - sticker style FIXED
    - play area collision with plastic problem: goes out border, plastic collsion shape(35,80 test)
    - We just require a working URL for the game. 
      Many folks might choose for instance to host their game using Firebase Hosting
@@ -13,3 +13,5 @@ To Do:
    - Sun Attack
    - Wind Attack
    - Trash bin upgrade Trash Car
+   - Score, Menu/Buttons, Earth health bar.
+   - enemy spawn

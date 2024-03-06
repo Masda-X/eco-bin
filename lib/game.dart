@@ -3,8 +3,7 @@ import 'dart:math' as math;
 import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
-import 'package:earth/enemy_creator.dart';
-import 'package:earth/plastic.dart';
+
 import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
 import 'package:earth/test.dart';

@@ -19,7 +19,7 @@ class Plastic extends RectangleComponent
     required super.position,
     required double radius,
     required this.difficultyModifier,
-    this.speed = 400,
+    this.speed = 100,
   }) : super(
             size: Vector2(40, 60),
             // ignore: prefer_const_constructors

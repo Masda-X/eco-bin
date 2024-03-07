@@ -6,6 +6,8 @@ matter.js custom concave collision maski sevmir
 To Do:
    - problem fix: Bottle dunyanin ichinden kechir FIXED
    - sticker style FIXED
+   - You can also use a fixed resolution camera so that you don't have to worry too much 
+     about the sizes of different screens FIXED
    
    - We just require a working URL for the game. 
      Many folks might choose for instance to host their game using Firebase Hosting
@@ -19,3 +21,4 @@ To Do:
    - enemy spawn
    - You can also use a fixed resolution camera so that you don't have to worry too much 
      about the sizes of different screens
+   - Change the radius of the earth to be smaller

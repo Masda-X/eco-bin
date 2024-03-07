@@ -100,22 +100,20 @@ class Plastic extends CircleComponent
       //   velocity.y = -velocity.y;
       // }
     } else if (other is Earth) {
+      removeFromParent();
       (game).onPlasticHit();
-      shouldRotate = true;
-      // Calculate the normal of the collision
-// Calculate the normal of the collision
-      Vector2 collisionNormal = (position - other.position).normalized();
+      // shouldRotate = true;
 
-// Reverse the direction of the plastic object
-      velocity.reflect(collisionNormal);
+      // Vector2 collisionNormal = (position - other.position).normalized();
 
-// Move the plastic object out of the collision
-      while (other.containsPoint(position)) {
-        position += collisionNormal;
-      }
+      // velocity.reflect(collisionNormal);
+
+      // while (other.containsPoint(position)) {
+      //   position += collisionNormal;
+      // }
     } else if (other is Radi) {
       // (game).onPlasticHit();
-      FlameAudio.play('pla_s.wav');
+      FlameAudio.play('pla_s.wav', volume: 0.05);
       removeFromParent();
     } else if (other is Colly) {}
     velocity.setFrom(velocity * difficultyModifier);

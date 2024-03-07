@@ -19,10 +19,10 @@ class Earth extends CircleComponent
   Earth({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          radius: 400,
+          radius: 270,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
+          paint: Paint()..color = Color.fromARGB(0, 244, 67, 54),
         );
 
   // final Paint paint;
@@ -32,12 +32,12 @@ class Earth extends CircleComponent
   Future<void> onLoad() async {
     super.onLoad();
     add(CircleHitbox(
-      radius: 400,
+      radius: 270,
     ));
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
       size: Vector2(540, 535),
-      position: Vector2(127, 80),
+      position: Vector2(0, 0),
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
 

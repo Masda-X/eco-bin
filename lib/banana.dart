@@ -77,7 +77,7 @@ class Banana extends RectangleComponent
       shouldRotate = true;
     } else if (other is Earth) {
       removeFromParent();
-      (game).onPlasticHit();
+      // (game).onPlasticHit();
     } else if (other is Radi) {
       // (game).onPlasticHit();
       // FlameAudio.play('pla_s.wav', volume: 0.05);

@@ -7,6 +7,8 @@ import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
+import 'package:flame_noise/flame_noise.dart';
 // ignore: unused_import
 
 class Plastic extends RectangleComponent
@@ -100,16 +102,23 @@ class Plastic extends RectangleComponent
       // }
     } else if (other is Earth) {
       removeFromParent();
-      (game).onPlasticHit();
+      other.add(
+        SequenceEffect(
+          [
+            MoveEffect.by(
+              Vector2(10, 0),
+              NoiseEffectController(
+                duration: 1,
+                noise: PerlinNoise(frequency: 20),
+              ),
+            ),
+          ],
+          infinite: false,
+        ),
+      );
+
+      // (game).onPlasticHit();
       // shouldRotate = true;
-
-      // Vector2 collisionNormal = (position - other.position).normalized();
-
-      // velocity.reflect(collisionNormal);
-
-      // while (other.containsPoint(position)) {
-      //   position += collisionNormal;
-      // }
     } else if (other is Radi) {
       // (game).onPlasticHit();
       // FlameAudio.play('pla_s.wav', volume: 0.05);

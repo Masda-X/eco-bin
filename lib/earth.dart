@@ -40,7 +40,7 @@ class Earth extends CircleComponent
       position: Vector2(-10, -2),
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
-
+    game.world.add(this);
     // add(
     //   MoveEffect.by(
     //     Vector2(0, 20),
@@ -61,7 +61,35 @@ class Earth extends CircleComponent
   //   position.y = position.y.clamp(minY.toDouble(), maxY.toDouble());
   // }
 
-  // ignore: prefer_const_constructors
+  // FlameAudio.play('crash.wav');
+
+  // void onCollisionStart(
+  //     Set<Vector2> intersectionPoints, PositionComponent other) {
+  //   if (other is Plastic || other is Banana) {
+  //     add(
+  //       SequenceEffect(
+  //         [
+  //           MoveEffect.by(
+  //             Vector2(10, 0),
+  //             NoiseEffectController(
+  //               duration: 1,
+  //               noise: PerlinNoise(frequency: 20),
+  //             ),
+  //           ),
+  //           // MoveEffect.by(Vector2.zero(), LinearEffectController(2)),
+  //           // MoveEffect.by(
+  //           //   Vector2(0, 10),
+  //           //   NoiseEffectController(
+  //           //     duration: 1,
+  //           //     noise: PerlinNoise(frequency: 10),
+  //           //   ),
+  //           // ),
+  //         ],
+  //         infinite: false,
+  //       ),
+  //     );
+  //   }
+  // }
 
   @override
   void onDragEnd(DragEndEvent event) {

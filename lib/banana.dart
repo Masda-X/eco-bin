@@ -7,6 +7,8 @@ import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
+import 'package:flame_noise/flame_noise.dart';
 
 class Banana extends RectangleComponent
     with CollisionCallbacks, HasGameRef<MyGame> {
@@ -77,6 +79,20 @@ class Banana extends RectangleComponent
       shouldRotate = true;
     } else if (other is Earth) {
       removeFromParent();
+      other.add(
+        SequenceEffect(
+          [
+            MoveEffect.by(
+              Vector2(10, 0),
+              NoiseEffectController(
+                duration: 1,
+                noise: PerlinNoise(frequency: 20),
+              ),
+            ),
+          ],
+          infinite: false,
+        ),
+      );
       // (game).onPlasticHit();
     } else if (other is Radi) {
       // (game).onPlasticHit();

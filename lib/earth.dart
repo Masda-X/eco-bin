@@ -40,7 +40,7 @@ class Earth extends CircleComponent
       position: Vector2(-10, -2),
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
-    game.world.add(this);
+    // game.world.add(this);
     // add(
     //   MoveEffect.by(
     //     Vector2(0, 20),

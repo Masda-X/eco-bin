@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/creator_left.dart';
+import 'package:earth/creator_right.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/enemy_creator.dart';
 
@@ -67,13 +68,15 @@ class MyGame extends FlameGame
   bool isCollyAdded = false;
   bool isEnemyCreatorAdded = false;
   bool isCreatorLeftAdded = false;
+  bool isCreatorRightAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
     if (!isPlayerAdded &&
         !isControllerAdded &&
         !isCollyAdded &&
         !isEnemyCreatorAdded &&
-        !isCreatorLeftAdded) {
+        !isCreatorLeftAdded &&
+        !isCreatorRightAdded) {
       world.add(player = Earth(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.red,
@@ -91,6 +94,10 @@ class MyGame extends FlameGame
         paint: Paint()..color = Colors.green,
       ));
       world.add(CreatorLeft(
+        position: Vector2(gameWidth / 2, gameHeight / 2),
+        paint: Paint()..color = Colors.green,
+      ));
+      world.add(CreatorRight(
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.green,
       ));
@@ -117,6 +124,7 @@ class MyGame extends FlameGame
       isCollyAdded = true;
       isEnemyCreatorAdded = true;
       isCreatorLeftAdded = true;
+      isCreatorRightAdded = true;
 
       // for (int i = 0; i < 10; i++) {
       //   final randomX =

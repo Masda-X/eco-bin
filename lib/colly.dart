@@ -69,7 +69,7 @@ class Colly extends CircleComponent with HasGameRef<MyGame> {
 
     // add(SpriteComponent(
     //   sprite: await Sprite.load('heart_a.png'),
-    //   size: Vector2(15, 10),
+    //   size: Vector2(100, 100),
     //   position: Vector2(325, -130),
     // ));
   }

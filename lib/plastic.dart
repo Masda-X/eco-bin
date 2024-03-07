@@ -10,7 +10,7 @@ import 'package:flame/components.dart';
 // ignore: unused_import
 import 'package:flame_audio/flame_audio.dart';
 
-class Plastic extends CircleComponent
+class Plastic extends RectangleComponent
     with CollisionCallbacks, HasGameRef<MyGame> {
   final double speed;
 
@@ -22,9 +22,9 @@ class Plastic extends CircleComponent
     required this.difficultyModifier,
     this.speed = 400,
   }) : super(
-            radius: 20,
+            size: Vector2(40, 85),
             // ignore: prefer_const_constructors
-            paint: Paint()..color = Color.fromARGB(0, 207, 181, 14),
+            paint: Paint()..color = Color.fromARGB(255, 207, 181, 14),
             anchor: Anchor.center,
             children: [CircleHitbox()]);
 

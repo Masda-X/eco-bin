@@ -76,6 +76,7 @@ class Plastic extends CircleComponent
     super.onCollisionStart(intersectionPoints, other);
     shouldRotate = true;
     if (other is PlayArea) {
+      shouldRotate = true;
       // final collisionPoint = intersectionPoints.first;
 
       // // Left Side Collision

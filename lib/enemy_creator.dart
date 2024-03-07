@@ -21,7 +21,7 @@ class EnemyCreator extends CircleComponent
       : super(
           anchor: Anchor.center,
           radius: 200,
-          position: Vector2(800, -100),
+          position: Vector2(800, -400),
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         );

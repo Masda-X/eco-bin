@@ -21,9 +21,9 @@ class Plastic extends RectangleComponent
     required this.difficultyModifier,
     this.speed = 400,
   }) : super(
-            size: Vector2(35, 65),
+            size: Vector2(35, 55),
             // ignore: prefer_const_constructors
-            paint: Paint()..color = Color.fromARGB(255, 207, 181, 14),
+            paint: Paint()..color = Color.fromARGB(0, 207, 181, 14),
             anchor: Anchor.center,
             children: [CircleHitbox()]);
 

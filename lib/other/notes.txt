@@ -22,4 +22,5 @@ To Do:
    - Score
    - Menu/Buttons
    - Earth health bar
+   - nerf the trash speed
    

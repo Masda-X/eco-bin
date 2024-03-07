@@ -9,6 +9,7 @@ import 'package:earth/enemy_creator.dart';
 
 import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
+import 'package:earth/start_button.dart';
 import 'package:earth/test.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -41,6 +42,7 @@ class MyGame extends FlameGame
   late final Test test;
   late final Radi controller;
   late final Earth player;
+  late final Start startButton;
 
   final rand = math.Random();
   double get width => size.x;
@@ -54,6 +56,8 @@ class MyGame extends FlameGame
   @override
   Future<void> onLoad() async {
     world.add(PlayArea());
+    startButton = Start();
+    world.add(startButton);
 
     // world.add(TextComponent(
     //   text: 'Click to Play',
@@ -101,6 +105,7 @@ class MyGame extends FlameGame
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.green,
       ));
+      startButton.removeFromParent();
 
       // List<Vector2> positions = [
       //   Vector2(gameWidth * 0.25, gameHeight * 0.25),

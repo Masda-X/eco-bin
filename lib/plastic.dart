@@ -13,14 +13,13 @@ import 'package:flame_audio/flame_audio.dart';
 class Plastic extends CircleComponent
     with CollisionCallbacks, HasGameRef<MyGame> {
   final double speed;
-  final Earth earth;
+
   static const double plasticSize = 50.0;
   Plastic({
     required this.velocity,
     required super.position,
     required double radius,
     required this.difficultyModifier,
-    required this.earth,
     this.speed = 400,
   }) : super(
             radius: 20,
@@ -56,11 +55,6 @@ class Plastic extends CircleComponent
     }
   }
 
-  void moveTowardsEarth(Earth earth) {
-    Vector2 direction = (earth.position - position).normalized();
-    velocity.setFrom(direction * speed);
-  }
-
   @override
   Future<void> onLoad() async {
     super.onLoad();
@@ -71,9 +65,9 @@ class Plastic extends CircleComponent
       position: Vector2(width / 2, height / 2), // BU ONEMLIDI
       priority: 1,
     ));
+    game.world.add(this);
 
     // Move towards the Earth
-    moveTowardsEarth(earth);
   }
 
   @override
@@ -118,10 +112,10 @@ class Plastic extends CircleComponent
       while (other.containsPoint(position)) {
         position += collisionNormal;
       }
-    } else if (other is Radi) {
-      // (game).onPlasticHit();
-      // FlameAudio.play('crash.wav');
-      removeFromParent();
+      // } else if (other is Radi) {
+      //   // (game).onPlasticHit();
+      //   // FlameAudio.play('crash.wav');
+      //   removeFromParent();
     } else if (other is Colly) {}
     velocity.setFrom(velocity * difficultyModifier);
   }

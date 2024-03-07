@@ -14,7 +14,7 @@ class Colly extends CircleComponent with HasGameRef<MyGame> {
           radius: 400,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(0, 15, 168, 206),
+          paint: Paint()..color = Color.fromARGB(0, 254, 254, 254),
         );
   double angularVelocity = 0.0;
   final double angularAcceleration = 0.0005;

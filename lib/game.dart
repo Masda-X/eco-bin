@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
+import 'package:earth/enemy_creator.dart';
 
 import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
@@ -82,12 +83,10 @@ class MyGame extends FlameGame
         position: Vector2(gameWidth / 2, gameHeight / 2),
         paint: Paint()..color = Colors.yellow,
       ));
-      // world.add(EnemyCreator(
-      //   Earth(
-      //     position: Vector2(gameWidth / 2, gameHeight / 2),
-      //     paint: Paint()..color = Colors.red,
-      //   ),
-      // ));
+      world.add(EnemyCreator(
+        position: Vector2(gameWidth / 2, gameHeight / 2),
+        paint: Paint()..color = Colors.green,
+      ));
 
       // List<Vector2> positions = [
       //   Vector2(gameWidth * 0.25, gameHeight * 0.25),

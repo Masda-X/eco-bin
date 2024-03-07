@@ -11,7 +11,7 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
   Radi({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          radius: 400,
+          radius: 300,
           position: Vector2(960, 1000),
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(0, 255, 255, 255),
@@ -64,13 +64,13 @@ class Radi extends CircleComponent with HasGameRef<MyGame> {
     super.onLoad();
     add(RectangleHitbox(
       size: Vector2(100, 10),
-      position: Vector2(350, -120),
+      position: Vector2(250, -120),
     ));
 
     add(SpriteComponent(
       sprite: await Sprite.load('bin.png'),
       size: Vector2(150, 110),
-      position: Vector2(325, -130),
+      position: Vector2(225, -130),
     ));
   }
 }

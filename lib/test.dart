@@ -87,16 +87,16 @@ class Test extends CircleComponent
       //   paint = Paint()..color = Color.fromARGB(0, 244, 127, 54);
       // });
     }
-    if (other is Colly) {
-      final collisionText = TextComponent(
-        text: 'Boom!',
-      );
-      add(collisionText);
+    // if (other is Colly) {
+    //   final collisionText = TextComponent(
+    //     text: 'Boom!',
+    //   );
+    //   add(collisionText);
 
-      // Remove the text after 1 second
-      Future.delayed(const Duration(seconds: 1), () {
-        remove(collisionText);
-      });
-    }
+    //   // Remove the text after 1 second
+    //   Future.delayed(const Duration(seconds: 1), () {
+    //     remove(collisionText);
+    //   });
+    // }
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:earth/banana.dart';
 import 'package:earth/game.dart';
 import 'package:earth/plastic.dart';
 
@@ -29,6 +30,7 @@ class EnemyCreator extends CircleComponent
   late final Random _random;
   late final Vector2 gameSize;
   late final Plastic plastic;
+  late final Banana banana;
 
   @override
   Future<void> onLoad() async {
@@ -42,6 +44,42 @@ class EnemyCreator extends CircleComponent
             2.toDouble(), // Random interval between 1 to 3 seconds
         autoStart: true,
       ),
+    );
+    add(SpawnComponent(
+      factory: (index) => createRandomBanana(),
+      period: _random.nextInt(3) + 7.toDouble(),
+      autoStart: true,
+    ));
+  }
+
+  Banana createRandomBanana() {
+    // Randomly choose an edge: 0 for left, 1 for top, 2 for right
+    int edge = _random.nextInt(3);
+    Vector2 position;
+    const double speed = 400.0;
+
+    switch (edge) {
+      // case 0: // Left edge
+      //   position =
+      //       Vector2(-Plastic.plasticSize, _random.nextDouble() * gameSize.y);
+      //   break;
+      case 1: // Top edge
+        position =
+            Vector2(_random.nextDouble() * gameSize.x, -Banana.bananaSize);
+        break;
+      // case 2: // Right edge
+      //   position = Vector2(gameSize.x + Plastic.plasticSize,
+      //       _random.nextDouble() * gameSize.y);
+      //   break;
+      default:
+        position = Vector2.zero();
+    }
+    Vector2 velocity = Vector2(0, speed);
+    return Banana(
+      position: position,
+      radius: Banana.bananaSize,
+      difficultyModifier: 1,
+      velocity: velocity,
     );
   }
 

@@ -12,7 +12,7 @@ class Banana extends RectangleComponent
     with CollisionCallbacks, HasGameRef<MyGame> {
   final double speed;
 
-  static const double plasticSize = 50.0;
+  static const double bananaSize = 50.0;
   Banana({
     required this.velocity,
     required super.position,

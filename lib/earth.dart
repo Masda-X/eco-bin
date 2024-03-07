@@ -20,7 +20,7 @@ class Earth extends CircleComponent
       : super(
           anchor: Anchor.center,
           radius: 310,
-          position: Vector2(960, 1000),
+          position: Vector2(960, 990),
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         );

@@ -8,7 +8,6 @@ import 'package:earth/radi.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 // ignore: unused_import
-import 'package:flame_audio/flame_audio.dart';
 
 class Plastic extends RectangleComponent
     with CollisionCallbacks, HasGameRef<MyGame> {
@@ -22,7 +21,7 @@ class Plastic extends RectangleComponent
     required this.difficultyModifier,
     this.speed = 400,
   }) : super(
-            size: Vector2(40, 85),
+            size: Vector2(35, 65),
             // ignore: prefer_const_constructors
             paint: Paint()..color = Color.fromARGB(255, 207, 181, 14),
             anchor: Anchor.center,
@@ -113,7 +112,7 @@ class Plastic extends RectangleComponent
       // }
     } else if (other is Radi) {
       // (game).onPlasticHit();
-      FlameAudio.play('pla_s.wav', volume: 0.05);
+      // FlameAudio.play('pla_s.wav', volume: 0.05);
       removeFromParent();
     } else if (other is Colly) {}
     velocity.setFrom(velocity * difficultyModifier);

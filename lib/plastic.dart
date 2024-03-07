@@ -21,7 +21,7 @@ class Plastic extends RectangleComponent
     required this.difficultyModifier,
     this.speed = 400,
   }) : super(
-            size: Vector2(35, 55),
+            size: Vector2(40, 60),
             // ignore: prefer_const_constructors
             paint: Paint()..color = Color.fromARGB(0, 207, 181, 14),
             anchor: Anchor.center,
@@ -60,7 +60,7 @@ class Plastic extends RectangleComponent
     add(SpriteComponent(
       sprite: await game.loadSprite("plastic_a.png"),
       anchor: Anchor.center,
-      size: Vector2(40, 85),
+      size: Vector2(50, 95),
       position: Vector2(width / 2, height / 2), // BU ONEMLIDI
       priority: 1,
     ));

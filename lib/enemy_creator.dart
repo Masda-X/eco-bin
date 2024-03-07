@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
 import 'package:earth/plastic.dart';
 
@@ -8,7 +7,6 @@ import 'package:flame/components.dart';
 
 import 'package:flame/events.dart';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class EnemyCreator extends CircleComponent
@@ -22,8 +20,8 @@ class EnemyCreator extends CircleComponent
   EnemyCreator({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
-          radius: 400,
-          position: Vector2(960, -200),
+          radius: 200,
+          position: Vector2(800, -100),
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         );
@@ -51,29 +49,30 @@ class EnemyCreator extends CircleComponent
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
     int edge = _random.nextInt(3);
     Vector2 position;
+    const double speed = 400.0;
 
     switch (edge) {
-      case 0: // Left edge
-        position =
-            Vector2(-Plastic.plasticSize, _random.nextDouble() * gameSize.y);
-        break;
+      // case 0: // Left edge
+      //   position =
+      //       Vector2(-Plastic.plasticSize, _random.nextDouble() * gameSize.y);
+      //   break;
       case 1: // Top edge
         position =
             Vector2(_random.nextDouble() * gameSize.x, -Plastic.plasticSize);
         break;
-      case 2: // Right edge
-        position = Vector2(gameSize.x + Plastic.plasticSize,
-            _random.nextDouble() * gameSize.y);
-        break;
+      // case 2: // Right edge
+      //   position = Vector2(gameSize.x + Plastic.plasticSize,
+      //       _random.nextDouble() * gameSize.y);
+      //   break;
       default:
         position = Vector2.zero();
     }
-
+    Vector2 velocity = Vector2(0, speed);
     return Plastic(
       position: position,
       radius: Plastic.plasticSize,
       difficultyModifier: 1,
-      velocity: position - gameSize / 2,
+      velocity: velocity,
     );
   }
 
@@ -87,37 +86,5 @@ class EnemyCreator extends CircleComponent
     // const maxY = 1020; // 10% margin on the bottom
     // position.x = position.x.clamp(minX.toDouble(), maxX.toDouble());
     // position.y = position.y.clamp(minY.toDouble(), maxY.toDouble());
-  }
-
-  @override
-  void onDragEnd(DragEndEvent event) {
-    super.onDragEnd(event);
-    if (kDebugMode) {
-      print('Drag ended');
-    }
-  }
-
-  @override
-  void onDragStart(DragStartEvent event) {
-    super.onDragStart(event);
-    if (kDebugMode) {
-      print('Drag started');
-    }
-  }
-
-  @override
-  void onTapUp(event) {}
-
-  @override
-  void onDoubleTapDown(DoubleTapDownEvent event) {}
-
-  @override
-  void onTapCancel(event) {}
-
-  @override
-  void onHoverEnter() {}
-  @override
-  bool containsPoint(Vector2 point) {
-    return position.distanceTo(point) <= size.x / 2;
   }
 }

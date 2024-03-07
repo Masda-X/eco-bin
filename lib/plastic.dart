@@ -76,28 +76,28 @@ class Plastic extends CircleComponent
     super.onCollisionStart(intersectionPoints, other);
     shouldRotate = true;
     if (other is PlayArea) {
-      final collisionPoint = intersectionPoints.first;
+      // final collisionPoint = intersectionPoints.first;
 
-      // Left Side Collision
-      if (collisionPoint.x == 0) {
-        velocity.x = -velocity.x;
-        velocity.y = velocity.y;
-      }
-      // Right Side Collision
-      if (collisionPoint.x == game.size.x) {
-        velocity.x = -velocity.x;
-        velocity.y = velocity.y;
-      }
-      // Top Side Collision
-      if (collisionPoint.y == 0) {
-        velocity.x = velocity.x;
-        velocity.y = -velocity.y;
-      }
-      // Bottom Side Collision
-      if (collisionPoint.y == game.size.y) {
-        velocity.x = velocity.x;
-        velocity.y = -velocity.y;
-      }
+      // // Left Side Collision
+      // if (collisionPoint.x == 0) {
+      //   velocity.x = -velocity.x;
+      //   velocity.y = velocity.y;
+      // }
+      // // Right Side Collision
+      // if (collisionPoint.x == game.size.x) {
+      //   velocity.x = -velocity.x;
+      //   velocity.y = velocity.y;
+      // }
+      // // Top Side Collision
+      // if (collisionPoint.y == 0) {
+      //   velocity.x = velocity.x;
+      //   velocity.y = -velocity.y;
+      // }
+      // // Bottom Side Collision
+      // if (collisionPoint.y == game.size.y) {
+      //   velocity.x = velocity.x;
+      //   velocity.y = -velocity.y;
+      // }
     } else if (other is Earth) {
       (game).onPlasticHit();
       shouldRotate = true;
@@ -112,10 +112,10 @@ class Plastic extends CircleComponent
       while (other.containsPoint(position)) {
         position += collisionNormal;
       }
-      // } else if (other is Radi) {
-      //   // (game).onPlasticHit();
-      //   // FlameAudio.play('crash.wav');
-      //   removeFromParent();
+    } else if (other is Radi) {
+      // (game).onPlasticHit();
+      // FlameAudio.play('crash.wav');
+      removeFromParent();
     } else if (other is Colly) {}
     velocity.setFrom(velocity * difficultyModifier);
   }

@@ -47,7 +47,8 @@ class EnemyCreator extends CircleComponent
     );
     add(SpawnComponent(
       factory: (index) => createRandomBanana(),
-      period: _random.nextInt(3) + 7.toDouble(),
+      period: _random.nextInt(10) +
+          10.toDouble(), // Random interval between 1 to 3 seconds
       autoStart: true,
     ));
   }

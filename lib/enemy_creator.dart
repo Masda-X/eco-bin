@@ -21,7 +21,7 @@ class EnemyCreator extends CircleComponent
       : super(
           anchor: Anchor.center,
           radius: 200,
-          position: Vector2(800, -400),
+          position: Vector2(750, -400),
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         );
@@ -39,7 +39,7 @@ class EnemyCreator extends CircleComponent
       SpawnComponent(
         factory: (index) => createRandomPlastic(),
         period: _random.nextInt(3) +
-            1.toDouble(), // Random interval between 1 to 3 seconds
+            2.toDouble(), // Random interval between 1 to 3 seconds
         autoStart: true,
       ),
     );

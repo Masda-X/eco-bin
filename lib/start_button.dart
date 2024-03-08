@@ -23,10 +23,6 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   late final Radi controller;
   late final Earth player;
 
-  // @override
-  // void onTapDown(TapDownEvent event) {
-  //   removeFromParent();
-  // }
   bool isPlayerAdded = false;
   bool isControllerAdded = false;
   bool isTestAdded = false;

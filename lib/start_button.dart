@@ -56,7 +56,7 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
         ]),
       ),
     );
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 400), () {
       if (!isPlayerAdded &&
           !isControllerAdded &&
           !isCollyAdded &&
@@ -81,22 +81,22 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
         ));
         removeFromParent();
 
-        // List<Vector2> positions = [
-        //   Vector2(gameWidth * 0.25, gameHeight * 0.25),
-        //   Vector2(gameWidth * 0.75, gameHeight * 0.25),
-        //   Vector2(gameWidth * 0.25, gameHeight * 0.75),
-        //   Vector2(gameWidth * 0.75, gameHeight * 0.75),
-        // ];
+        List<Vector2> positions = [
+          Vector2(gameWidth * 0.25, gameHeight * 0.25),
+          Vector2(gameWidth * 0.75, gameHeight * 0.25),
+          Vector2(gameWidth * 0.25, gameHeight * 0.75),
+          Vector2(gameWidth * 0.75, gameHeight * 0.75),
+        ];
 
-        // for (int i = 0; i < 4; i++) {
-        //   Test test = Test(
-        //     position: Vector2.zero(),
-        //     paint: Paint()..color = Colors.green,
-        //   );
-        //   test.x = positions[i].x;
-        //   test.y = positions[i].y;
-        //   world.add(test);
-        // }
+        for (int i = 0; i < 4; i++) {
+          Test test = Test(
+            position: Vector2.zero(),
+            paint: Paint()..color = Colors.green,
+          );
+          test.x = positions[i].x;
+          test.y = positions[i].y;
+          game.world.add(test);
+        }
 
         isPlayerAdded = true;
         isControllerAdded = true;

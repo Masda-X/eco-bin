@@ -22,7 +22,7 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
     height = 135;
     x = 100;
     y = 100;
-    position = Vector2(950, 450);
+    position = Vector2(954, 500);
     anchor = Anchor.center;
   }
   late final SpriteComponent sprite;

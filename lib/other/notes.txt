@@ -11,6 +11,7 @@ To Do:
    - enemy spawn FIXED
    - Change the radius of the earth to be smaller FIXED
    - nerf the trash speed FIXED
+   - Pause/Resume FIXED
    
    - We just require a working URL for the game. 
      Many folks might choose for instance to host their game using Firebase Hosting
@@ -23,7 +24,7 @@ To Do:
    - Score
    - Menu/Buttons
    - Earth health bar
-   - Pause/Resume
+   
 
 
     CREDITS:

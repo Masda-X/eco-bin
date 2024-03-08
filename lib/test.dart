@@ -9,7 +9,6 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
-import 'package:flame/game.dart';
 // ignore: unnecessary_import
 import 'package:flame/palette.dart';
 

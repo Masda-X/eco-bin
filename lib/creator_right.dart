@@ -40,14 +40,14 @@ class CreatorRight extends CircleComponent
     add(
       SpawnComponent(
         factory: (index) => createRandomPlastic(),
-        period: _random.nextInt(3) +
+        period: _random.nextInt(13) +
             2.toDouble(), // Random interval between 1 to 3 seconds
         autoStart: true,
       ),
     );
     add(SpawnComponent(
       factory: (index) => createRandomBanana(),
-      period: _random.nextInt(10) +
+      period: _random.nextInt(19) +
           10.toDouble(), // Random interval between 1 to 3 seconds
       autoStart: true,
     ));
@@ -55,7 +55,7 @@ class CreatorRight extends CircleComponent
 
   Banana createRandomBanana() {
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
-    int edge = _random.nextInt(3);
+    int edge = _random.nextInt(7);
     Vector2 position;
     const double speed = 200.0;
 
@@ -86,7 +86,7 @@ class CreatorRight extends CircleComponent
 
   Plastic createRandomPlastic() {
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
-    int edge = _random.nextInt(3);
+    int edge = _random.nextInt(5);
     Vector2 position;
     const double speed = 200.0;
 

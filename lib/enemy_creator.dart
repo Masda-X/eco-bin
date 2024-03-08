@@ -40,7 +40,7 @@ class EnemyCreator extends CircleComponent
     add(
       SpawnComponent(
         factory: (index) => createRandomPlastic(),
-        period: _random.nextInt(3) +
+        period: _random.nextInt(13) +
             2.toDouble(), // Random interval between 1 to 3 seconds
         autoStart: true,
       ),
@@ -48,7 +48,7 @@ class EnemyCreator extends CircleComponent
     add(SpawnComponent(
       factory: (index) => createRandomBanana(),
       period: _random.nextInt(10) +
-          10.toDouble(), // Random interval between 1 to 3 seconds
+          5.toDouble(), // Random interval between 1 to 3 seconds
       autoStart: true,
     ));
   }
@@ -86,7 +86,7 @@ class EnemyCreator extends CircleComponent
 
   Plastic createRandomPlastic() {
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
-    int edge = _random.nextInt(3);
+    int edge = _random.nextInt(5);
     Vector2 position;
     const double speed = 200.0;
 

@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 
 class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   // ignore: prefer_const_constructors
-  Start() : super(paint: Paint()..color = Color.fromARGB(255, 33, 149, 243)) {
+  Start() : super(paint: Paint()..color = Color.fromARGB(0, 33, 149, 243)) {
     width = 640;
     height = 135;
     x = 100;
@@ -49,11 +49,10 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   bool isCreatorRightAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
-    anchor = Anchor.center;
     // Add the scale effect
     add(
       ScaleEffect.to(
-        Vector2.all(1.2),
+        Vector2.all(0.9),
         SequenceEffectController([
           LinearEffectController(0.1),
           ReverseLinearEffectController(0.1),

@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
+import 'package:earth/earth.dart';
 
 import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
@@ -36,6 +36,8 @@ class MyGame extends FlameGame
   late final Test test;
   late final Radi controller;
 
+  late final Earth player;
+
   late final Start startButton;
 
   final rand = math.Random();
@@ -52,6 +54,14 @@ class MyGame extends FlameGame
     world.add(PlayArea());
     startButton = Start();
     world.add(startButton);
+    world.add(player = Earth(
+      position: Vector2(gameWidth / 2, gameHeight / 2),
+      paint: Paint()..color = Colors.red,
+    ));
+    world.add(controller = Radi(
+      position: Vector2(gameWidth / 2, gameHeight / 2),
+      paint: Paint()..color = Colors.blue,
+    ));
 
     // world.add(TextComponent(
     //   text: 'Click to Play',
@@ -83,15 +93,15 @@ class MyGame extends FlameGame
         final radi = world.children.query<Radi>().first;
         radi.angularVelocity -= radi.angularAcceleration;
 
-        final colly = world.children.query<Colly>().first;
-        colly.angularVelocity -= colly.angularAcceleration;
+        // final colly = world.children.query<Colly>().first;
+        // colly.angularVelocity -= colly.angularAcceleration;
       }
       if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
         final radi = world.children.query<Radi>().first;
         radi.angularVelocity += radi.angularAcceleration;
 
-        final colly = world.children.query<Colly>().first;
-        colly.angularVelocity += colly.angularAcceleration;
+        // final colly = world.children.query<Colly>().first;
+        // colly.angularVelocity += colly.angularAcceleration;
       }
       keyJustPressed = false;
     }

@@ -4,10 +4,10 @@ import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/creator_left.dart';
 import 'package:earth/creator_right.dart';
-import 'package:earth/earth.dart';
+
 import 'package:earth/enemy_creator.dart';
 import 'package:earth/game.dart';
-import 'package:earth/radi.dart';
+
 import 'package:earth/test.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -22,22 +22,20 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
     height = 135;
     x = 100;
     y = 100;
-    position = Vector2(950, 550);
+    position = Vector2(950, 450);
     anchor = Anchor.center;
   }
 
   @override
   FutureOr<void> onLoad() async {
     add(SpriteComponent(
-        sprite: await Sprite.load('play_button.png'),
-        size: Vector2(440, 135),
+        sprite: await Sprite.load('click.png'),
+        size: Vector2(440, 50),
         position: Vector2(220, 68),
         anchor: Anchor.center));
   }
 
   late final Test test;
-  late final Radi controller;
-  late final Earth player;
 
   bool isPlayerAdded = false;
   bool isControllerAdded = false;
@@ -65,14 +63,6 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
           !isEnemyCreatorAdded &&
           !isCreatorLeftAdded &&
           !isCreatorRightAdded) {
-        game.world.add(player = Earth(
-          position: Vector2(gameWidth / 2, gameHeight / 2),
-          paint: Paint()..color = Colors.red,
-        ));
-        game.world.add(controller = Radi(
-          position: Vector2(gameWidth / 2, gameHeight / 2),
-          paint: Paint()..color = Colors.blue,
-        ));
         game.world.add(Colly(
           position: Vector2(gameWidth / 2, gameHeight / 2),
           paint: Paint()..color = Colors.yellow,

@@ -23,6 +23,7 @@ To Do:
    - Score
    - Menu/Buttons
    - Earth health bar
+   - Pause/Resume
 
 
     CREDITS:

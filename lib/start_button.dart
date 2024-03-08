@@ -58,7 +58,7 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
         ]),
       ),
     );
-    Future.delayed(const Duration(seconds: 30), () {
+    Future.delayed(const Duration(seconds: 1), () {
       if (!isPlayerAdded &&
           !isControllerAdded &&
           !isCollyAdded &&

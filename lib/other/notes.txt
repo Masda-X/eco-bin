@@ -23,5 +23,9 @@ To Do:
    - Score
    - Menu/Buttons
    - Earth health bar
+
+
+    CREDITS:
+   - font used FirstTimeWriting by GGBotNet
    
    

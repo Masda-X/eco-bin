@@ -10,6 +10,7 @@ To Do:
      about the sizes of different screens FIXED
    - enemy spawn FIXED
    - Change the radius of the earth to be smaller FIXED
+   - nerf the trash speed FIXED
    
    - We just require a working URL for the game. 
      Many folks might choose for instance to host their game using Firebase Hosting
@@ -22,5 +23,5 @@ To Do:
    - Score
    - Menu/Buttons
    - Earth health bar
-   - nerf the trash speed
+   
    

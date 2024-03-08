@@ -57,7 +57,7 @@ class EnemyCreator extends CircleComponent
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
     int edge = _random.nextInt(3);
     Vector2 position;
-    const double speed = 400.0;
+    const double speed = 200.0;
 
     switch (edge) {
       // case 0: // Left edge
@@ -88,7 +88,7 @@ class EnemyCreator extends CircleComponent
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
     int edge = _random.nextInt(3);
     Vector2 position;
-    const double speed = 400.0;
+    const double speed = 200.0;
 
     switch (edge) {
       // case 0: // Left edge

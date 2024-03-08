@@ -57,7 +57,7 @@ class CreatorLeft extends CircleComponent
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
     int edge = _random.nextInt(3);
     Vector2 position;
-    const double speed = 300.0;
+    const double speed = 200.0;
 
     switch (edge) {
       case 0: // Left edge
@@ -75,7 +75,7 @@ class CreatorLeft extends CircleComponent
       default:
         position = Vector2.zero();
     }
-    Vector2 velocity = Vector2(300, speed);
+    Vector2 velocity = Vector2(200, speed);
     return Banana(
       position: position,
       radius: Banana.bananaSize,
@@ -88,7 +88,7 @@ class CreatorLeft extends CircleComponent
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
     int edge = _random.nextInt(3);
     Vector2 position;
-    const double speed = 300.0;
+    const double speed = 200.0;
 
     switch (edge) {
       // case 0: // Left edge
@@ -106,7 +106,7 @@ class CreatorLeft extends CircleComponent
       default:
         position = Vector2.zero();
     }
-    Vector2 velocity = Vector2(300, speed);
+    Vector2 velocity = Vector2(200, speed);
     return Plastic(
       position: position,
       radius: Plastic.plasticSize,

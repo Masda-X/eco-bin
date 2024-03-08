@@ -25,14 +25,24 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
     position = Vector2(950, 450);
     anchor = Anchor.center;
   }
-
+  late final SpriteComponent sprite;
   @override
   FutureOr<void> onLoad() async {
-    add(SpriteComponent(
+    sprite = SpriteComponent(
         sprite: await Sprite.load('click.png'),
         size: Vector2(440, 50),
         position: Vector2(220, 68),
-        anchor: Anchor.center));
+        anchor: Anchor.center);
+    add(sprite);
+    sprite.add(
+      OpacityEffect.fadeOut(
+        EffectController(
+          duration: 0.7,
+          reverseDuration: 1.0,
+          infinite: true,
+        ),
+      ),
+    );
   }
 
   late final Test test;

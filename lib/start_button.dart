@@ -17,8 +17,8 @@ import 'package:flutter/material.dart';
 
 class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   // ignore: prefer_const_constructors
-  Start() : super(paint: Paint()..color = Color.fromARGB(0, 33, 149, 243)) {
-    width = 640;
+  Start() : super(paint: Paint()..color = Color.fromARGB(0, 29, 144, 239)) {
+    width = 440;
     height = 135;
     x = 100;
     y = 100;
@@ -30,8 +30,8 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   FutureOr<void> onLoad() async {
     add(SpriteComponent(
         sprite: await Sprite.load('play_button.png'),
-        size: Vector2(640, 135),
-        position: Vector2(320, 68),
+        size: Vector2(440, 135),
+        position: Vector2(220, 68),
         anchor: Anchor.center));
   }
 

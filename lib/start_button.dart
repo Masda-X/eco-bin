@@ -44,7 +44,15 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   bool isCreatorRightAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
-    Future.delayed(const Duration(seconds: 5), () {
+    width *= 0.9;
+    height *= 0.9;
+
+    // After a short delay, restore the original size of the button
+    Future.delayed(const Duration(milliseconds: 200), () {
+      width /= 0.9;
+      height /= 0.9;
+    });
+    Future.delayed(const Duration(seconds: 3), () {
       if (!isPlayerAdded &&
           !isControllerAdded &&
           !isCollyAdded &&
@@ -100,24 +108,6 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
         isEnemyCreatorAdded = true;
         isCreatorLeftAdded = true;
         isCreatorRightAdded = true;
-
-        // for (int i = 0; i < 10; i++) {
-        //   final randomX =
-        //       rand.nextDouble() * (gameWidth - plasticRadius * 2) + plasticRadius;
-        //   final randomY =
-        //       rand.nextDouble() * (gameHeight * 0.6 - plasticRadius * 2) +
-        //           plasticRadius;
-
-        //   world.add(Plastic(
-        //     difficultyModifier: difficultyModifier,
-        //     radius: plasticRadius,
-        //     position: Vector2(randomX, randomY),
-        //     velocity: Vector2((rand.nextDouble() - 0.5) * width, height * 0.2)
-        //         .normalized()
-        //       ..scale(height / 4),
-        //     earth: player,
-        //   ));
-        // }
       }
     });
   }

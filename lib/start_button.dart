@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/creator_left.dart';
@@ -12,13 +14,22 @@ import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 
 class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
-  Start() {
-    width = 200;
-    height = 150;
+  Start() : super(paint: Paint()..color = Color.fromARGB(255, 33, 149, 243)) {
+    width = 640;
+    height = 135;
     x = 100;
     y = 100;
-    position = Vector2(900, 400);
+    position = Vector2(630, 450);
   }
+  @override
+  FutureOr<void> onLoad() async {
+    add(SpriteComponent(
+      sprite: await Sprite.load('play_button.png'),
+      size: Vector2(640, 135),
+      position: Vector2(0, 0),
+    ));
+  }
+
   late final Test test;
   late final Radi controller;
   late final Earth player;

@@ -23,5 +23,10 @@ class PlayArea extends RectangleComponent with HasGameReference<MyGame> {
     size = Vector2(gameWidth, gameHeight);
     position = Vector2(0, 0);
     anchor = Anchor.topLeft;
+    // add(SpriteComponent(
+    //     sprite: await Sprite.load('bg.png'),
+    //     size: size,
+    //     position: Vector2(0, 0),
+    //     priority: 0));
   }
 }

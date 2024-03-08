@@ -18,46 +18,22 @@ import 'package:flutter/material.dart';
 
 class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   // ignore: prefer_const_constructors
-  Start() : super(paint: Paint()..color = Color.fromARGB(0, 33, 149, 243)) {
-    const smallR = 15.0;
-    const bigR = 30.0;
-    shape = Path()..moveTo(bigR, 0);
-    for (var i = 1; i < 10; i++) {
-      final r = i.isEven ? bigR : smallR;
-      final a = i / 10 * tau;
-      shape.lineTo(r * cos(a), r * sin(a));
-    }
-    shape.close();
-
+  Start() : super(paint: Paint()..color = Color.fromARGB(255, 33, 149, 243)) {
     width = 640;
     height = 135;
     x = 100;
     y = 100;
-    position = Vector2(630, 450);
+    position = Vector2(950, 550);
+    anchor = Anchor.center;
   }
-  late final Path shape;
+
   @override
   FutureOr<void> onLoad() async {
     add(SpriteComponent(
-      sprite: await Sprite.load('play_button.png'),
-      size: Vector2(640, 135),
-      position: Vector2(0, 0),
-    ));
-    add(
-      ScaleEffect.to(
-        Vector2.all(1.2),
-        InfiniteEffectController(
-          SequenceEffectController([
-            LinearEffectController(0.1),
-            ReverseLinearEffectController(0.1),
-            RandomEffectController.exponential(
-              PauseEffectController(1, progress: 0),
-              beta: 1,
-            ),
-          ]),
-        ),
-      ),
-    );
+        sprite: await Sprite.load('play_button.png'),
+        size: Vector2(640, 135),
+        position: Vector2(320, 68),
+        anchor: Anchor.center));
   }
 
   late final Test test;
@@ -73,7 +49,18 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   bool isCreatorRightAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
-    Future.delayed(const Duration(seconds: 3), () {
+    anchor = Anchor.center;
+    // Add the scale effect
+    add(
+      ScaleEffect.to(
+        Vector2.all(1.2),
+        SequenceEffectController([
+          LinearEffectController(0.1),
+          ReverseLinearEffectController(0.1),
+        ]),
+      ),
+    );
+    Future.delayed(const Duration(seconds: 30), () {
       if (!isPlayerAdded &&
           !isControllerAdded &&
           !isCollyAdded &&

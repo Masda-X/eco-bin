@@ -14,6 +14,7 @@ import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 
 class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
+  // ignore: prefer_const_constructors
   Start() : super(paint: Paint()..color = Color.fromARGB(255, 33, 149, 243)) {
     width = 640;
     height = 135;

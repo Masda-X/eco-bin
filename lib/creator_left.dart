@@ -40,7 +40,7 @@ class CreatorLeft extends CircleComponent
     add(
       SpawnComponent(
         factory: (index) => createRandomPlastic(),
-        period: _random.nextInt(30) +
+        period: _random.nextInt(15) +
             2.toDouble(), // Random interval between 1 to 3 seconds
         autoStart: true,
       ),

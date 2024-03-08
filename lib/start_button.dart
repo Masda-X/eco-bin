@@ -44,14 +44,6 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   bool isCreatorRightAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
-    width *= 0.9;
-    height *= 0.9;
-
-    // After a short delay, restore the original size of the button
-    Future.delayed(const Duration(milliseconds: 200), () {
-      width /= 0.9;
-      height /= 0.9;
-    });
     Future.delayed(const Duration(seconds: 3), () {
       if (!isPlayerAdded &&
           !isControllerAdded &&

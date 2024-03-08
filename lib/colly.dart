@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:earth/game.dart';
-import 'package:flame/collisions.dart';
+
 import 'package:flame/components.dart';
 
 import 'package:flutter/material.dart';
@@ -60,12 +60,13 @@ class Colly extends CircleComponent with HasGameRef<MyGame> {
   }
 
   @override
+  // ignore: unnecessary_overrides
   Future<void> onLoad() async {
     super.onLoad();
-    add(RectangleHitbox(
-      size: Vector2(140, 100),
-      position: Vector2(330, -120),
-    ));
+    // add(RectangleHitbox(
+    //   size: Vector2(140, 100),
+    //   position: Vector2(330, -120),
+    // ));
 
     // add(SpriteComponent(
     //   sprite: await Sprite.load('heart_a.png'),

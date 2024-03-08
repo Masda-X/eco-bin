@@ -9,6 +9,7 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
+import 'package:flame/game.dart';
 // ignore: unnecessary_import
 import 'package:flame/palette.dart';
 
@@ -98,5 +99,18 @@ class Test extends CircleComponent
     //     remove(collisionText);
     //   });
     // }
+  }
+
+  bool paused = false;
+
+  @override
+  void onTapDown(TapDownEvent event) {
+    if (paused) {
+      gameRef.resumeEngine();
+      paused = false;
+    } else {
+      gameRef.pauseEngine();
+      paused = true;
+    }
   }
 }

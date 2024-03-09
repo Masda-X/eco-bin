@@ -3,7 +3,6 @@ import 'package:earth/game.dart';
 import 'package:earth/gameover.dart';
 import 'package:earth/health_bar.dart';
 import 'package:earth/plastic.dart';
-import 'package:earth/replay.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -116,6 +115,8 @@ class Earth extends CircleComponent
           );
         }
       }
+
+      healthBar.decreaseHealth();
       hitCount++;
       if (hitCount == 5) {
         game.world.add(GameOver(
@@ -127,11 +128,9 @@ class Earth extends CircleComponent
         // game.world.add(Replay());
         // game.world.removeFromParent();
         // runApp(GameWidget(game: MyGame()));
-      }
-      // Increment the counter when Earth is hit by Plastic
-      else if (hitCount % 1 == 0) {
-        // Check if hitCount is a multiple of 10
-        healthBar.decreaseHealth();
+
+        // Reset hitCount to 0 after executing the block
+        hitCount = 0;
       }
     }
   }

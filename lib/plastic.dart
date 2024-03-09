@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:earth/colly.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
+import 'package:earth/gameover.dart';
 import 'package:earth/play_area.dart';
 import 'package:earth/radi.dart';
 import 'package:flame/collisions.dart';
@@ -123,7 +124,12 @@ class Plastic extends RectangleComponent
       // (game).onPlasticHit();
       // FlameAudio.play('pla_s.wav', volume: 0.05);
       removeFromParent();
-    } else if (other is Colly) {}
+    } else if (other is Colly) {
+    } else if (other is GameOver) {
+      // (game).onPlasticHit();
+      // FlameAudio.play('pla_s.wav', volume: 0.05);
+      removeFromParent();
+    }
     velocity.setFrom(velocity * difficultyModifier);
   }
 }

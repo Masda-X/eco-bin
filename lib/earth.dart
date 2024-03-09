@@ -114,7 +114,7 @@ class Earth extends CircleComponent
         }
       }
       hitCount++; // Increment the counter when Earth is hit by Plastic
-      if (hitCount % 10 == 0) {
+      if (hitCount % 1 == 0) {
         // Check if hitCount is a multiple of 10
         healthBar.decreaseHealth();
       }

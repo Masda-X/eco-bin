@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:earth/colly.dart';
 import 'package:earth/config.dart';
 import 'package:earth/creator_left.dart';
 import 'package:earth/creator_right.dart';
@@ -47,10 +46,8 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
 
   late final Test test;
 
-  bool isPlayerAdded = false;
-  bool isControllerAdded = false;
   bool isTestAdded = false;
-  bool isCollyAdded = false;
+
   bool isEnemyCreatorAdded = false;
   bool isCreatorLeftAdded = false;
   bool isCreatorRightAdded = false;
@@ -67,16 +64,7 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
       ),
     );
     Future.delayed(const Duration(milliseconds: 400), () {
-      if (!isPlayerAdded &&
-          !isControllerAdded &&
-          !isCollyAdded &&
-          !isEnemyCreatorAdded &&
-          !isCreatorLeftAdded &&
-          !isCreatorRightAdded) {
-        game.world.add(Colly(
-          position: Vector2(gameWidth / 2, gameHeight / 2),
-          paint: Paint()..color = Colors.yellow,
-        ));
+      if (!isEnemyCreatorAdded && !isCreatorLeftAdded && !isCreatorRightAdded) {
         game.world.add(EnemyCreator(
           position: Vector2(gameWidth / 2, gameHeight / 2),
           paint: Paint()..color = Colors.green,
@@ -91,26 +79,23 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
         ));
         removeFromParent();
 
-        List<Vector2> positions = [
-          Vector2(gameWidth * 0.25, gameHeight * 0.25),
-          Vector2(gameWidth * 0.75, gameHeight * 0.25),
-          Vector2(gameWidth * 0.25, gameHeight * 0.75),
-          Vector2(gameWidth * 0.75, gameHeight * 0.75),
-        ];
+        // List<Vector2> positions = [
+        //   Vector2(gameWidth * 0.25, gameHeight * 0.25),
+        //   Vector2(gameWidth * 0.75, gameHeight * 0.25),
+        //   Vector2(gameWidth * 0.25, gameHeight * 0.75),
+        //   Vector2(gameWidth * 0.75, gameHeight * 0.75),
+        // ];
 
-        for (int i = 0; i < 4; i++) {
-          Test test = Test(
-            position: Vector2.zero(),
-            paint: Paint()..color = Colors.green,
-          );
-          test.x = positions[i].x;
-          test.y = positions[i].y;
-          game.world.add(test);
-        }
+        // for (int i = 0; i < 4; i++) {
+        //   Test test = Test(
+        //     position: Vector2.zero(),
+        //     paint: Paint()..color = Colors.green,
+        //   );
+        //   test.x = positions[i].x;
+        //   test.y = positions[i].y;
+        //   game.world.add(test);
+        // }
 
-        isPlayerAdded = true;
-        isControllerAdded = true;
-        isCollyAdded = true;
         isEnemyCreatorAdded = true;
         isCreatorLeftAdded = true;
         isCreatorRightAdded = true;

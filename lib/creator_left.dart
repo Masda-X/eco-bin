@@ -45,12 +45,12 @@ class CreatorLeft extends CircleComponent
         autoStart: true,
       ),
     );
-    add(SpawnComponent(
-      factory: (index) => createRandomBanana(),
-      period: _random.nextInt(15) +
-          10.toDouble(), // Random interval between 1 to 3 seconds
-      autoStart: true,
-    ));
+    // add(SpawnComponent(
+    //   factory: (index) => createRandomBanana(),
+    //   period: _random.nextInt(15) +
+    //       10.toDouble(), // Random interval between 1 to 3 seconds
+    //   autoStart: true,
+    // ));
   }
 
   Banana createRandomBanana() {

@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:earth/game.dart';
-import 'package:earth/gameover.dart';
+
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
-import 'package:flame/game.dart';
+
 import 'package:flutter/widgets.dart';
 
 class Replay extends RectangleComponent

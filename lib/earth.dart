@@ -42,6 +42,12 @@ class Earth extends CircleComponent
       position: Vector2(-10, -2),
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
+    add(SpriteComponent(
+      sprite: await Sprite.load('bar.png'),
+      size: Vector2(840, 60),
+      position: Vector2(-116, -670),
+      // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
+    ));
     healthBar = HealthBar();
     gameRef.add(healthBar);
   }
@@ -80,6 +86,7 @@ class Earth extends CircleComponent
     return position.distanceTo(point) <= size.x / 2;
   }
 
+  int hitCount = 0;
   @override
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
@@ -88,8 +95,11 @@ class Earth extends CircleComponent
       if (kDebugMode) {
         print('objectHit');
       }
-      healthBar.decreaseHealth();
-      // ... rest of your code ...
+      hitCount++; // Increment the counter when Earth is hit by Plastic
+      if (hitCount % 10 == 0) {
+        // Check if hitCount is a multiple of 10
+        healthBar.decreaseHealth();
+      }
     }
   }
 }

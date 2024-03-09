@@ -2,7 +2,7 @@ import 'package:earth/game.dart';
 import 'package:flame/components.dart';
 
 class HealthBar extends PositionComponent with HasGameRef<MyGame> {
-  int health = 30;
+  int health = 5;
   List<SpriteComponent> hearts = [];
 
   @override
@@ -12,8 +12,8 @@ class HealthBar extends PositionComponent with HasGameRef<MyGame> {
       var heart = SpriteComponent(
         sprite: await Sprite.load('heart_a.png'),
         size: Vector2(40, 35),
-        position: Vector2(
-            i * 50.0, gameRef.size.y - 50), // Adjust position for each heart
+        position: Vector2(i * 50.0 + 70,
+            gameRef.size.y - 1030), // Adjust position for each heart
       );
       hearts.add(heart);
       gameRef.world.add(heart);

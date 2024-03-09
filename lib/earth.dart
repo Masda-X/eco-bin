@@ -8,7 +8,7 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
-import 'package:flame/game.dart';
+
 import 'package:flame_noise/flame_noise.dart';
 
 import 'package:flutter/foundation.dart';
@@ -117,7 +117,7 @@ class Earth extends CircleComponent
       hitCount++;
       if (hitCount == 5) {
         game.world.removeFromParent();
-        runApp(GameWidget(game: MyGame()));
+        // runApp(GameWidget(game: MyGame()));
       }
       // Increment the counter when Earth is hit by Plastic
       else if (hitCount % 1 == 0) {

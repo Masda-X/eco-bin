@@ -25,6 +25,7 @@ class GameOver extends RectangleComponent {
       sprite: await Sprite.load('bg.png'),
       size: Vector2(4000, 4000),
       position: Vector2(0, 1000),
+      priority: 3,
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
     // add(SpriteComponent(

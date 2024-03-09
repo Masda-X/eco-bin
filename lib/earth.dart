@@ -3,6 +3,7 @@ import 'package:earth/game.dart';
 import 'package:earth/gameover.dart';
 import 'package:earth/health_bar.dart';
 import 'package:earth/plastic.dart';
+import 'package:earth/replay.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -90,15 +91,12 @@ class Earth extends CircleComponent
     return position.distanceTo(point) <= size.x / 2;
   }
 
-  bool isGameOver = false;
   int hitCount = 0;
   @override
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
-    if (isGameOver) {
-      return;
-    }
+
     if (other is Plastic || other is Banana) {
       if (kDebugMode) {
         print('objectHit');
@@ -129,8 +127,8 @@ class Earth extends CircleComponent
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         ));
         priority = 4;
-        isGameOver = true;
-        // game.world.add(Replay());
+
+        game.world.add(Replay());
         // game.world.removeFromParent();
         // runApp(GameWidget(game: MyGame()));
 

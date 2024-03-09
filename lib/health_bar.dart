@@ -15,6 +15,7 @@ class HealthBar extends PositionComponent with HasGameRef<MyGame> {
         position: Vector2(i * 50.0 + 70,
             gameRef.size.y - 1030), // Adjust position for each heart
       );
+
       hearts.add(heart);
       gameRef.world.add(heart);
     }

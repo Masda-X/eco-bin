@@ -5,8 +5,10 @@ import 'package:earth/plastic.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
 
 import 'package:flame/events.dart';
+import 'package:flame_noise/flame_noise.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -42,12 +44,12 @@ class Earth extends CircleComponent
       position: Vector2(-10, -2),
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
-    add(SpriteComponent(
-      sprite: await Sprite.load('bar.png'),
-      size: Vector2(840, 60),
-      position: Vector2(-116, -670),
-      // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
-    ));
+    // add(SpriteComponent(
+    //   sprite: await Sprite.load('bar.png'),
+    //   size: Vector2(840, 60),
+    //   position: Vector2(-116, -670),
+    //   // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
+    // ));
     healthBar = HealthBar();
     gameRef.add(healthBar);
   }
@@ -94,6 +96,22 @@ class Earth extends CircleComponent
     if (other is Plastic || other is Banana) {
       if (kDebugMode) {
         print('objectHit');
+        for (var heart in healthBar.hearts) {
+          heart.add(
+            SequenceEffect(
+              [
+                MoveEffect.by(
+                  Vector2(10, 0),
+                  NoiseEffectController(
+                    duration: 1,
+                    noise: PerlinNoise(frequency: 20),
+                  ),
+                ),
+              ],
+              infinite: false,
+            ),
+          );
+        }
       }
       hitCount++; // Increment the counter when Earth is hit by Plastic
       if (hitCount % 10 == 0) {

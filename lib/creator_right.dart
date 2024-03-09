@@ -41,7 +41,7 @@ class CreatorRight extends CircleComponent
       SpawnComponent(
         factory: (index) => createRandomPlastic(),
         period: _random.nextInt(13) +
-            2.toDouble(), // Random interval between 1 to 3 seconds
+            7.toDouble(), // Random interval between 1 to 3 seconds
         autoStart: true,
       ),
     );

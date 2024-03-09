@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:earth/game.dart';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flame/game.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -24,6 +23,7 @@ class Replay extends RectangleComponent
 
   @override
   void onTapDown(TapDownEvent event) {
+    runApp(GameWidget(game: MyGame()));
     // game.removeFromParent(GameOver;);
   }
 }

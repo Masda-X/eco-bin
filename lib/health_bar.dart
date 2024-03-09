@@ -16,8 +16,7 @@ class HealthBar extends PositionComponent with HasGameRef<MyGame> {
           sprite: await Sprite.load('heart.png'),
           size: Vector2(60, 55),
           position: Vector2(i * 70.0 + 70, gameRef.size.y - 1030),
-          priority: 2 // Adjust position for each heart
-          );
+          priority: 2);
 
       hearts.add(heart);
       gameRef.world.add(heart);

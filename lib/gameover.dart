@@ -10,6 +10,7 @@ class GameOver extends RectangleComponent {
           anchor: Anchor.center,
           size: Vector2(4000, 1080),
           position: Vector2(1000, -600),
+          priority: 3,
 
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 137, 12, 3),

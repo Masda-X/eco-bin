@@ -123,7 +123,8 @@ class Earth extends CircleComponent
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         ));
-        game.world.add(Replay());
+        priority = 4;
+        // game.world.add(Replay());
         // game.world.removeFromParent();
         // runApp(GameWidget(game: MyGame()));
       }

@@ -106,6 +106,14 @@ class MyGame extends FlameGame
       keyJustPressed = false;
     }
   }
+
+  void resetGame() {
+    // Reset the game state here
+    // For example, remove all components and re-add them, or reset their properties
+    removeAll(children);
+    onLoad();
+    // hypothetical method to set up initial game state
+  }
 }
 
 

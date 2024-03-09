@@ -11,19 +11,22 @@ class Replay extends RectangleComponent
   Replay()
       : super(
           size: Vector2(100, 80),
-          position: Vector2(1000, 1000),
+          position: Vector2(1000, 500),
           paint: Paint()..color = const Color(0xFFFF0000),
+          priority: 5,
         );
   @override
   Future<void> onLoad() async {
     super.onLoad();
     size = Vector2(100, 80);
-    position = Vector2(1000, 1000);
+    position = Vector2(1000, 500);
   }
 
   @override
   void onTapDown(TapDownEvent event) {
+    game.world.removeFromParent();
     runApp(GameWidget(game: MyGame()));
+
     // game.removeFromParent(GameOver;);
   }
 }

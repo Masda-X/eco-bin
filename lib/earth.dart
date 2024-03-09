@@ -34,13 +34,15 @@ class Earth extends CircleComponent
           paint: Paint()..color = Color.fromARGB(0, 244, 67, 54),
         );
   late HealthBar healthBar;
+  late CircleHitbox myCircleHitbox;
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    add(CircleHitbox(
+    myCircleHitbox = CircleHitbox(
       radius: 310,
-    ));
+    );
+    add(myCircleHitbox);
     add(SpriteComponent(
       sprite: await Sprite.load('earth.png'),
       size: Vector2(640, 635),
@@ -127,6 +129,7 @@ class Earth extends CircleComponent
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         ));
         priority = 4;
+        myCircleHitbox.removeFromParent();
 
         game.world.add(Replay());
         // game.world.removeFromParent();

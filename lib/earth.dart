@@ -1,5 +1,6 @@
 import 'package:earth/banana.dart';
 import 'package:earth/game.dart';
+import 'package:earth/gameover.dart';
 import 'package:earth/health_bar.dart';
 import 'package:earth/plastic.dart';
 
@@ -116,7 +117,11 @@ class Earth extends CircleComponent
       }
       hitCount++;
       if (hitCount == 5) {
-        game.world.removeFromParent();
+        game.world.add(GameOver(
+          position: Vector2(0, 0),
+          paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
+        ));
+        // game.world.removeFromParent();
         // runApp(GameWidget(game: MyGame()));
       }
       // Increment the counter when Earth is hit by Plastic

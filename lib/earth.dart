@@ -119,6 +119,7 @@ class Earth extends CircleComponent
       if (hitCount == 5) {
         game.world.add(GameOver(
           position: Vector2(0, 0),
+          // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         ));
         // game.world.removeFromParent();

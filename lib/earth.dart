@@ -3,6 +3,7 @@ import 'package:earth/game.dart';
 import 'package:earth/gameover.dart';
 import 'package:earth/health_bar.dart';
 import 'package:earth/plastic.dart';
+import 'package:earth/replay.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -122,6 +123,7 @@ class Earth extends CircleComponent
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         ));
+        game.world.add(Replay());
         // game.world.removeFromParent();
         // runApp(GameWidget(game: MyGame()));
       }

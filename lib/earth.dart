@@ -1,5 +1,6 @@
 import 'package:earth/banana.dart';
 import 'package:earth/game.dart';
+import 'package:earth/health_bar.dart';
 import 'package:earth/plastic.dart';
 
 import 'package:flame/collisions.dart';
@@ -27,6 +28,7 @@ class Earth extends CircleComponent
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(0, 244, 67, 54),
         );
+  late HealthBar healthBar;
 
   @override
   Future<void> onLoad() async {
@@ -40,6 +42,8 @@ class Earth extends CircleComponent
       position: Vector2(-10, -2),
       // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
     ));
+    healthBar = HealthBar();
+    gameRef.add(healthBar);
   }
 
   @override
@@ -76,7 +80,6 @@ class Earth extends CircleComponent
     return position.distanceTo(point) <= size.x / 2;
   }
 
-  int hitCount = 0;
   @override
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
@@ -85,13 +88,8 @@ class Earth extends CircleComponent
       if (kDebugMode) {
         print('objectHit');
       }
-      hitCount++; // Increment the counter when Earth is hit by Plastic
-      if (hitCount >= 30) {
-        if (kDebugMode) {
-          print('objectHit 1');
-        }
-        removeFromParent();
-      }
+      healthBar.decreaseHealth();
+      // ... rest of your code ...
     }
   }
 }

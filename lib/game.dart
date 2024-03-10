@@ -13,6 +13,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 
 import 'package:flame/game.dart';
+import 'package:flutter/foundation.dart';
 // ignore: unused_import
 
 import 'package:flutter/material.dart';
@@ -45,6 +46,7 @@ class MyGame extends FlameGame
 
   late Timer interval;
   int elapsedSecs = 0;
+  late TextComponent textComponent;
 
   final rand = math.Random();
   double get width => size.x;
@@ -57,6 +59,7 @@ class MyGame extends FlameGame
 
   @override
   Future<void> onLoad() async {
+    super.onLoad();
     world.add(PlayArea());
     startButton = Start();
     world.add(startButton);
@@ -70,7 +73,10 @@ class MyGame extends FlameGame
     ));
     interval = Timer(
       1,
-      onTick: () => elapsedSecs += 1,
+      onTick: () {
+        elapsedSecs += 1;
+        textComponent.text = 'Timer: $elapsedSecs';
+      },
       repeat: true,
       autoStart: false,
     );
@@ -81,7 +87,7 @@ class MyGame extends FlameGame
     //   position: Vector2(gameWidth / 2, gameHeight / 2),
     // ));
     camera.viewfinder.anchor = Anchor.topLeft;
-    final textComponent = TextComponent(
+    textComponent = TextComponent(
       text: 'Timer: $elapsedSecs',
       textRenderer: TextPaint(
         // ignore: prefer_const_constructors
@@ -116,6 +122,9 @@ class MyGame extends FlameGame
   @override
   void update(double dt) {
     super.update(dt);
+    if (kDebugMode) {
+      print('Updating game...');
+    }
     interval.update(dt);
 
     if (keyJustPressed) {
@@ -147,6 +156,9 @@ class MyGame extends FlameGame
   }
 
   void onStartClick() {
+    if (kDebugMode) {
+      print('Starting timer...');
+    }
     interval.start();
   }
 }

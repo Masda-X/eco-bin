@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:earth/banana.dart';
+import 'package:earth/enemy/banana.dart';
 import 'package:earth/game.dart';
-import 'package:earth/plastic.dart';
+import 'package:earth/enemy/plastic.dart';
 
 import 'package:flame/components.dart';
 

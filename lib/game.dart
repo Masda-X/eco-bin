@@ -6,7 +6,7 @@ import 'package:earth/clock.dart';
 
 import 'package:earth/play_area.dart';
 import 'package:earth/bin.dart';
-import 'package:earth/start_button.dart';
+import 'package:earth/buttons/start_button.dart';
 
 import 'package:flame/components.dart';
 

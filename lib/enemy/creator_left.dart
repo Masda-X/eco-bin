@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:earth/banana.dart';
+import 'package:earth/enemy/banana.dart';
 import 'package:earth/game.dart';
-import 'package:earth/plastic.dart';
+import 'package:earth/enemy/plastic.dart';
 
 import 'package:flame/components.dart';
 
@@ -10,7 +10,7 @@ import 'package:flame/events.dart';
 
 import 'package:flutter/material.dart';
 
-class CreatorRight extends CircleComponent
+class CreatorLeft extends CircleComponent
     with
         HoverCallbacks,
         DragCallbacks,
@@ -18,11 +18,11 @@ class CreatorRight extends CircleComponent
         DoubleTapCallbacks,
         HasGameRef<MyGame> {
   @override
-  CreatorRight({required Vector2 position, required paint})
+  CreatorLeft({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
           radius: 200,
-          position: Vector2(2500, -1000),
+          position: Vector2(-1000, -1000),
           // ignore: prefer_const_constructors
           paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         );
@@ -40,14 +40,14 @@ class CreatorRight extends CircleComponent
     add(
       SpawnComponent(
         factory: (index) => createRandomPlastic(),
-        period: _random.nextInt(13) +
-            7.toDouble(), // Random interval between 1 to 3 seconds
+        period: _random.nextInt(15) +
+            14.toDouble(), // Random interval between 1 to 3 seconds
         autoStart: true,
       ),
     );
     // add(SpawnComponent(
     //   factory: (index) => createRandomBanana(),
-    //   period: _random.nextInt(19) +
+    //   period: _random.nextInt(15) +
     //       10.toDouble(), // Random interval between 1 to 3 seconds
     //   autoStart: true,
     // ));
@@ -75,7 +75,7 @@ class CreatorRight extends CircleComponent
       default:
         position = Vector2.zero();
     }
-    Vector2 velocity = Vector2(-200, speed);
+    Vector2 velocity = Vector2(200, speed);
     return Banana(
       position: position,
       radius: Banana.bananaSize,
@@ -86,7 +86,7 @@ class CreatorRight extends CircleComponent
 
   Plastic createRandomPlastic() {
     // Randomly choose an edge: 0 for left, 1 for top, 2 for right
-    int edge = _random.nextInt(5);
+    int edge = _random.nextInt(3);
     Vector2 position;
     const double speed = 200.0;
 
@@ -106,7 +106,7 @@ class CreatorRight extends CircleComponent
       default:
         position = Vector2.zero();
     }
-    Vector2 velocity = Vector2(-200, speed);
+    Vector2 velocity = Vector2(200, speed);
     return Plastic(
       position: position,
       radius: Plastic.plasticSize,

@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:earth/config.dart';
-import 'package:earth/creator_left.dart';
-import 'package:earth/creator_right.dart';
+import 'package:earth/enemy/creator_left.dart';
+import 'package:earth/enemy/creator_right.dart';
 
-import 'package:earth/enemy_creator.dart';
+import 'package:earth/enemy/enemy_creator.dart';
 import 'package:earth/game.dart';
 
 import 'package:flame/components.dart';

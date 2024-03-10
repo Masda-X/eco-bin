@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:earth/colly.dart';
+import 'package:earth/other/colly.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
 import 'package:earth/gameover.dart';

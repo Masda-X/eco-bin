@@ -1,5 +1,5 @@
 // ignore: unused_import
-import 'package:earth/colly.dart';
+import 'package:earth/other/colly.dart';
 import 'package:earth/game.dart';
 import 'package:earth/bin.dart';
 

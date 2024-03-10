@@ -1,9 +1,9 @@
-import 'package:earth/banana.dart';
+import 'package:earth/enemy/banana.dart';
 import 'package:earth/game.dart';
 import 'package:earth/gameover.dart';
 import 'package:earth/health_bar.dart';
-import 'package:earth/plastic.dart';
-import 'package:earth/replay.dart';
+import 'package:earth/enemy/plastic.dart';
+import 'package:earth/buttons/replay.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';

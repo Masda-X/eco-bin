@@ -108,9 +108,12 @@ class MyGame extends FlameGame
   }
 
   void resetGame() {
-    removeAll(children);
+    world.removeAll(world.children.query<PlayArea>());
+    world.removeAll(world.children.query<Earth>());
+    world.removeAll(world.children.query<Bin>());
+    world.removeAll(world.children.query<Start>());
 
-    onLoad();
+    // onLoad();
   }
 }
 

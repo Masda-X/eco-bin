@@ -13,7 +13,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 
 import 'package:flame/game.dart';
-import 'package:flutter/foundation.dart';
+
 // ignore: unused_import
 
 import 'package:flutter/material.dart';
@@ -122,9 +122,7 @@ class MyGame extends FlameGame
   @override
   void update(double dt) {
     super.update(dt);
-    if (kDebugMode) {
-      print('Updating game...');
-    }
+
     interval.update(dt);
 
     if (keyJustPressed) {
@@ -156,9 +154,6 @@ class MyGame extends FlameGame
   }
 
   void onStartClick() {
-    if (kDebugMode) {
-      print('Starting timer...');
-    }
     interval.start();
   }
 }

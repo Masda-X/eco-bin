@@ -1,7 +1,7 @@
 import 'package:earth/game.dart';
 import 'package:flame/components.dart';
 
-class Clock extends CircleComponent with HasGameRef<MyGame> {
+class Bar extends CircleComponent with HasGameRef<MyGame> {
   late SpriteComponent sprite;
   @override
   Future<void> onLoad() async {

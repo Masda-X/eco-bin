@@ -41,7 +41,7 @@ class MyGame extends FlameGame
 
   late Start startButton;
 
-  late Clock clock;
+  late Bar clock;
 
   final rand = math.Random();
   double get width => size.x;
@@ -71,7 +71,7 @@ class MyGame extends FlameGame
       repeat: true,
       autoStart: false,
     );
-    world.add(Clock());
+    world.add(Bar());
 
     // world.add(TextComponent(
     //   text: 'Click to Play',
@@ -139,8 +139,12 @@ class MyGame extends FlameGame
   void render(Canvas canvas) {
     super.render(canvas);
 
-    textConfig.render(canvas, 'Timer: $elapsedSecs', Vector2(1025, 29),
-        anchor: Anchor.topLeft);
+    textConfig.render(
+      canvas,
+      'Timer: $elapsedSecs',
+      Vector2(1025, 29),
+      anchor: Anchor.topLeft,
+    );
   }
 
   void onStartClick() {

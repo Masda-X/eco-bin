@@ -14,7 +14,6 @@ import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 
 class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
-  // ignore: prefer_const_constructors
   Start() : super(paint: Paint()..color = Color.fromARGB(0, 29, 144, 239)) {
     width = 440;
     height = 135;
@@ -48,6 +47,7 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   bool isCreatorRightAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
+    gameRef.onStartClick();
     add(
       ScaleEffect.to(
         Vector2.all(0.9),

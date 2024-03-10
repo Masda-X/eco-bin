@@ -62,6 +62,12 @@ class MyGame extends FlameGame
       position: Vector2(gameWidth / 2, gameHeight / 2),
       paint: Paint()..color = Colors.blue,
     ));
+    interval = Timer(
+      1,
+      onTick: () => elapsedSecs += 1,
+      repeat: true,
+      autoStart: false,
+    );
 
     // world.add(TextComponent(
     //   text: 'Click to Play',
@@ -87,6 +93,7 @@ class MyGame extends FlameGame
   @override
   void update(double dt) {
     super.update(dt);
+    interval.update(dt);
 
     if (keyJustPressed) {
       if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
@@ -114,6 +121,22 @@ class MyGame extends FlameGame
     world.removeAll(world.children.query<Start>());
 
     // onLoad();
+  }
+
+  final TextPaint textConfig = TextPaint(
+    style: const TextStyle(color: Colors.white, fontSize: 50),
+  );
+  late Timer interval;
+  int elapsedSecs = 0;
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+
+    textConfig.render(canvas, 'Elapsed time: $elapsedSecs', Vector2(30, 130));
+  }
+
+  void onStartClick() {
+    interval.start();
   }
 }
 

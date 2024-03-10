@@ -24,7 +24,8 @@ class Replay extends RectangleComponent
 
   @override
   void onTapDown(TapDownEvent event) {
-    game.world.removeFromParent();
-    runApp(GameWidget(game: MyGame()));
+    game.resetGame();
+    // game.world.removeFromParent();
+    // runApp(GameWidget(game: MyGame()));
   }
 }

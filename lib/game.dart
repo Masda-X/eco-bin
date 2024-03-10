@@ -6,7 +6,7 @@ import 'package:earth/earth.dart';
 import 'package:earth/play_area.dart';
 import 'package:earth/bin.dart';
 import 'package:earth/start_button.dart';
-import 'package:earth/test.dart';
+
 import 'package:flame/components.dart';
 
 import 'package:flame/events.dart';
@@ -33,12 +33,12 @@ class MyGame extends FlameGame
   // @override
   // // ignore: overridden_fields
   // bool debugMode = true;
-  late final Test test;
-  late final Bin controller;
+  // late final Test test;
+  late Bin bin;
 
-  late final Earth player;
+  late Earth earth;
 
-  late final Start startButton;
+  late Start startButton;
 
   final rand = math.Random();
   double get width => size.x;
@@ -54,11 +54,11 @@ class MyGame extends FlameGame
     world.add(PlayArea());
     startButton = Start();
     world.add(startButton);
-    world.add(player = Earth(
+    world.add(earth = Earth(
       position: Vector2(gameWidth / 2, gameHeight / 2),
       paint: Paint()..color = Colors.red,
     ));
-    world.add(controller = Bin(
+    world.add(bin = Bin(
       position: Vector2(gameWidth / 2, gameHeight / 2),
       paint: Paint()..color = Colors.blue,
     ));
@@ -108,11 +108,9 @@ class MyGame extends FlameGame
   }
 
   void resetGame() {
-    // Reset the game state here
-    // For example, remove all components and re-add them, or reset their properties
     removeAll(children);
+
     onLoad();
-    // hypothetical method to set up initial game state
   }
 }
 

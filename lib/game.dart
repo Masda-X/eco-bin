@@ -41,7 +41,7 @@ class MyGame extends FlameGame
 
   late Start startButton;
 
-  late Bar clock;
+  late Bar bar;
 
   final rand = math.Random();
   double get width => size.x;

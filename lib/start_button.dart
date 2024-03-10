@@ -7,7 +7,6 @@ import 'package:earth/creator_right.dart';
 import 'package:earth/enemy_creator.dart';
 import 'package:earth/game.dart';
 
-import 'package:earth/test.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
@@ -44,16 +43,11 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
     );
   }
 
-  late final Test test;
-
-  bool isTestAdded = false;
-
   bool isEnemyCreatorAdded = false;
   bool isCreatorLeftAdded = false;
   bool isCreatorRightAdded = false;
   @override
   void onTapDown(TapDownEvent event) {
-    // Add the scale effect
     add(
       ScaleEffect.to(
         Vector2.all(0.9),
@@ -77,6 +71,7 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
           position: Vector2(gameWidth / 2, gameHeight / 2),
           paint: Paint()..color = Colors.green,
         ));
+
         removeFromParent();
 
         // List<Vector2> positions = [

@@ -51,12 +51,6 @@ class MyGame extends FlameGame
 
   @override
   Future<void> onLoad() async {
-    interval = Timer(
-      1,
-      onTick: () => elapsedSecs += 1,
-      repeat: true,
-    );
-    interval.start();
     world.add(PlayArea());
     startButton = Start();
     world.add(startButton);
@@ -94,8 +88,6 @@ class MyGame extends FlameGame
   void update(double dt) {
     super.update(dt);
 
-    interval.update(dt);
-
     if (keyJustPressed) {
       if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
         final radi = world.children.query<Bin>().first;
@@ -122,20 +114,6 @@ class MyGame extends FlameGame
     world.removeAll(world.children.query<Start>());
 
     // onLoad();
-  }
-
-  final TextPaint textConfig = TextPaint(
-    style: const TextStyle(color: Colors.white, fontSize: 20),
-  );
-
-  late Timer interval;
-
-  int elapsedSecs = 0;
-
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-    textConfig.render(canvas, 'Elapsed time: $elapsedSecs', Vector2(30, 130));
   }
 }
 

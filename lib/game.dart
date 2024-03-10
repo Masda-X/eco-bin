@@ -43,6 +43,9 @@ class MyGame extends FlameGame
 
   late Bar bar;
 
+  late Timer interval;
+  int elapsedSecs = 0;
+
   final rand = math.Random();
   double get width => size.x;
   double get height => size.y;
@@ -78,6 +81,22 @@ class MyGame extends FlameGame
     //   position: Vector2(gameWidth / 2, gameHeight / 2),
     // ));
     camera.viewfinder.anchor = Anchor.topLeft;
+    final textComponent = TextComponent(
+      text: 'Timer: $elapsedSecs',
+      textRenderer: TextPaint(
+        // ignore: prefer_const_constructors
+        style: TextStyle(
+          // ignore: prefer_const_constructors
+          color: Color.fromARGB(255, 255, 255, 255),
+          fontSize: 30,
+          fontFamily: 'Crunch Chips',
+        ),
+      ),
+      position: Vector2(1025, 29),
+      anchor: Anchor.topLeft,
+    );
+
+    world.add(textComponent);
   }
 
   Set<LogicalKeyboardKey> keysPressed = {};
@@ -125,26 +144,6 @@ class MyGame extends FlameGame
     world.removeAll(world.children.query<Start>());
 
     // onLoad();
-  }
-
-  final TextPaint textConfig = TextPaint(
-    style: const TextStyle(
-        color: Color.fromARGB(255, 255, 255, 255),
-        fontSize: 30,
-        fontFamily: 'Crunch Chips'),
-  );
-  late Timer interval;
-  int elapsedSecs = 0;
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-
-    textConfig.render(
-      canvas,
-      'Timer: $elapsedSecs',
-      Vector2(1025, 29),
-      anchor: Anchor.topLeft,
-    );
   }
 
   void onStartClick() {

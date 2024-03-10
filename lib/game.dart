@@ -71,7 +71,7 @@ class MyGame extends FlameGame
       repeat: true,
       autoStart: false,
     );
-    // world.add(Clock());
+    world.add(Clock());
 
     // world.add(TextComponent(
     //   text: 'Click to Play',
@@ -130,7 +130,7 @@ class MyGame extends FlameGame
   final TextPaint textConfig = TextPaint(
     style: const TextStyle(
         color: Color.fromARGB(255, 255, 255, 255),
-        fontSize: 35,
+        fontSize: 30,
         fontFamily: 'Crunch Chips'),
   );
   late Timer interval;
@@ -139,8 +139,8 @@ class MyGame extends FlameGame
   void render(Canvas canvas) {
     super.render(canvas);
 
-    textConfig.render(canvas, 'Timer $elapsedSecs', Vector2(619, 44),
-        anchor: Anchor.center);
+    textConfig.render(canvas, 'Timer: $elapsedSecs', Vector2(1025, 29),
+        anchor: Anchor.topLeft);
   }
 
   void onStartClick() {

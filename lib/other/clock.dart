@@ -8,9 +8,9 @@ class Clock extends CircleComponent with HasGameRef<MyGame> {
   Future<void> onLoad() async {
     super.onLoad();
     sprite = SpriteComponent(
-        sprite: await Sprite.load('clock.png'),
-        size: Vector2(150, 145),
-        position: Vector2(140, 100),
+        sprite: await Sprite.load('bar.png'),
+        size: Vector2(290, 69),
+        position: Vector2(1720, 78),
         anchor: Anchor.center);
     priority = 2;
     add(sprite);

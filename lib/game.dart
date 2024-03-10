@@ -124,7 +124,10 @@ class MyGame extends FlameGame
   }
 
   final TextPaint textConfig = TextPaint(
-    style: const TextStyle(color: Colors.white, fontSize: 50),
+    style: const TextStyle(
+        color: Color.fromARGB(255, 129, 210, 42),
+        fontSize: 50,
+        fontFamily: 'Crunch Chips'),
   );
   late Timer interval;
   int elapsedSecs = 0;
@@ -132,7 +135,7 @@ class MyGame extends FlameGame
   void render(Canvas canvas) {
     super.render(canvas);
 
-    textConfig.render(canvas, 'Elapsed time: $elapsedSecs', Vector2(30, 130));
+    textConfig.render(canvas, 'Elapsed time: $elapsedSecs', Vector2(300, 130));
   }
 
   void onStartClick() {

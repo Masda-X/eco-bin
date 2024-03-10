@@ -2,7 +2,7 @@ import 'dart:math' as math;
 
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
-import 'package:earth/clock.dart';
+import 'package:earth/bar.dart';
 
 import 'package:earth/play_area.dart';
 import 'package:earth/bin.dart';

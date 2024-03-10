@@ -94,12 +94,13 @@ class MyGame extends FlameGame
         style: TextStyle(
           // ignore: prefer_const_constructors
           color: Color.fromARGB(255, 255, 255, 255),
-          fontSize: 30,
+          fontSize: 45,
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1025, 29),
+      position: Vector2(1600, 50),
       anchor: Anchor.topLeft,
+      priority: 2,
     );
 
     world.add(textComponent);

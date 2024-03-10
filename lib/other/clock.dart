@@ -9,18 +9,18 @@ class Clock extends CircleComponent with HasGameRef<MyGame> {
     super.onLoad();
     sprite = SpriteComponent(
         sprite: await Sprite.load('clock.png'),
-        size: Vector2(440, 50),
-        position: Vector2(220, 68),
+        size: Vector2(100, 95),
+        position: Vector2(935, 80),
         anchor: Anchor.center);
     add(sprite);
-    sprite.add(
-      OpacityEffect.fadeOut(
-        EffectController(
-          duration: 0.7,
-          reverseDuration: 1.0,
-          infinite: true,
-        ),
-      ),
-    );
+    // sprite.add(
+    //   OpacityEffect.fadeOut(
+    //     EffectController(
+    //       duration: 0.7,
+    //       reverseDuration: 1.0,
+    //       infinite: true,
+    //     ),
+    //   ),
+    // );
   }
 }

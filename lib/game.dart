@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
+import 'package:earth/other/clock.dart';
 
 import 'package:earth/play_area.dart';
 import 'package:earth/bin.dart';
@@ -47,7 +48,7 @@ class MyGame extends FlameGame
   // ignore: non_constant_identifier_names
   @override
   // ignore: prefer_const_constructors
-  Color backgroundColor() => Color.fromARGB(255, 230, 234, 179);
+  Color backgroundColor() => Color.fromARGB(0, 230, 234, 179);
 
   @override
   Future<void> onLoad() async {
@@ -68,6 +69,7 @@ class MyGame extends FlameGame
       repeat: true,
       autoStart: false,
     );
+    world.add(Clock());
 
     // world.add(TextComponent(
     //   text: 'Click to Play',

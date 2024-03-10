@@ -5,7 +5,7 @@ import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
 import 'package:earth/gameover.dart';
 import 'package:earth/play_area.dart';
-import 'package:earth/radi.dart';
+import 'package:earth/bin.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -120,7 +120,7 @@ class Plastic extends RectangleComponent
 
       // (game).onPlasticHit();
       // shouldRotate = true;
-    } else if (other is Radi) {
+    } else if (other is Bin) {
       // (game).onPlasticHit();
       // FlameAudio.play('pla_s.wav', volume: 0.05);
       removeFromParent();

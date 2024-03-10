@@ -7,8 +7,8 @@ import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Radi extends CircleComponent with HasGameRef<MyGame> {
-  Radi({required Vector2 position, required paint})
+class Bin extends CircleComponent with HasGameRef<MyGame> {
+  Bin({required Vector2 position, required paint})
       : super(
           anchor: Anchor.center,
           radius: 300,

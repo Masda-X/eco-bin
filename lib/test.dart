@@ -1,7 +1,7 @@
 // ignore: unused_import
 import 'package:earth/colly.dart';
 import 'package:earth/game.dart';
-import 'package:earth/radi.dart';
+import 'package:earth/bin.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -67,7 +67,7 @@ class Test extends CircleComponent
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
-    if (other is Radi) {
+    if (other is Bin) {
       final collisionText = TextComponent(
         text: 'Collision!',
       );

@@ -1,7 +1,7 @@
 export 'plastic.dart';
 export 'banana.dart';
 export 'earth.dart';
-export 'radi.dart';
+export 'bin.dart';
 export 'start_button.dart';
 export 'test.dart';
 export 'play_area.dart';

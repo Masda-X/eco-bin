@@ -4,7 +4,7 @@ import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 
 import 'package:earth/play_area.dart';
-import 'package:earth/radi.dart';
+import 'package:earth/bin.dart';
 import 'package:earth/start_button.dart';
 import 'package:earth/test.dart';
 import 'package:flame/components.dart';
@@ -34,7 +34,7 @@ class MyGame extends FlameGame
   // // ignore: overridden_fields
   // bool debugMode = true;
   late final Test test;
-  late final Radi controller;
+  late final Bin controller;
 
   late final Earth player;
 
@@ -58,7 +58,7 @@ class MyGame extends FlameGame
       position: Vector2(gameWidth / 2, gameHeight / 2),
       paint: Paint()..color = Colors.red,
     ));
-    world.add(controller = Radi(
+    world.add(controller = Bin(
       position: Vector2(gameWidth / 2, gameHeight / 2),
       paint: Paint()..color = Colors.blue,
     ));
@@ -90,14 +90,14 @@ class MyGame extends FlameGame
 
     if (keyJustPressed) {
       if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
-        final radi = world.children.query<Radi>().first;
+        final radi = world.children.query<Bin>().first;
         radi.angularVelocity -= radi.angularAcceleration;
 
         // final colly = world.children.query<Colly>().first;
         // colly.angularVelocity -= colly.angularAcceleration;
       }
       if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
-        final radi = world.children.query<Radi>().first;
+        final radi = world.children.query<Bin>().first;
         radi.angularVelocity += radi.angularAcceleration;
 
         // final colly = world.children.query<Colly>().first;

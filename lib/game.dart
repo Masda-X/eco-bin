@@ -71,7 +71,7 @@ class MyGame extends FlameGame
       repeat: true,
       autoStart: false,
     );
-    world.add(Clock());
+    // world.add(Clock());
 
     // world.add(TextComponent(
     //   text: 'Click to Play',
@@ -139,7 +139,7 @@ class MyGame extends FlameGame
   void render(Canvas canvas) {
     super.render(canvas);
 
-    textConfig.render(canvas, ' $elapsedSecs', Vector2(619, 44),
+    textConfig.render(canvas, 'Timer $elapsedSecs', Vector2(619, 44),
         anchor: Anchor.center);
   }
 

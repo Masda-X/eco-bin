@@ -28,7 +28,6 @@ class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {
   FutureOr<void> onLoad() async {
     sprite = SpriteComponent(
         sprite: await Sprite.load('click.png'),
-        size: Vector2(440, 50),
         position: Vector2(220, 68),
         anchor: Anchor.center);
     add(sprite);

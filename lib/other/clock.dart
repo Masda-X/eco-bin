@@ -10,7 +10,7 @@ class Clock extends CircleComponent with HasGameRef<MyGame> {
     sprite = SpriteComponent(
         sprite: await Sprite.load('clock.png'),
         size: Vector2(150, 145),
-        position: Vector2(935, 80),
+        position: Vector2(140, 100),
         anchor: Anchor.center);
     priority = 2;
     add(sprite);

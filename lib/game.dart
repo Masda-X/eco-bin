@@ -125,7 +125,7 @@ class MyGame extends FlameGame
 
   final TextPaint textConfig = TextPaint(
     style: const TextStyle(
-        color: Color.fromARGB(255, 129, 210, 42),
+        color: Color.fromARGB(255, 255, 255, 255),
         fontSize: 50,
         fontFamily: 'Crunch Chips'),
   );

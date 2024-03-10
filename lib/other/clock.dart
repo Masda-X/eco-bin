@@ -1,6 +1,5 @@
 import 'package:earth/game.dart';
 import 'package:flame/components.dart';
-import 'package:flame/effects.dart';
 
 class Clock extends CircleComponent with HasGameRef<MyGame> {
   late SpriteComponent sprite;

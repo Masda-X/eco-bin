@@ -80,8 +80,8 @@ class MyGame extends FlameGame
       repeat: true,
       autoStart: false,
     );
-    world.add(Bar());
-
+    bar = Bar();
+    world.add(bar);
     // world.add(TextComponent(
     //   text: 'Click to Play',
     //   position: Vector2(gameWidth / 2, gameHeight / 2),
@@ -103,7 +103,7 @@ class MyGame extends FlameGame
 
     world.add(textComponent);
     scoreTextComponent = TextComponent(
-      text: 'Score: $score',
+      text: 'Plastic: $score',
       textRenderer: TextPaint(
         style: TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
@@ -179,7 +179,9 @@ class MyGame extends FlameGame
 
   void onHit5() {
     interval.stop();
-    bar.position = Vector2(400, 400);
+    bar.position = Vector2(-755, 400);
+    textComponent.position = Vector2(840, 452);
+    scoreTextComponent.position = Vector2(840, 533);
   }
 
   void onBinHit() {

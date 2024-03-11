@@ -2,6 +2,7 @@
 
 import 'dart:math' as math;
 
+import 'package:earth/components.dart';
 import 'package:earth/config.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/bar.dart';
@@ -165,9 +166,14 @@ class MyGame extends FlameGame
     world.removeAll(world.children.query<PlayArea>());
     world.removeAll(world.children.query<Earth>());
     world.removeAll(world.children.query<Bin>());
-    world.removeAll(world.children.query<Start>());
+    world.removeAll(world.children.query<CreatorLeft>());
+    world.removeAll(world.children.query<CreatorRight>());
+    world.removeAll(world.children.query<EnemyCreator>());
+  }
 
-    // onLoad();
+  void replayGame() {
+    resetGame();
+    onLoad();
   }
 
   void onStartClick() {

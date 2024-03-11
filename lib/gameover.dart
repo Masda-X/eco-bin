@@ -22,13 +22,13 @@ class GameOver extends RectangleComponent {
   Future<void> onLoad() async {
     super.onLoad();
     size = Vector2(4000, 1080);
-    // add(SpriteComponent(
-    //   sprite: await Sprite.load('bg.png'),
-    //   size: Vector2(4000, 4000),
-    //   position: Vector2(0, 1000),
-    //   priority: 3,
-    //   // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
-    // ));
+    add(SpriteComponent(
+      sprite: await Sprite.load('bg.png'),
+      size: Vector2(4000, 4000),
+      position: Vector2(0, 1000),
+      priority: 3,
+      // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
+    ));
     // add(SpriteComponent(
     //   sprite: await Sprite.load('gameover.png'),
     //   size: Vector2(640, 635),

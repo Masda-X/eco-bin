@@ -93,11 +93,11 @@ class Earth extends CircleComponent
     earthSprite.sprite = await Sprite.load(path);
   }
 
-  Future<void> onBinHit() async {
-    await changeSprite('happy_earth.png');
-    await Future.delayed(const Duration(milliseconds: 500));
-    await changeSprite('earth.png');
-  }
+  // Future<void> onBinHit() async {
+  //   await changeSprite('happy_earth.png');
+  //   await Future.delayed(const Duration(milliseconds: 500));
+  //   await changeSprite('earth.png');
+  // }
 
   int hitCount = 0;
   @override

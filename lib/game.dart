@@ -245,7 +245,7 @@ class MyGame extends FlameGame
   void onBinHit() {
     score += 1;
     scoreTextComponent.text = 'Points: $score';
-    earth.onBinHit();
+    // earth.onBinHit();
     // FlameAudio.play('pla_s.wav');
   }
 

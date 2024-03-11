@@ -110,12 +110,13 @@ class MyGame extends FlameGame
       textRenderer: TextPaint(
         style: TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
-          fontSize: 30,
+          fontSize: 45,
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1025, 59), // Adjust the position as needed
+      position: Vector2(1600, 150), // Adjust the position as needed
       anchor: Anchor.topLeft,
+      priority: 2,
     );
 
     world.add(scoreTextComponent);

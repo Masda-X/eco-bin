@@ -69,7 +69,7 @@ class MyGame extends FlameGame
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    FlameAudio.bgm.initialize();
+
     await loadHighScoreAndTime();
     world.add(PlayArea());
     startButton = Start();
@@ -226,7 +226,7 @@ class MyGame extends FlameGame
     world.removeAll(world.children.query<TextComponent>());
     world.removeAll(world.children.query<TextComponent>());
     world.removeAll(world.children.query<TextComponent>());
-
+    FlameAudio.bgm.stop();
     onLoad();
     score = 0;
     scoreTextComponent.text = 'Points: $score';
@@ -235,11 +235,14 @@ class MyGame extends FlameGame
   }
 
   void onStartClick() {
-    FlameAudio.bgm.play('funny_kids_long.ogg');
+    FlameAudio.bgm.initialize();
+    FlameAudio.bgm.play('funny_kids_long.ogg', volume: 0.1);
     interval.start();
   }
 
   void onHit5() {
+    // To dispose of the Bgm instance
+
     interval.stop();
     bar.position = Vector2(-755, 400);
     textComponent.position = Vector2(840, 458);

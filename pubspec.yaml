@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^2.2.2
+  flame_audio: ^2.10.0
   
   
   

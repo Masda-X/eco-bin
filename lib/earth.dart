@@ -124,6 +124,7 @@ class Earth extends CircleComponent
         //   // ignore: prefer_const_constructors
         //   paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
         // ));
+        gameRef.onHit5();
         game.resetGame();
         priority = 4;
         myCircleHitbox.removeFromParent();

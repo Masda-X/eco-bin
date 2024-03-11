@@ -4,12 +4,8 @@ import 'dart:math' as math;
 
 import 'package:earth/components.dart';
 import 'package:earth/config.dart';
-import 'package:earth/earth.dart';
-import 'package:earth/bar.dart';
 
-import 'package:earth/play_area.dart';
-import 'package:earth/bin.dart';
-import 'package:earth/buttons/start_button.dart';
+import 'package:earth/bar.dart';
 
 import 'package:flame/components.dart';
 
@@ -169,6 +165,7 @@ class MyGame extends FlameGame
     world.removeAll(world.children.query<CreatorLeft>());
     world.removeAll(world.children.query<CreatorRight>());
     world.removeAll(world.children.query<EnemyCreator>());
+    world.removeAll(world.children.query<Plastic>());
   }
 
   void replayGame() {
@@ -178,6 +175,10 @@ class MyGame extends FlameGame
 
   void onStartClick() {
     interval.start();
+  }
+
+  void onHit5() {
+    interval.stop();
   }
 
   void onBinHit() {

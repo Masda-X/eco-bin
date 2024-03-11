@@ -171,9 +171,15 @@ class MyGame extends FlameGame
   }
 
   void replayGame() {
+    world.removeAll(world.children.query<Bar>());
+    world.removeAll(world.children.query<TextComponent>());
+    world.removeAll(world.children.query<TextComponent>());
+
     onLoad();
     score = 0;
-    interval = Timer(0);
+    scoreTextComponent.text = 'Points: $score';
+    elapsedSecs = 0;
+    textComponent.text = 'Timer: $elapsedSecs';
   }
 
   void onStartClick() {

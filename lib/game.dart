@@ -158,7 +158,7 @@ class MyGame extends FlameGame
       textRenderer: TextPaint(
         style: TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
-          fontSize: 45,
+          fontSize: 50,
           fontFamily: 'Crunch Chips',
         ),
       ),

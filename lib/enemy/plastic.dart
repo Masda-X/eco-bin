@@ -9,7 +9,7 @@ import 'package:earth/bin.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame_audio/flame_audio.dart';
+
 import 'package:flame_noise/flame_noise.dart';
 // ignore: unused_import
 
@@ -124,7 +124,7 @@ class Plastic extends RectangleComponent
     } else if (other is Bin) {
       gameRef.onBinHit();
       // (game).onPlasticHit();
-      FlameAudio.play('pla_s.wav', volume: 0.05);
+
       removeFromParent();
     } else if (other is Colly) {
     } else if (other is GameOver) {

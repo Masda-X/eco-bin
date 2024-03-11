@@ -41,8 +41,6 @@ class Replay extends RectangleComponent
 
   @override
   void onTapDown(TapDownEvent event) {
-    game.replayGame();
-    removeFromParent();
     add(
       ScaleEffect.to(
         Vector2.all(0.9),
@@ -52,6 +50,10 @@ class Replay extends RectangleComponent
         ]),
       ),
     );
+    Future.delayed(const Duration(milliseconds: 400), () {
+      game.replayGame();
+      removeFromParent();
+    });
     // game.world.removeFromParent();
     // runApp(GameWidget(game: MyGame()));
   }

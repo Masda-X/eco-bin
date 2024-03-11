@@ -99,7 +99,7 @@ class MyGame extends FlameGame
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1600, 50),
+      position: Vector2(1600, 52),
       anchor: Anchor.topLeft,
       priority: 2,
     );
@@ -114,7 +114,7 @@ class MyGame extends FlameGame
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1600, 150), // Adjust the position as needed
+      position: Vector2(1600, 133), // Adjust the position as needed
       anchor: Anchor.topLeft,
       priority: 2,
     );

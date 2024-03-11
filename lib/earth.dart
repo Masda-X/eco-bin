@@ -1,6 +1,6 @@
 import 'package:earth/enemy/banana.dart';
 import 'package:earth/game.dart';
-import 'package:earth/gameover.dart';
+
 import 'package:earth/health_bar.dart';
 import 'package:earth/enemy/plastic.dart';
 import 'package:earth/buttons/replay.dart';
@@ -119,11 +119,11 @@ class Earth extends CircleComponent
       healthBar.decreaseHealth();
       hitCount++;
       if (hitCount == 5) {
-        game.world.add(GameOver(
-          position: Vector2(0, 0),
-          // ignore: prefer_const_constructors
-          paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
-        ));
+        // game.world.add(GameOver(
+        //   position: Vector2(0, 0),
+        //   // ignore: prefer_const_constructors
+        //   paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
+        // ));
         priority = 4;
         myCircleHitbox.removeFromParent();
 

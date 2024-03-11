@@ -5,7 +5,7 @@ class HealthBar extends PositionComponent with HasGameRef<MyGame> {
   // HealthBar() {
   //   priority = 10; // Higher values draw the component on top
   // }
-  int health = 5;
+  int health = 3;
   List<SpriteComponent> hearts = [];
 
   @override

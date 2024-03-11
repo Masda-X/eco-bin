@@ -118,7 +118,7 @@ class Earth extends CircleComponent
 
       healthBar.decreaseHealth();
       hitCount++;
-      if (hitCount == 5) {
+      if (hitCount == 3) {
         // game.world.add(GameOver(
         //   position: Vector2(0, 0),
         //   // ignore: prefer_const_constructors

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:math' as math;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:earth/components.dart';
 import 'package:earth/config.dart';
@@ -47,7 +48,12 @@ class MyGame extends FlameGame
   int elapsedSecs = 0;
   late TextComponent textComponent;
   late TextComponent scoreTextComponent;
+  late TextComponent highScoreTextComponent;
+  late TextComponent highElapsedSecsTextComponent;
+
   int score = 0;
+  int highScore = 0;
+  int highElapsedSecs = 0;
 
   final rand = math.Random();
   double get width => size.x;
@@ -60,6 +66,7 @@ class MyGame extends FlameGame
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    await loadHighScoreAndTime();
     world.add(PlayArea());
     startButton = Start();
     world.add(startButton);
@@ -117,6 +124,33 @@ class MyGame extends FlameGame
     );
 
     world.add(scoreTextComponent);
+    highScoreTextComponent = TextComponent(
+      text: 'Highest Points: $highScore',
+      textRenderer: TextPaint(
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 255, 255),
+          fontSize: 45,
+          fontFamily: 'Crunch Chips',
+        ),
+      ),
+      position: Vector2(1000, 295), // Adjust the position as needed
+      anchor: Anchor.topLeft,
+      priority: 2,
+    );
+
+    highElapsedSecsTextComponent = TextComponent(
+      text: 'Highest Time: $highElapsedSecs',
+      textRenderer: TextPaint(
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 255, 255),
+          fontSize: 45,
+          fontFamily: 'Crunch Chips',
+        ),
+      ),
+      position: Vector2(1000, 214), // Adjust the position as needed
+      anchor: Anchor.topLeft,
+      priority: 2,
+    );
   }
 
   Set<LogicalKeyboardKey> keysPressed = {};
@@ -191,11 +225,36 @@ class MyGame extends FlameGame
     bar.position = Vector2(-755, 400);
     textComponent.position = Vector2(840, 452);
     scoreTextComponent.position = Vector2(840, 533);
+
+    // Update high score and elapsed time if current values are higher
+    if (score > highScore) {
+      highScore = score;
+    }
+    if (elapsedSecs > highElapsedSecs) {
+      highElapsedSecs = elapsedSecs;
+    }
+    saveHighScoreAndTime();
+    highScoreTextComponent.text = 'Highest Points: $highScore';
+    highElapsedSecsTextComponent.text = 'Highest Time: $highElapsedSecs';
+    world.add(highScoreTextComponent);
+    world.add(highElapsedSecsTextComponent);
   }
 
   void onBinHit() {
     score += 1;
     scoreTextComponent.text = 'Points: $score';
+  }
+
+  Future<void> loadHighScoreAndTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    highScore = prefs.getInt('highPoints') ?? 0;
+    highElapsedSecs = prefs.getInt('highElapsedSecs') ?? 0;
+  }
+
+  Future<void> saveHighScoreAndTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('highPoints', highScore);
+    await prefs.setInt('highElapsedSecs', highElapsedSecs);
   }
 }
 

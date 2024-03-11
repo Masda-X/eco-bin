@@ -51,6 +51,7 @@ class MyGame extends FlameGame
   late TextComponent scoreTextComponent;
   late TextComponent highScoreTextComponent;
   late TextComponent highElapsedSecsTextComponent;
+  late TextComponent gameOverTextcomponent;
 
   int score = 0;
   int highScore = 0;
@@ -152,6 +153,19 @@ class MyGame extends FlameGame
       anchor: Anchor.center,
       priority: 2,
     );
+    gameOverTextcomponent = TextComponent(
+      text: 'Game Over',
+      textRenderer: TextPaint(
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 255, 255),
+          fontSize: 45,
+          fontFamily: 'Crunch Chips',
+        ),
+      ),
+      position: Vector2(960, 400), // Adjust the position as needed
+      anchor: Anchor.center,
+      priority: 2,
+    );
   }
 
   Set<LogicalKeyboardKey> keysPressed = {};
@@ -209,6 +223,7 @@ class MyGame extends FlameGame
     world.removeAll(world.children.query<Bar>());
     world.removeAll(world.children.query<TextComponent>());
     world.removeAll(world.children.query<TextComponent>());
+    world.removeAll(world.children.query<TextComponent>());
 
     onLoad();
     score = 0;
@@ -240,6 +255,7 @@ class MyGame extends FlameGame
         'your Highest survival Time: $highElapsedSecs';
     world.add(highScoreTextComponent);
     world.add(highElapsedSecsTextComponent);
+    world.add(gameOverTextcomponent);
   }
 
   void onBinHit() {

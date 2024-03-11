@@ -103,7 +103,7 @@ class MyGame extends FlameGame
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1600, 52),
+      position: Vector2(1600, 58),
       anchor: Anchor.topLeft,
       priority: 2,
     );
@@ -118,7 +118,7 @@ class MyGame extends FlameGame
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1600, 133), // Adjust the position as needed
+      position: Vector2(1600, 139), // Adjust the position as needed
       anchor: Anchor.topLeft,
       priority: 2,
     );
@@ -223,8 +223,8 @@ class MyGame extends FlameGame
   void onHit5() {
     interval.stop();
     bar.position = Vector2(-755, 400);
-    textComponent.position = Vector2(840, 452);
-    scoreTextComponent.position = Vector2(840, 533);
+    textComponent.position = Vector2(840, 458);
+    scoreTextComponent.position = Vector2(840, 539);
 
     // Update high score and elapsed time if current values are higher
     if (score > highScore) {

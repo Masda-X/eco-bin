@@ -103,7 +103,7 @@ class MyGame extends FlameGame
 
     world.add(textComponent);
     scoreTextComponent = TextComponent(
-      text: 'Plastic: $score',
+      text: 'Points: $score',
       textRenderer: TextPaint(
         style: TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),

@@ -172,6 +172,8 @@ class MyGame extends FlameGame
 
   void replayGame() {
     onLoad();
+    score = 0;
+    interval = Timer(0);
   }
 
   void onStartClick() {

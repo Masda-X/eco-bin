@@ -13,7 +13,6 @@ import 'package:flame/events.dart';
 
 import 'package:flame_noise/flame_noise.dart';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Earth extends CircleComponent
@@ -96,24 +95,21 @@ class Earth extends CircleComponent
     super.onCollisionStart(intersectionPoints, other);
 
     if (other is Plastic || other is Banana) {
-      if (kDebugMode) {
-        print('objectHit');
-        for (var heart in healthBar.hearts) {
-          heart.add(
-            SequenceEffect(
-              [
-                MoveEffect.by(
-                  Vector2(10, 0),
-                  NoiseEffectController(
-                    duration: 1,
-                    noise: PerlinNoise(frequency: 20),
-                  ),
+      for (var heart in healthBar.hearts) {
+        heart.add(
+          SequenceEffect(
+            [
+              MoveEffect.by(
+                Vector2(10, 0),
+                NoiseEffectController(
+                  duration: 1,
+                  noise: PerlinNoise(frequency: 20),
                 ),
-              ],
-              infinite: false,
-            ),
-          );
-        }
+              ),
+            ],
+            infinite: false,
+          ),
+        );
       }
 
       healthBar.decreaseHealth();

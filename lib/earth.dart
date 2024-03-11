@@ -34,6 +34,7 @@ class Earth extends CircleComponent
         );
   late HealthBar healthBar;
   late CircleHitbox myCircleHitbox;
+  late SpriteComponent earthSprite;
 
   @override
   Future<void> onLoad() async {
@@ -42,12 +43,12 @@ class Earth extends CircleComponent
       radius: 310,
     );
     add(myCircleHitbox);
-    add(SpriteComponent(
+    earthSprite = SpriteComponent(
       sprite: await Sprite.load('earth.png'),
       size: Vector2(640, 635),
       position: Vector2(-10, -2),
-      // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
-    ));
+    );
+    add(earthSprite);
     // add(SpriteComponent(
     //   sprite: await Sprite.load('bar.png'),
     //   size: Vector2(840, 60),
@@ -88,6 +89,10 @@ class Earth extends CircleComponent
     return position.distanceTo(point) <= size.x / 2;
   }
 
+  Future<void> changeSprite(String path) async {
+    earthSprite.sprite = await Sprite.load(path);
+  }
+
   int hitCount = 0;
   @override
   void onCollisionStart(
@@ -95,6 +100,12 @@ class Earth extends CircleComponent
     super.onCollisionStart(intersectionPoints, other);
 
     if (other is Plastic || other is Banana) {
+      changeSprite('sad_earth.png');
+      // ignore: prefer_const_constructors
+      Future.delayed(Duration(seconds: 1), () async {
+        await changeSprite('earth.png');
+      });
+
       for (var heart in healthBar.hearts) {
         heart.add(
           SequenceEffect(

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:math' as math;
-import 'package:flame_audio/flame_audio.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:earth/components.dart';
@@ -245,7 +245,7 @@ class MyGame extends FlameGame
   void onBinHit() {
     score += 1;
     scoreTextComponent.text = 'Points: $score';
-    FlameAudio.play('pla_s.wav');
+    // FlameAudio.play('pla_s.wav');
   }
 
   Future<void> loadHighScoreAndTime() async {

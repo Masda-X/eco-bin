@@ -133,8 +133,8 @@ class MyGame extends FlameGame
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1000, 295), // Adjust the position as needed
-      anchor: Anchor.topLeft,
+      position: Vector2(956, 895), // Adjust the position as needed
+      anchor: Anchor.center,
       priority: 2,
     );
 
@@ -147,8 +147,8 @@ class MyGame extends FlameGame
           fontFamily: 'Crunch Chips',
         ),
       ),
-      position: Vector2(1000, 214), // Adjust the position as needed
-      anchor: Anchor.topLeft,
+      position: Vector2(965, 840), // Adjust the position as needed
+      anchor: Anchor.center,
       priority: 2,
     );
   }

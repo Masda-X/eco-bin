@@ -55,7 +55,7 @@ class MyGame extends FlameGame
 
   // ignore: non_constant_identifier_names
   @override
-  Color backgroundColor() => Color.fromARGB(0, 230, 234, 179);
+  Color backgroundColor() => Color.fromARGB(255, 230, 234, 179);
 
   @override
   Future<void> onLoad() async {
@@ -195,7 +195,7 @@ class MyGame extends FlameGame
 
   void onBinHit() {
     score += 1;
-    scoreTextComponent.text = 'Score: $score';
+    scoreTextComponent.text = 'Points: $score';
   }
 }
 

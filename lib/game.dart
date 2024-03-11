@@ -2,6 +2,7 @@
 
 import 'dart:math' as math;
 
+import 'package:flame_audio/flame_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:earth/components.dart';
@@ -68,6 +69,7 @@ class MyGame extends FlameGame
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    FlameAudio.bgm.initialize();
     await loadHighScoreAndTime();
     world.add(PlayArea());
     startButton = Start();
@@ -233,6 +235,7 @@ class MyGame extends FlameGame
   }
 
   void onStartClick() {
+    FlameAudio.bgm.play('funny_kids_long.ogg');
     interval.start();
   }
 

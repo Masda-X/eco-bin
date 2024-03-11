@@ -234,8 +234,9 @@ class MyGame extends FlameGame
       highElapsedSecs = elapsedSecs;
     }
     saveHighScoreAndTime();
-    highScoreTextComponent.text = 'Highest Points: $highScore';
-    highElapsedSecsTextComponent.text = 'Highest Time: $highElapsedSecs';
+    highScoreTextComponent.text = 'your Highest Points: $highScore';
+    highElapsedSecsTextComponent.text =
+        'your Highest survival Time: $highElapsedSecs';
     world.add(highScoreTextComponent);
     world.add(highElapsedSecsTextComponent);
   }

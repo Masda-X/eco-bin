@@ -26,6 +26,7 @@ class Replay extends RectangleComponent
         sprite: await Sprite.load('replay.png'),
         position: Vector2(221, 70),
         anchor: Anchor.center);
+    priority = 9;
     add(sprite);
     sprite.add(
       OpacityEffect.fadeOut(
@@ -40,7 +41,8 @@ class Replay extends RectangleComponent
 
   @override
   void onTapDown(TapDownEvent event) {
-    game.resetGame();
+    game.replayGame();
+    removeFromParent();
     add(
       ScaleEffect.to(
         Vector2.all(0.9),

@@ -140,14 +140,16 @@ class MyGame extends FlameGame
     interval.update(dt);
 
     if (keyJustPressed) {
-      if (keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
+      if (keysPressed.contains(LogicalKeyboardKey.arrowLeft) &&
+          world.children.query<Bin>().isNotEmpty) {
         final radi = world.children.query<Bin>().first;
         radi.angularVelocity -= radi.angularAcceleration;
 
         // final colly = world.children.query<Colly>().first;
         // colly.angularVelocity -= colly.angularAcceleration;
       }
-      if (keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
+      if (keysPressed.contains(LogicalKeyboardKey.arrowRight) &&
+          world.children.query<Bin>().isNotEmpty) {
         final radi = world.children.query<Bin>().first;
         radi.angularVelocity += radi.angularAcceleration;
 
@@ -169,7 +171,6 @@ class MyGame extends FlameGame
   }
 
   void replayGame() {
-    resetGame();
     onLoad();
   }
 

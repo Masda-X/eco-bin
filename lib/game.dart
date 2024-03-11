@@ -179,6 +179,7 @@ class MyGame extends FlameGame
 
   void onHit5() {
     interval.stop();
+    bar.position = Vector2(400, 400);
   }
 
   void onBinHit() {

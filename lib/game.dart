@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:math' as math;
 
 import 'package:earth/config.dart';
@@ -47,6 +49,8 @@ class MyGame extends FlameGame
   late Timer interval;
   int elapsedSecs = 0;
   late TextComponent textComponent;
+  late TextComponent scoreTextComponent;
+  int score = 0;
 
   final rand = math.Random();
   double get width => size.x;
@@ -54,7 +58,6 @@ class MyGame extends FlameGame
 
   // ignore: non_constant_identifier_names
   @override
-  // ignore: prefer_const_constructors
   Color backgroundColor() => Color.fromARGB(0, 230, 234, 179);
 
   @override
@@ -90,9 +93,7 @@ class MyGame extends FlameGame
     textComponent = TextComponent(
       text: 'Timer: $elapsedSecs',
       textRenderer: TextPaint(
-        // ignore: prefer_const_constructors
         style: TextStyle(
-          // ignore: prefer_const_constructors
           color: Color.fromARGB(255, 255, 255, 255),
           fontSize: 45,
           fontFamily: 'Crunch Chips',
@@ -104,6 +105,20 @@ class MyGame extends FlameGame
     );
 
     world.add(textComponent);
+    scoreTextComponent = TextComponent(
+      text: 'Score: $score',
+      textRenderer: TextPaint(
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 255, 255),
+          fontSize: 30,
+          fontFamily: 'Crunch Chips',
+        ),
+      ),
+      position: Vector2(1025, 59), // Adjust the position as needed
+      anchor: Anchor.topLeft,
+    );
+
+    world.add(scoreTextComponent);
   }
 
   Set<LogicalKeyboardKey> keysPressed = {};
@@ -156,6 +171,11 @@ class MyGame extends FlameGame
 
   void onStartClick() {
     interval.start();
+  }
+
+  void onBinHit() {
+    score += 1;
+    scoreTextComponent.text = 'Score: $score';
   }
 }
 

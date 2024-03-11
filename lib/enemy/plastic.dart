@@ -121,6 +121,7 @@ class Plastic extends RectangleComponent
       // (game).onPlasticHit();
       // shouldRotate = true;
     } else if (other is Bin) {
+      gameRef.onBinHit();
       // (game).onPlasticHit();
       // FlameAudio.play('pla_s.wav', volume: 0.05);
       removeFromParent();

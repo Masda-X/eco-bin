@@ -126,22 +126,17 @@ class Earth extends CircleComponent
       healthBar.decreaseHealth();
       hitCount++;
       if (hitCount == 3) {
-        // game.world.add(GameOver(
-        //   position: Vector2(0, 0),
-        //   // ignore: prefer_const_constructors
-        //   paint: Paint()..color = Color.fromARGB(255, 244, 67, 54),
-        // ));
-        gameRef.onHit5();
-        game.resetGame();
-        priority = 4;
-        myCircleHitbox.removeFromParent();
+        Future.delayed(const Duration(seconds: 1), () async {
+          gameRef.onHit5();
+          game.resetGame();
+          priority = 4;
+          myCircleHitbox.removeFromParent();
 
-        game.world.add(Replay());
-        // game.world.removeFromParent();
-        // runApp(GameWidget(game: MyGame()));
+          game.world.add(Replay());
 
-        // Reset hitCount to 0 after executing the block
-        hitCount = 0;
+          // Reset hitCount to 0 after executing the block
+          hitCount = 0;
+        });
       }
     }
   }

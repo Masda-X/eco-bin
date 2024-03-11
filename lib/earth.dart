@@ -60,19 +60,15 @@ class Earth extends CircleComponent
   }
 
   @override
+  // ignore: unnecessary_overrides
   void onDragEnd(DragEndEvent event) {
     super.onDragEnd(event);
-    if (kDebugMode) {
-      print('Drag ended');
-    }
   }
 
   @override
+  // ignore: unnecessary_overrides
   void onDragStart(DragStartEvent event) {
     super.onDragStart(event);
-    if (kDebugMode) {
-      print('Drag started');
-    }
   }
 
   @override

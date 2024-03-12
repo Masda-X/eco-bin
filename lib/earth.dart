@@ -137,7 +137,6 @@ class Earth extends CircleComponent
           game.resetGame();
           priority = 4;
           myCircleHitbox.removeFromParent();
-
           game.world.add(Replay());
 
           // Reset hitCount to 0 after executing the block

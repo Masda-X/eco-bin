@@ -236,7 +236,7 @@ class MyGame extends FlameGame
 
   void onStartClick() {
     FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('funny_kids_long.ogg', volume: 0.1);
+    FlameAudio.bgm.play('funny_kids.ogg', volume: 0.1);
     interval.start();
   }
 

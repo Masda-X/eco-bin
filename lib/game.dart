@@ -243,6 +243,10 @@ class MyGame extends FlameGame
     FlameAudio.play('plas.wav', volume: 0.1);
   }
 
+  void onEarthHit() {
+    FlameAudio.play('fail.wav', volume: 0.1);
+  }
+
   Future<void> loadHighScoreAndTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     highScore = prefs.getInt('highPoints') ?? 0;

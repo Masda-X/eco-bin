@@ -99,6 +99,7 @@ class Plastic extends RectangleComponent
       //   velocity.y = -velocity.y;
       // }
     } else if (other is Earth) {
+      gameRef.onEarthHit();
       removeFromParent();
       other.add(
         SequenceEffect(

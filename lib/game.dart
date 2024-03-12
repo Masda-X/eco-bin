@@ -199,8 +199,7 @@ class MyGame extends FlameGame
   void replayGame() {
     world.removeAll(world.children.query<Bar>());
     world.removeAll(world.children.query<TextComponent>());
-    world.removeAll(world.children.query<TextComponent>());
-    world.removeAll(world.children.query<TextComponent>());
+
     FlameAudio.bgm.stop();
     onLoad();
     score = 0;

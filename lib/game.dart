@@ -268,7 +268,7 @@ class MyGame extends FlameGame
     score += 1;
     scoreTextComponent.text = 'Points: $score';
     // earth.onBinHit();
-    FlameAudio.play('pla_s.wav', volume: 0.1);
+    FlameAudio.play('plas.wav', volume: 0.1);
   }
 
   Future<void> loadHighScoreAndTime() async {

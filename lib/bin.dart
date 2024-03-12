@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:earth/game.dart';
+import 'package:eco_bin/game.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 

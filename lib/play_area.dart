@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:earth/config.dart';
-import 'package:earth/game.dart';
+import 'package:eco_bin/config.dart';
+import 'package:eco_bin/game.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 

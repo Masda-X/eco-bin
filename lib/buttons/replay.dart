@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:earth/game.dart';
+import 'package:eco_bin/game.dart';
 
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';

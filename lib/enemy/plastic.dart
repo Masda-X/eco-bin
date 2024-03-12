@@ -1,11 +1,11 @@
 import 'dart:ui';
 
-import 'package:earth/other/colly.dart';
-import 'package:earth/earth.dart';
-import 'package:earth/game.dart';
-import 'package:earth/other/gameover.dart';
-import 'package:earth/play_area.dart';
-import 'package:earth/bin.dart';
+import 'package:eco_bin/other/colly.dart';
+import 'package:eco_bin/earth.dart';
+import 'package:eco_bin/game.dart';
+import 'package:eco_bin/other/gameover.dart';
+import 'package:eco_bin/play_area.dart';
+import 'package:eco_bin/bin.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';

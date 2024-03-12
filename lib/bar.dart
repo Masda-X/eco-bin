@@ -1,4 +1,4 @@
-import 'package:earth/game.dart';
+import 'package:eco_bin/game.dart';
 import 'package:flame/components.dart';
 
 class Bar extends CircleComponent with HasGameRef<MyGame> {

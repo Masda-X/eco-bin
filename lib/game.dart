@@ -5,10 +5,10 @@ import 'dart:math' as math;
 import 'package:flame_audio/flame_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:earth/components.dart';
-import 'package:earth/config.dart';
+import 'package:eco_bin/components.dart';
+import 'package:eco_bin/config.dart';
 
-import 'package:earth/bar.dart';
+import 'package:eco_bin/bar.dart';
 
 import 'package:flame/components.dart';
 

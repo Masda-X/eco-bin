@@ -1,7 +1,7 @@
 // ignore: unused_import
-import 'package:earth/other/colly.dart';
-import 'package:earth/game.dart';
-import 'package:earth/bin.dart';
+import 'package:eco_bin/other/colly.dart';
+import 'package:eco_bin/game.dart';
+import 'package:eco_bin/bin.dart';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';

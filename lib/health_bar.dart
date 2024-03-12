@@ -2,9 +2,6 @@ import 'package:eco_bin/game.dart';
 import 'package:flame/components.dart';
 
 class HealthBar extends PositionComponent with HasGameRef<MyGame> {
-  // HealthBar() {
-  //   priority = 10; // Higher values draw the component on top
-  // }
   int health = 3;
   List<SpriteComponent> hearts = [];
 

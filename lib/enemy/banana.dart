@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:eco_bin/other/colly.dart';
 import 'package:eco_bin/earth.dart';
 import 'package:eco_bin/game.dart';
@@ -66,8 +65,6 @@ class Banana extends RectangleComponent
       priority: 1,
     ));
     game.world.add(this);
-
-    // Move towards the Earth
   }
 
   @override

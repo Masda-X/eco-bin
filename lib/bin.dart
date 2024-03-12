@@ -1,9 +1,7 @@
 import 'dart:math';
-
 import 'package:eco_bin/game.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,8 +22,6 @@ class Bin extends CircleComponent with HasGameRef<MyGame> {
 
   final double minAngle = -pi / 2; // Left limit (in radians)
   final double maxAngle = pi / 2; // Right limit (in radians)
-
-  // ...
 
   @override
   void update(double dt) {

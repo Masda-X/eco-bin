@@ -1,16 +1,12 @@
 import 'dart:async';
-
 import 'package:eco_bin/config.dart';
 import 'package:eco_bin/enemy/creator_left.dart';
 import 'package:eco_bin/enemy/creator_right.dart';
-
 import 'package:eco_bin/enemy/enemy_creator.dart';
 import 'package:eco_bin/game.dart';
-
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
-
 import 'package:flutter/material.dart';
 
 class Start extends RectangleComponent with TapCallbacks, HasGameRef<MyGame> {

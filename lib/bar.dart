@@ -8,7 +8,6 @@ class Bar extends RectangleComponent with HasGameRef<MyGame> {
     super.onLoad();
     sprite = SpriteComponent(
         sprite: await Sprite.load('bar.png'),
-        // size: Vector2(290, 160),
         position: Vector2(1720, 120),
         anchor: Anchor.center);
     priority = 2;

@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:eco_bin/other/colly.dart';
 import 'package:eco_bin/earth.dart';
 import 'package:eco_bin/game.dart';
@@ -9,7 +8,6 @@ import 'package:eco_bin/bin.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-
 import 'package:flame_noise/flame_noise.dart';
 // ignore: unused_import
 
@@ -69,8 +67,6 @@ class Plastic extends RectangleComponent
       priority: 1,
     ));
     game.world.add(this);
-
-    // Move towards the Earth
   }
 
   @override

@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:eco_bin/config.dart';
 import 'package:eco_bin/game.dart';
 import 'package:flame/collisions.dart';

@@ -1,18 +1,13 @@
 import 'package:eco_bin/enemy/banana.dart';
 import 'package:eco_bin/game.dart';
-
 import 'package:eco_bin/health_bar.dart';
 import 'package:eco_bin/enemy/plastic.dart';
 import 'package:eco_bin/buttons/replay.dart';
-
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-
 import 'package:flame/events.dart';
-
 import 'package:flame_noise/flame_noise.dart';
-
 import 'package:flutter/material.dart';
 
 class Earth extends CircleComponent
@@ -49,12 +44,6 @@ class Earth extends CircleComponent
       position: Vector2(-10, -2),
     );
     add(earthSprite);
-    // add(SpriteComponent(
-    //   sprite: await Sprite.load('bar.png'),
-    //   size: Vector2(840, 60),
-    //   position: Vector2(-116, -670),
-    //   // anchor: Anchor.topCenter, // BU ONEMLIDI  DO NOT ADD ANCHOR HERE
-    // ));
     healthBar = HealthBar();
     gameRef.add(healthBar);
   }
@@ -107,8 +96,7 @@ class Earth extends CircleComponent
 
     if (other is Plastic || other is Banana) {
       changeSprite('sad_earth.png');
-      // ignore: prefer_const_constructors
-      Future.delayed(Duration(seconds: 1), () async {
+      Future.delayed(const Duration(seconds: 1), () async {
         await changeSprite('earth.png');
       });
 

@@ -1,11 +1,8 @@
 import 'dart:async';
-
 import 'package:eco_bin/game.dart';
-
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
-
 import 'package:flutter/widgets.dart';
 
 class Replay extends RectangleComponent

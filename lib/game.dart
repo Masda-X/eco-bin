@@ -1,23 +1,12 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:math' as math;
-
 import 'package:flame_audio/flame_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:eco_bin/components.dart';
 import 'package:eco_bin/config.dart';
-
 import 'package:eco_bin/bar.dart';
-
 import 'package:flame/components.dart';
-
 import 'package:flame/events.dart';
-
 import 'package:flame/game.dart';
-
-// ignore: unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -34,42 +23,30 @@ class MyGame extends FlameGame
             height: gameHeight,
           ),
         );
-  // @override
-  // // ignore: overridden_fields
-  // bool debugMode = true;
-  // late final Test test;
+  final rand = math.Random();
   late Bin bin;
-
   late Earth earth;
-
   late Start startButton;
-
   late Bar bar;
-
   late Timer interval;
-  int elapsedSecs = 0;
   late TextComponent textComponent;
   late TextComponent scoreTextComponent;
   late TextComponent highScoreTextComponent;
   late TextComponent highElapsedSecsTextComponent;
   late TextComponent gameOverTextcomponent;
-
+  int elapsedSecs = 0;
   int score = 0;
   int highScore = 0;
   int highElapsedSecs = 0;
-
-  final rand = math.Random();
   double get width => size.x;
   double get height => size.y;
 
-  // ignore: non_constant_identifier_names
   @override
-  Color backgroundColor() => Color.fromARGB(255, 230, 234, 179);
+  Color backgroundColor() => const Color.fromARGB(255, 230, 234, 179);
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
-
     await loadHighScoreAndTime();
     world.add(PlayArea());
     startButton = Start();
@@ -91,17 +68,14 @@ class MyGame extends FlameGame
       repeat: true,
       autoStart: false,
     );
+
     bar = Bar();
     world.add(bar);
-    // world.add(TextComponent(
-    //   text: 'Click to Play',
-    //   position: Vector2(gameWidth / 2, gameHeight / 2),
-    // ));
     camera.viewfinder.anchor = Anchor.topLeft;
     textComponent = TextComponent(
       text: 'Timer: $elapsedSecs',
       textRenderer: TextPaint(
-        style: TextStyle(
+        style: const TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
           fontSize: 45,
           fontFamily: 'Crunch Chips',
@@ -116,7 +90,7 @@ class MyGame extends FlameGame
     scoreTextComponent = TextComponent(
       text: 'Points: $score',
       textRenderer: TextPaint(
-        style: TextStyle(
+        style: const TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
           fontSize: 45,
           fontFamily: 'Crunch Chips',
@@ -131,7 +105,7 @@ class MyGame extends FlameGame
     highScoreTextComponent = TextComponent(
       text: 'Highest Points: $highScore',
       textRenderer: TextPaint(
-        style: TextStyle(
+        style: const TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
           fontSize: 45,
           fontFamily: 'Crunch Chips',
@@ -145,7 +119,7 @@ class MyGame extends FlameGame
     highElapsedSecsTextComponent = TextComponent(
       text: 'Highest Time: $highElapsedSecs',
       textRenderer: TextPaint(
-        style: TextStyle(
+        style: const TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
           fontSize: 45,
           fontFamily: 'Crunch Chips',
@@ -155,10 +129,11 @@ class MyGame extends FlameGame
       anchor: Anchor.center,
       priority: 2,
     );
+
     gameOverTextcomponent = TextComponent(
       text: 'Game Over',
       textRenderer: TextPaint(
-        style: TextStyle(
+        style: const TextStyle(
           color: Color.fromARGB(255, 255, 255, 255),
           fontSize: 50,
           fontFamily: 'Crunch Chips',
@@ -241,8 +216,6 @@ class MyGame extends FlameGame
   }
 
   void onHit5() {
-    // To dispose of the Bgm instance
-
     interval.stop();
     bar.position = Vector2(-755, 400);
     textComponent.position = Vector2(840, 458);

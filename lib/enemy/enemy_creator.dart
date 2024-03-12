@@ -1,13 +1,9 @@
 import 'dart:math';
-
 import 'package:eco_bin/enemy/banana.dart';
 import 'package:eco_bin/game.dart';
 import 'package:eco_bin/enemy/plastic.dart';
-
 import 'package:flame/components.dart';
-
 import 'package:flame/events.dart';
-
 import 'package:flutter/material.dart';
 
 class EnemyCreator extends CircleComponent

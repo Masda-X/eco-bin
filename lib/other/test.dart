@@ -1,17 +1,8 @@
-// ignore: unused_import
-import 'package:eco_bin/other/colly.dart';
 import 'package:eco_bin/game.dart';
 import 'package:eco_bin/bin.dart';
-
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-// ignore: unused_import
-import 'package:flame/effects.dart';
-
 import 'package:flame/events.dart';
-// ignore: unnecessary_import
-import 'package:flame/palette.dart';
-
 import 'package:flutter/material.dart';
 
 class Test extends CircleComponent

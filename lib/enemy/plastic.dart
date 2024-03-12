@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:earth/other/colly.dart';
 import 'package:earth/earth.dart';
 import 'package:earth/game.dart';
-import 'package:earth/gameover.dart';
+import 'package:earth/other/gameover.dart';
 import 'package:earth/play_area.dart';
 import 'package:earth/bin.dart';
 import 'package:flame/collisions.dart';

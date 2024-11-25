@@ -9,7 +9,7 @@ CREDITS:
  - Sound Effects: Mixkit
  - File Converter: Convertio 
  - Engine: Flutter/Flame
- - Graphic Design: Inkscape
+ - Graphics: Inkscape
  - Code: VScode/Copilot/Git/Github
  - Hosting: Firebase
  - Screen Recorder: ScreenRec
